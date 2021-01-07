@@ -19,7 +19,7 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // TODO check if there are any routines
-        val actionEmptyList = ListFragmentDirections.redirectToEmpty()
+        val actionEmptyList = ListFragmentDirections.redirectToComplete()
         findNavController().navigate(actionEmptyList)
     }
 

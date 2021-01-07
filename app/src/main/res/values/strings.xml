@@ -5,4 +5,8 @@
     <string name="empty_description">You have no routines! Try to create your first one!</string>
     <string name="routine">Routine</string>
     <string name="sad_face">sad face</string>
+    <string name="awesome">Awesome</string>
+    <string name="logo">logo</string>
+    <string name="complete_description">All your routines were completed today!</string>
+    <string name="resume">Resume</string>
 </resources>

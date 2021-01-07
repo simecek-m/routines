@@ -13,10 +13,18 @@
         <action
             android:id="@+id/redirect_to_empty"
             app:destination="@id/emptyFragment" />
+        <action
+            android:id="@+id/redirect_to_complete"
+            app:destination="@id/completeFragment" />
     </fragment>
     <fragment
         android:id="@+id/emptyFragment"
         android:name="dev.simecek.routines.fragment.EmptyFragment"
         android:label="fragment_empty"
         tools:layout="@layout/fragment_empty" />
+    <fragment
+        android:id="@+id/completeFragment"
+        android:name="dev.simecek.routines.fragment.CompleteFragment"
+        android:label="fragment_complete"
+        tools:layout="@layout/fragment_complete" />
 </navigation>
