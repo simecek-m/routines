@@ -9,5 +9,14 @@
         android:id="@+id/listFragment"
         android:name="dev.simecek.routines.fragment.ListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/redirect_to_empty"
+            app:destination="@id/emptyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/emptyFragment"
+        android:name="dev.simecek.routines.fragment.EmptyFragment"
+        android:label="fragment_empty"
+        tools:layout="@layout/fragment_empty" />
 </navigation>

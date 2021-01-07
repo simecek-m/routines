@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Routines</string>
     <string name="list">List</string>
+    <string name="empty">Empty</string>
+    <string name="empty_description">You have no routines! Try to create your first one!</string>
+    <string name="routine">Routine</string>
+    <string name="sad_face">sad face</string>
 </resources>
