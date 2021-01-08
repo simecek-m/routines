@@ -12,10 +12,15 @@
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/redirect_to_empty"
-            app:destination="@id/emptyFragment" />
+            app:destination="@id/emptyFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/listFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/redirect_to_complete"
-            app:destination="@id/completeFragment" />
+            app:destination="@id/completeFragment"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/emptyFragment"
