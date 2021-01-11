@@ -1,0 +1,253 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="dev.simecek.routines.R" />
+        <variable
+            name="handler"
+            type="dev.simecek.routines.handler.IconPickerHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/IconPicker">
+
+        <ImageView
+            android:id="@+id/icon_loop"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:tag="ic_loop"
+            android:src="@drawable/ic_loop"
+            android:padding="@dimen/icon_picker_icon_padding"
+            style="@style/Icon.Selected"
+            android:onClick="@{handler::pickIcon}"
+            android:layout_marginHorizontal="@dimen/icon_picker_icon_margin"
+            android:layout_marginBottom="@dimen/icon_picker_icon_margin"
+            android:layout_marginTop="@dimen/icon_picker_vertical_margin"
+            app:layout_constraintBottom_toTopOf="@+id/icon_meditation"
+            app:layout_constraintEnd_toStartOf="@+id/icon_school"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/icon_school"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:layout_marginHorizontal="@dimen/icon_picker_icon_margin"
+            android:onClick="@{handler::pickIcon}"
+            android:src="@drawable/ic_school"
+            android:padding="@dimen/icon_picker_icon_padding"
+            style="@style/Icon"
+            android:tag="ic_school"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_loop"
+            app:layout_constraintEnd_toStartOf="@+id/icon_walk"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/icon_loop"
+            app:layout_constraintTop_toTopOf="@+id/icon_loop" />
+
+        <ImageView
+            android:id="@+id/icon_walk"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:layout_marginHorizontal="@dimen/icon_picker_icon_margin"
+            android:onClick="@{handler::pickIcon}"
+            android:src="@drawable/ic_walk"
+            android:padding="@dimen/icon_picker_icon_padding"
+            style="@style/Icon"
+            android:tag="ic_walk"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_school"
+            app:layout_constraintEnd_toStartOf="@+id/icon_work"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/icon_school"
+            app:layout_constraintTop_toTopOf="@+id/icon_school" />
+
+        <ImageView
+            android:id="@+id/icon_work"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:layout_marginHorizontal="@dimen/icon_picker_icon_margin"
+            android:onClick="@{handler::pickIcon}"
+            android:src="@drawable/ic_work"
+            android:padding="@dimen/icon_picker_icon_padding"
+            style="@style/Icon"
+            android:tag="ic_work"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_walk"
+            app:layout_constraintEnd_toStartOf="@+id/icon_book"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/icon_walk"
+            app:layout_constraintTop_toTopOf="@+id/icon_walk" />
+
+        <ImageView
+            android:id="@+id/icon_book"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:layout_marginHorizontal="@dimen/icon_picker_icon_margin"
+            android:onClick="@{handler::pickIcon}"
+            android:src="@drawable/ic_book"
+            android:padding="@dimen/icon_picker_icon_padding"
+            style="@style/Icon"
+            android:tag="ic_book"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_work"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/icon_work"
+            app:layout_constraintTop_toTopOf="@+id/icon_work" />
+
+        <ImageView
+            android:id="@+id/icon_meditation"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:layout_marginVertical="@dimen/icon_picker_icon_margin"
+            android:onClick="@{handler::pickIcon}"
+            android:src="@drawable/ic_meditation"
+            android:padding="@dimen/icon_picker_icon_padding"
+            style="@style/Icon"
+            android:tag="ic_meditation"
+            app:layout_constraintBottom_toTopOf="@+id/icon_tooth_brush"
+            app:layout_constraintEnd_toEndOf="@+id/icon_loop"
+            app:layout_constraintStart_toStartOf="@+id/icon_loop"
+            app:layout_constraintTop_toBottomOf="@+id/icon_loop" />
+
+        <ImageView
+            android:id="@+id/icon_sport"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{handler::pickIcon}"
+            android:src="@drawable/ic_sport"
+            android:tag="ic_sport"
+            android:padding="@dimen/icon_picker_icon_padding"
+            style="@style/Icon"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_meditation"
+            app:layout_constraintEnd_toEndOf="@+id/icon_school"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/icon_school"
+            app:layout_constraintTop_toTopOf="@+id/icon_meditation" />
+
+        <ImageView
+            android:id="@+id/icon_food"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{handler::pickIcon}"
+            android:src="@drawable/ic_food"
+            android:tag="ic_food"
+            android:padding="@dimen/icon_picker_icon_padding"
+            style="@style/Icon"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_sport"
+            app:layout_constraintEnd_toEndOf="@+id/icon_walk"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/icon_walk"
+            app:layout_constraintTop_toTopOf="@+id/icon_sport" />
+
+        <ImageView
+            android:id="@+id/icon_gym"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{handler::pickIcon}"
+            android:src="@drawable/ic_gym"
+            android:tag="ic_gym"
+            android:padding="@dimen/icon_picker_icon_padding"
+            style="@style/Icon"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_food"
+            app:layout_constraintEnd_toEndOf="@+id/icon_work"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/icon_work"
+            app:layout_constraintTop_toTopOf="@+id/icon_food" />
+
+        <ImageView
+            android:id="@+id/icon_bath"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{handler::pickIcon}"
+            android:src="@drawable/ic_bath"
+            android:tag="ic_bath"
+            android:padding="@dimen/icon_picker_icon_padding"
+            style="@style/Icon"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_gym"
+            app:layout_constraintEnd_toEndOf="@+id/icon_book"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/icon_book"
+            app:layout_constraintTop_toTopOf="@+id/icon_gym" />
+
+        <ImageView
+            android:id="@+id/icon_tooth_brush"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:layout_marginTop="@dimen/icon_picker_icon_margin"
+            android:layout_marginBottom="@dimen/icon_picker_vertical_margin"
+            android:onClick="@{handler::pickIcon}"
+            android:padding="@dimen/icon_picker_icon_padding"
+            style="@style/Icon"
+            android:src="@drawable/ic_tooth_brush"
+            android:tag="ic_tooth_brush"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/icon_meditation"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/icon_meditation"
+            app:layout_constraintTop_toBottomOf="@+id/icon_meditation" />
+
+
+        <ImageView
+            android:id="@+id/icon_pet"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{handler::pickIcon}"
+            android:src="@drawable/ic_pet"
+            android:tag="ic_pet"
+            android:padding="@dimen/icon_picker_icon_padding"
+            style="@style/Icon"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_tooth_brush"
+            app:layout_constraintEnd_toEndOf="@+id/icon_sport"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/icon_sport"
+            app:layout_constraintTop_toTopOf="@+id/icon_tooth_brush" />
+
+        <ImageView
+            android:id="@+id/icon_compass"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{handler::pickIcon}"
+            android:src="@drawable/ic_compass"
+            android:tag="ic_compass"
+            android:padding="@dimen/icon_picker_icon_padding"
+            style="@style/Icon"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_pet"
+            app:layout_constraintEnd_toEndOf="@+id/icon_food"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/icon_food"
+            app:layout_constraintTop_toTopOf="@+id/icon_pet" />
+
+        <ImageView
+            android:id="@+id/icon_beer"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{handler::pickIcon}"
+            android:src="@drawable/ic_beer"
+            android:tag="ic_beer"
+            android:padding="@dimen/icon_picker_icon_padding"
+            style="@style/Icon"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_compass"
+            app:layout_constraintEnd_toEndOf="@+id/icon_gym"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/icon_gym"
+            app:layout_constraintTop_toTopOf="@+id/icon_compass" />
+
+        <ImageView
+            android:id="@+id/icon_chat"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{handler::pickIcon}"
+            android:src="@drawable/ic_chat"
+            android:tag="ic_chat"
+            android:padding="@dimen/icon_picker_icon_padding"
+            style="@style/Icon"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_beer"
+            app:layout_constraintEnd_toEndOf="@+id/icon_bath"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/icon_bath"
+            app:layout_constraintTop_toTopOf="@+id/icon_beer" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

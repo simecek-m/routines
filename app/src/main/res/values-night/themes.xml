@@ -2,15 +2,70 @@
     <!-- Base application theme. -->
     <style name="Theme.Routines" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/brand</item>
+        <item name="colorPrimaryVariant">@color/brand</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/black</item>
+        <item name="colorSecondaryVariant">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="textInputStyle">@style/TextInputLayout</item>
+        <item name="extendedFloatingActionButtonStyle">@style/FloatingActionButton</item>
     </style>
+
+    <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/gray_dark</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="startIconTint">@color/white</item>
+        <item name="materialThemeOverlay">@style/MaterialThemeOverlay</item>
+        <item name="boxCornerRadiusTopStart">@dimen/corner_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/corner_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/corner_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/corner_radius</item>
+    </style>
+
+    <style name="MaterialThemeOverlay" parent="ThemeOverlay.MaterialComponents.TextInputEditText.FilledBox">
+        <item name="editTextStyle">@style/TextInputEditText</item>
+        <item name="colorControlActivated">@color/white</item>
+    </style>
+
+    <style name="TextInputEditText" parent="Widget.MaterialComponents.TextInputEditText.FilledBox">
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:maxLength">25</item>
+    </style>
+
+    <style name="IconPicker">
+        <item name="android:background">@drawable/shape_square_radius</item>
+        <item name="android:backgroundTint">@color/gray_dark</item>
+    </style>
+
+    <style name="Icon">
+        <item name="android:tint">@color/gray</item>
+        <item name="android:backgroundTint">@color/transparent</item>
+    </style>
+
+    <style name="Icon.Selected">
+        <item name="android:tint">@color/black</item>
+        <item name="android:background">@drawable/shape_square_radius</item>
+        <item name="android:backgroundTint">@color/gray_light</item>
+    </style>
+
+    <style name="FloatingActionButton" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+        <item name="backgroundTint">@color/brand</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="iconTint">@color/white</item>
+    </style>
+
+    <style name="FloatingActionButton.Black">
+        <item name="backgroundTint">@color/black</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="iconTint">@color/white</item>
+    </style>
+
 </resources>

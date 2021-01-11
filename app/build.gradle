@@ -4,7 +4,7 @@ plugins {
 }
 
 apply plugin: "androidx.navigation.safeargs.kotlin"
-
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
@@ -28,7 +28,8 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true
+        viewBinding true
+        dataBinding true
     }
 
     compileOptions {
@@ -53,4 +54,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.2"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.2"
+    implementation 'com.airbnb.android:paris:1.7.2'
 }
