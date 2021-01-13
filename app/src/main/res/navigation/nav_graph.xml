@@ -21,15 +21,33 @@
             app:destination="@id/completeFragment"
             app:launchSingleTop="false"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/redirect_to_create"
+            app:destination="@id/createRoutineFragment" />
     </fragment>
     <fragment
         android:id="@+id/emptyFragment"
         android:name="dev.simecek.routines.fragment.EmptyFragment"
         android:label="fragment_empty"
-        tools:layout="@layout/fragment_empty" />
+        tools:layout="@layout/fragment_empty" >
+        <action
+            android:id="@+id/redirect_to_create_first"
+            app:destination="@id/createRoutineFragment" />
+    </fragment>
     <fragment
         android:id="@+id/completeFragment"
         android:name="dev.simecek.routines.fragment.CompleteFragment"
         android:label="fragment_complete"
         tools:layout="@layout/fragment_complete" />
+    <fragment
+        android:id="@+id/createRoutineFragment"
+        android:name="dev.simecek.routines.fragment.CreateRoutineFragment"
+        android:label="fragment_create_routine"
+        tools:layout="@layout/fragment_create_routine" >
+        <action
+            android:id="@+id/finish_redirect_to_list"
+            app:destination="@id/listFragment"
+            app:popUpTo="@id/createRoutineFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

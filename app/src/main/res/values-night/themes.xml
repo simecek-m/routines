@@ -15,6 +15,7 @@
 
         <item name="textInputStyle">@style/TextInputLayout</item>
         <item name="extendedFloatingActionButtonStyle">@style/FloatingActionButton</item>
+        <item name="fontFamily">@font/roboto</item>
     </style>
 
     <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">

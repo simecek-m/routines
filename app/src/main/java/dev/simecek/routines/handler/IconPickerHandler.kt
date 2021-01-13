@@ -4,5 +4,4 @@ import android.view.View
 
 interface IconPickerHandler {
     fun pickIcon(view: View)
-    fun getPickedIcon(): String
 }

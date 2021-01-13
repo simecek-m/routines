@@ -5,4 +5,5 @@
     <dimen name="icon_picker_icon_padding">10dp</dimen>
     <dimen name="icon_picker_icon_margin">5dp</dimen>
     <dimen name="icon_picker_vertical_margin">20dp</dimen>
+    <dimen name="description_margin">10dp</dimen>
 </resources>
