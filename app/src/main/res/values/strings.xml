@@ -2,7 +2,7 @@
     <string name="app_name">Routines</string>
     <string name="list">List</string>
     <string name="empty">Empty</string>
-    <string name="empty_description">You have no routines! Try to create your first one!</string>
+    <string name="empty_description">You have no routines!\nTry to create your first one!</string>
     <string name="routine">Routine</string>
     <string name="sad_face">sad face</string>
     <string name="awesome">Awesome</string>
@@ -14,6 +14,6 @@
     <string name="create">Create</string>
     <string name="midday_time" translatable="false">12:00</string>
     <string name="set_reminder">Set reminder</string>
-    <string name="feature_not_suppoerted">This feature is not supported yet!</string>
+    <string name="feature_not_supported">This feature is not supported yet!</string>
     <string name="reminder">Reminder</string>
 </resources>

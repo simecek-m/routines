@@ -20,7 +20,7 @@ class EmptyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.create.setOnClickListener {
+        binding.createButton.setOnClickListener {
             val createRoutineAction = EmptyFragmentDirections.redirectToCreateFirst()
             findNavController().navigate(createRoutineAction)
         }

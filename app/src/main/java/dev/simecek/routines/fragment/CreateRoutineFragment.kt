@@ -52,7 +52,7 @@ class CreateRoutineFragment : Fragment() {
     }
 
     private fun createRoutine() {
-        Snackbar.make(binding.timePickerInput, R.string.feature_not_suppoerted, Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(binding.timePickerInput, R.string.feature_not_supported, Snackbar.LENGTH_SHORT).show()
     }
 
 }
