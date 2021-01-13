@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="corner_radius">25dp</dimen>
+
     <dimen name="icon_picker_icon_size">50dp</dimen>
     <dimen name="icon_picker_icon_padding">10dp</dimen>
     <dimen name="icon_picker_icon_margin">5dp</dimen>
     <dimen name="icon_picker_vertical_margin">20dp</dimen>
-    <dimen name="description_margin">10dp</dimen>
+
+    <dimen name="space_small">10dp</dimen>
+    <dimen name="space_medium">20dp</dimen>
+    <dimen name="space_big">30dp</dimen>
+
+    <dimen name="font_size_huge">48sp</dimen>
+    <dimen name="font_size_medium">24sp</dimen>
+
+    <dimen name="max_button_size">250dp</dimen>
+    <item name="line_spacing_bigger" type="dimen" format="float">1.2</item>
 </resources>
