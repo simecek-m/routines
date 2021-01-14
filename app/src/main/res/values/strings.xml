@@ -16,4 +16,21 @@
     <string name="set_reminder">Set reminder</string>
     <string name="feature_not_supported">This feature is not supported yet!</string>
     <string name="reminder">Reminder</string>
+
+<!-- icon content description -->
+    <string name="icon_loop">Loop icon</string>
+    <string name="icon_school">School icon</string>
+    <string name="icon_walk">Walk icon</string>
+    <string name="icon_work">Work icon</string>
+    <string name="icon_book">Book icon</string>
+    <string name="icon_meditation">Meditation icon</string>
+    <string name="icon_sport">Sport icon</string>
+    <string name="icon_food">Food icon</string>
+    <string name="icon_gym">Gym icon</string>
+    <string name="icon_bath">Bath icon</string>
+    <string name="icon_tooth_brush">Tooth brush icon</string>
+    <string name="icon_pet">Pet icon</string>
+    <string name="icon_compass">Compass icon</string>
+    <string name="icon_beer">Beer icon</string>
+    <string name="icon_chat">Chat icon</string>
 </resources>

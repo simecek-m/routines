@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="IconPickerView">
+        <attr name="selectedIcon" format="enum">
+            <enum name="ic_loop" value="0"/>
+            <enum name="ic_school" value="1"/>
+            <enum name="ic_walk" value="2"/>
+            <enum name="ic_work" value="3"/>
+            <enum name="ic_book" value="4"/>
+            <enum name="ic_meditation" value="5"/>
+            <enum name="ic_sport" value="6"/>
+            <enum name="ic_food" value="7"/>
+            <enum name="ic_gym" value="8"/>
+            <enum name="ic_bath" value="9"/>
+            <enum name="ic_tooth_brush" value="10"/>
+            <enum name="ic_pet" value="11"/>
+            <enum name="ic_compass" value="12"/>
+            <enum name="ic_beer" value="13"/>
+            <enum name="ic_chat" value="14"/>
+        </attr>
+    </declare-styleable>
+</resources>
