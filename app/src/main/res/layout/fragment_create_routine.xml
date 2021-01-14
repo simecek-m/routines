@@ -2,6 +2,7 @@
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
         <variable
             name="viewModel"
@@ -18,19 +19,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+            app:layout_constraintStart_toStartOf="@+id/title_text_layout"
             app:layout_constraintTop_toTopOf="parent"
             style="@style/TextHeader" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
+            android:id="@+id/title_text_layout"
             android:layout_width="0dp"
             android:layout_marginTop="@dimen/space_small"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header_title"
-            app:layout_constraintWidth_percent="0.8"
+            app:layout_constraintWidth_percent="@dimen/max_input_width_percent"
             app:startIconDrawable="@drawable/ic_title">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -49,16 +50,16 @@
             android:text="@string/icon"
             style="@style/TextHeader"
             app:layout_constraintStart_toStartOf="@+id/header_title"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/title_text_layout" />
 
         <dev.simecek.routines.views.IconPickerView
             android:id="@+id/icon_picker"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
-            app:selectedIcon="@{viewModel.icon}"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+            app:selectedIcon="@={viewModel.icon}"
+            app:layout_constraintEnd_toEndOf="@+id/title_text_layout"
+            app:layout_constraintStart_toStartOf="@+id/title_text_layout"
             app:layout_constraintTop_toBottomOf="@+id/header_icon" />
 
         <TextView
@@ -78,7 +79,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header_reminder"
-            app:layout_constraintWidth_percent="0.8"
+            app:layout_constraintWidth_percent="@dimen/max_input_width_percent"
             app:startIconDrawable="@drawable/ic_reminder">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -98,7 +99,7 @@
             android:text="@string/create"
             app:icon="@drawable/ic_check"
             app:iconGravity="textStart"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="@dimen/space_big"
             app:layout_constraintEnd_toEndOf="@+id/time_picker"
             app:layout_constraintStart_toStartOf="@+id/time_picker"
             app:layout_constraintTop_toBottomOf="@+id/time_picker" />

@@ -37,11 +37,14 @@ class CreateRoutineFragment : Fragment() {
     }
 
     private fun showTimePicker() {
+        val time = binding.viewModel?.time?.value?.split(":")
+        val hour: Int = time?.get(0)?.toInt() ?: 12
+        val minute: Int = time?.get(1)?.toInt() ?: 0
         val timePicker = MaterialTimePicker.Builder()
                 .setTimeFormat(TimeFormat.CLOCK_12H)
                 .setTitleText(R.string.set_reminder)
-                .setHour(12)
-                .setMinute(0)
+                .setHour(hour)
+                .setMinute(minute)
                 .build()
         timePicker.addOnPositiveButtonClickListener {
             val minutes: String = if(timePicker.minute < 10) "0${timePicker.minute}" else timePicker.minute.toString()
