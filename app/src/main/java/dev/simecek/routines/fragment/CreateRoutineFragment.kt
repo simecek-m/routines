@@ -17,7 +17,6 @@ import dev.simecek.routines.viewModel.CreateRoutineViewModel
 class CreateRoutineFragment : Fragment() {
 
     private val viewModel: CreateRoutineViewModel by viewModels()
-
     private lateinit var binding: FragmentCreateRoutineBinding
 
     override fun onCreateView(
