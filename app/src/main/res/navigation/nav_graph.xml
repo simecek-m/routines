@@ -45,7 +45,7 @@
         android:label="fragment_create_routine"
         tools:layout="@layout/fragment_create_routine" >
         <action
-            android:id="@+id/finish_redirect_to_list"
+            android:id="@+id/return_to_list"
             app:destination="@id/listFragment"
             app:popUpTo="@id/createRoutineFragment"
             app:popUpToInclusive="true" />

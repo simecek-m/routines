@@ -34,4 +34,5 @@
     <string name="icon_beer">Beer icon</string>
     <string name="icon_chat">Chat icon</string>
     <string name="text_too_short">Text is too short</string>
+    <string name="lunch">Lunch</string>
 </resources>
