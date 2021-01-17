@@ -7,7 +7,7 @@ import dev.simecek.routines.constant.IconPickerSelectedType
 
 @Entity
 data class Routine(
-        @PrimaryKey var id: Long = 0,
+        @PrimaryKey(autoGenerate = true) var id: Long = 0,
         @ColumnInfo(name = "title") var title: String,
         @ColumnInfo(name = "icon") var icon: IconPickerSelectedType,
         @ColumnInfo(name = "time") var time: String,
