@@ -7,12 +7,17 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import dev.simecek.routines.R
 import dev.simecek.routines.databinding.FragmentCreateRoutineBinding
 import dev.simecek.routines.viewModel.CreateRoutineViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class CreateRoutineFragment : Fragment() {
 
@@ -54,7 +59,15 @@ class CreateRoutineFragment : Fragment() {
     }
 
     private fun createRoutine() {
-        Snackbar.make(binding.timePickerInput, R.string.feature_not_supported, Snackbar.LENGTH_SHORT).show()
+        lifecycleScope.launch(Dispatchers.IO) {
+            try{
+                viewModel.createNewRoutine()
+                val returnBackToList = CreateRoutineFragmentDirections.returnToList()
+                findNavController().navigate(returnBackToList)
+            } catch (ex: Exception) {
+                Snackbar.make(binding.layout, R.string.error_while_creating_routine, Snackbar.LENGTH_SHORT).show()
+            }
+        }
     }
 
 }

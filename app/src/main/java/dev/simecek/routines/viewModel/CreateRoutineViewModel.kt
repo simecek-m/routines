@@ -5,6 +5,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import dev.simecek.routines.R
 import dev.simecek.routines.constant.IconPickerSelectedType
+import dev.simecek.routines.model.Routine
+import dev.simecek.routines.repository.RoutineRepository
 
 class CreateRoutineViewModel(application: Application): AndroidViewModel(application) {
 
@@ -15,8 +17,15 @@ class CreateRoutineViewModel(application: Application): AndroidViewModel(applica
     val icon: MutableLiveData<IconPickerSelectedType> = MutableLiveData(IconPickerSelectedType.IC_BATH)
     val time: MutableLiveData<String> = MutableLiveData(DEFAULT_TIME)
 
+    private val routineRepository: RoutineRepository = RoutineRepository(application)
+
     fun isTextValid(text: String): Boolean {
         return compareValues(text.length, MINIMAL_TITLE_LENGTH) >= 0
+    }
+
+    fun createNewRoutine() {
+        val routine = Routine(title = title.value!!, icon = icon.value!!, time = time.value!!)
+        routineRepository.insert(routine)
     }
 
 }
