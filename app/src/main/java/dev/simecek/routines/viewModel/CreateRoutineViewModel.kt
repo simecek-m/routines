@@ -23,7 +23,7 @@ class CreateRoutineViewModel(application: Application): AndroidViewModel(applica
         return compareValues(text.length, MINIMAL_TITLE_LENGTH) >= 0
     }
 
-    fun createNewRoutine() {
+    suspend fun createNewRoutine() {
         val routine = Routine(title = title.value!!, icon = icon.value!!, time = time.value!!)
         routineRepository.insert(routine)
     }

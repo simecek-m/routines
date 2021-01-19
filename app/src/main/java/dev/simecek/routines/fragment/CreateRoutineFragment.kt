@@ -59,8 +59,8 @@ class CreateRoutineFragment : Fragment() {
     }
 
     private fun createRoutine() {
-        lifecycleScope.launch(Dispatchers.IO) {
-            try{
+        lifecycleScope.launch {
+            try {
                 viewModel.createNewRoutine()
                 val returnBackToList = CreateRoutineFragmentDirections.returnToList()
                 findNavController().navigate(returnBackToList)

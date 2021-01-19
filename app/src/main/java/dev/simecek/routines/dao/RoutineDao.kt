@@ -14,9 +14,9 @@ interface RoutineDao {
     fun getAll(): LiveData<List<Routine>>
 
     @Insert
-    fun insert(routine: Routine)
+    suspend fun insert(routine: Routine)
 
     @Delete
-    fun delete(routine: Routine)
+    suspend fun delete(routine: Routine)
 
 }

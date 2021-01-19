@@ -16,11 +16,11 @@ class RoutineRepository(application: Application) {
         return routineDao.getAll()
     }
 
-    fun insert(routine: Routine) {
+    suspend fun insert(routine: Routine) {
         routineDao.insert(routine)
     }
 
-    fun delete(routine: Routine) {
+    suspend fun delete(routine: Routine) {
         routineDao.delete(routine)
     }
 

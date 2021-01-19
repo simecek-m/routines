@@ -29,7 +29,7 @@ class ListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        listViewModel.getAllRoutines().observe(viewLifecycleOwner, Observer{
+        listViewModel.routines.observe(viewLifecycleOwner, Observer{
             if(it.isEmpty()) {
                 val actionEmptyList = ListFragmentDirections.redirectToEmpty()
                 findNavController().navigate(actionEmptyList)
