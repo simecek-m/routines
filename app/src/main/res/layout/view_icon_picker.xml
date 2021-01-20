@@ -5,7 +5,7 @@
         <import type="dev.simecek.routines.constant.IconPickerSelectedType" alias="TYPE"/>
         <variable
             name="view"
-            type="dev.simecek.routines.views.IconPickerView" />
+            type="dev.simecek.routines.view.IconPickerView" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

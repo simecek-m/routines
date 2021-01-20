@@ -2,7 +2,7 @@ package dev.simecek.routines.viewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import dev.simecek.routines.repository.RoutineRepository
+import dev.simecek.routines.database.repository.RoutineRepository
 
 class ListViewModel(application: Application): AndroidViewModel(application) {
 

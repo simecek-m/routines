@@ -1,4 +1,4 @@
-package dev.simecek.routines.views
+package dev.simecek.routines.view
 
 import android.content.Context
 import android.util.AttributeSet

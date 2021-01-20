@@ -1,11 +1,11 @@
-package dev.simecek.routines.dao
+package dev.simecek.routines.database.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import dev.simecek.routines.model.Routine
+import dev.simecek.routines.database.entity.Routine
 
 @Dao
 interface RoutineDao {

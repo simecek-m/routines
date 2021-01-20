@@ -1,4 +1,4 @@
-package dev.simecek.routines.model
+package dev.simecek.routines.database.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -12,8 +12,4 @@ data class Routine(
         @ColumnInfo(name = "icon") var icon: IconPickerSelectedType,
         @ColumnInfo(name = "time") var time: String,
         @ColumnInfo(name = "last_day_finished") var lastDayFinished: String? = null
-) {
-        override fun toString(): String {
-                return "Routine(id=$id, title='$title', icon=$icon, time='$time', lastDayFinished=$lastDayFinished)"
-        }
-}
+)

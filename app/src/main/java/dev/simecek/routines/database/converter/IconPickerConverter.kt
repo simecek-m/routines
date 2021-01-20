@@ -1,4 +1,4 @@
-package dev.simecek.routines.converter
+package dev.simecek.routines.database.converter
 
 import androidx.room.TypeConverter
 import dev.simecek.routines.constant.IconPickerSelectedType

@@ -5,9 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import dev.simecek.routines.converter.IconPickerConverter
-import dev.simecek.routines.dao.RoutineDao
-import dev.simecek.routines.model.Routine
+import dev.simecek.routines.database.converter.IconPickerConverter
+import dev.simecek.routines.database.dao.RoutineDao
+import dev.simecek.routines.database.entity.Routine
 
 @Database(entities = [Routine::class], version = 1)
 @TypeConverters(IconPickerConverter::class)

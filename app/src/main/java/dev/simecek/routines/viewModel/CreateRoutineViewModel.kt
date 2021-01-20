@@ -5,8 +5,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import dev.simecek.routines.R
 import dev.simecek.routines.constant.IconPickerSelectedType
-import dev.simecek.routines.model.Routine
-import dev.simecek.routines.repository.RoutineRepository
+import dev.simecek.routines.database.entity.Routine
+import dev.simecek.routines.database.repository.RoutineRepository
 
 class CreateRoutineViewModel(application: Application): AndroidViewModel(application) {
 

@@ -1,4 +1,4 @@
-package dev.simecek.routines
+package dev.simecek.routines.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
