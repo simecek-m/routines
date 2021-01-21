@@ -1,15 +1,13 @@
 package dev.simecek.routines.database.repository
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import dev.simecek.routines.database.dao.RoutineDao
-import dev.simecek.routines.database.AppDatabase
 import dev.simecek.routines.database.entity.Routine
+import javax.inject.Inject
 
-class RoutineRepository(application: Application) {
-
-    private val db = AppDatabase.getDatabase(application)
-    private val routineDao: RoutineDao = db.routineDao()
+class RoutineRepository @Inject constructor(
+    private val routineDao: RoutineDao
+) {
 
     fun getAllRoutines(): LiveData<List<Routine>> {
         return routineDao.getAll()

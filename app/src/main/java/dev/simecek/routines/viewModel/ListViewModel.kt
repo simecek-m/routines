@@ -1,15 +1,13 @@
 package dev.simecek.routines.viewModel
 
-import android.app.Application
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import dev.simecek.routines.database.repository.RoutineRepository
 
 class ListViewModel @ViewModelInject constructor(
-    application: Application
-): AndroidViewModel(application) {
+    repository: RoutineRepository
+): ViewModel() {
 
-    private val routineRepository = RoutineRepository(application)
-    val routines = routineRepository.getAllRoutines()
+    val routines = repository.getAllRoutines()
 
 }
