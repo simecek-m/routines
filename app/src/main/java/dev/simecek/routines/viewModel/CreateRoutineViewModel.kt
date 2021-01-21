@@ -1,6 +1,7 @@
 package dev.simecek.routines.viewModel
 
 import android.app.Application
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import dev.simecek.routines.R
@@ -8,7 +9,9 @@ import dev.simecek.routines.constant.IconPickerSelectedType
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.database.repository.RoutineRepository
 
-class CreateRoutineViewModel(application: Application): AndroidViewModel(application) {
+class CreateRoutineViewModel @ViewModelInject constructor(
+    application: Application
+): AndroidViewModel(application) {
 
     val MINIMAL_TITLE_LENGTH: Int = 3
     val DEFAULT_TIME = "12:00"

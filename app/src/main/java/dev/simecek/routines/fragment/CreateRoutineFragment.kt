@@ -12,13 +12,13 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
+import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.R
 import dev.simecek.routines.databinding.FragmentCreateRoutineBinding
 import dev.simecek.routines.viewModel.CreateRoutineViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
+@AndroidEntryPoint
 class CreateRoutineFragment : Fragment() {
 
     private val viewModel: CreateRoutineViewModel by viewModels()
