@@ -14,9 +14,6 @@ class CreateRoutineViewModel @ViewModelInject constructor(
     private val routineRepository: RoutineRepository
 ): ViewModel() {
 
-    val MINIMAL_TITLE_LENGTH: Int = 3
-    val DEFAULT_TIME = "12:00"
-
     val title: MutableLiveData<String> = MutableLiveData(application.getString(R.string.lunch))
     val icon: MutableLiveData<IconPickerSelectedType> = MutableLiveData(IconPickerSelectedType.IC_BATH)
     val time: MutableLiveData<String> = MutableLiveData(DEFAULT_TIME)
@@ -30,4 +27,8 @@ class CreateRoutineViewModel @ViewModelInject constructor(
         routineRepository.insert(routine)
     }
 
+    companion object {
+        const val MINIMAL_TITLE_LENGTH: Int = 3
+        const val DEFAULT_TIME = "12:00"
+    }
 }
