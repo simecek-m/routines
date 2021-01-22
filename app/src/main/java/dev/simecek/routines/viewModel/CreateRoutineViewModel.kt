@@ -18,7 +18,7 @@ class CreateRoutineViewModel @ViewModelInject constructor(
     val icon: MutableLiveData<IconPickerSelectedType> = MutableLiveData(IconPickerSelectedType.IC_BATH)
     val time: MutableLiveData<String> = MutableLiveData(DEFAULT_TIME)
 
-    fun isTextValid(text: String): Boolean {
+    fun isTitleLongEnough(text: String): Boolean {
         return compareValues(text.length, MINIMAL_TITLE_LENGTH) >= 0
     }
 
