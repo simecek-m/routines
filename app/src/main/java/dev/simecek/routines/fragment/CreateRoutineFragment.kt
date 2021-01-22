@@ -51,7 +51,7 @@ class CreateRoutineFragment : Fragment() {
                 .setMinute(minute)
                 .build()
         timePicker.addOnPositiveButtonClickListener {
-            val minutes: String = if(timePicker.minute < 10) "0${timePicker.minute}" else timePicker.minute.toString()
+            val minutes: String = formatMinutesToString(timePicker.minute)
             val hours: String = timePicker.hour.toString()
             viewModel.time.value = "$hours:$minutes"
         }
@@ -68,6 +68,10 @@ class CreateRoutineFragment : Fragment() {
                 Snackbar.make(binding.layout, R.string.error_while_creating_routine, Snackbar.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun formatMinutesToString(minutes: Int): String {
+        return if(minutes < 10) "0${minutes}" else minutes.toString()
     }
 
 }
