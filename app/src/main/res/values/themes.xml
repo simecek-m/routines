@@ -87,4 +87,16 @@
         <item name="android:layout_marginEnd">@dimen/space_small</item>
     </style>
 
+    <style name="RoutineWidget">
+        <item name="android:backgroundTint">@color/gray_light</item>
+    </style>
+
+    <style name="RoutineWidgetText">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="RoutineWidgetIcon">
+        <item name="android:backgroundTint">@color/black</item>
+    </style>
+
 </resources>
