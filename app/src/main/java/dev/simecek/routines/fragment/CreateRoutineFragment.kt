@@ -14,6 +14,7 @@ import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.R
+import dev.simecek.routines.database.type.Reminder
 import dev.simecek.routines.databinding.FragmentCreateRoutineBinding
 import dev.simecek.routines.viewModel.CreateRoutineViewModel
 import kotlinx.coroutines.launch
@@ -41,19 +42,15 @@ class CreateRoutineFragment : Fragment() {
     }
 
     private fun showTimePicker() {
-        val time = binding.viewModel?.time?.value?.split(":")
-        val hour: Int = time?.get(0)?.toInt() ?: 12
-        val minute: Int = time?.get(1)?.toInt() ?: 0
+        val reminder = binding.viewModel?.reminder?.value?: Reminder()
         val timePicker = MaterialTimePicker.Builder()
                 .setTimeFormat(TimeFormat.CLOCK_12H)
                 .setTitleText(R.string.set_reminder)
-                .setHour(hour)
-                .setMinute(minute)
+                .setHour(reminder.hour)
+                .setMinute(reminder.minute)
                 .build()
         timePicker.addOnPositiveButtonClickListener {
-            val minutes: String = formatMinutesToString(timePicker.minute)
-            val hours: String = timePicker.hour.toString()
-            viewModel.time.value = "$hours:$minutes"
+            viewModel.reminder.value = Reminder(timePicker.hour, timePicker.minute)
         }
         timePicker.show(parentFragmentManager, "TIME_PICKER")
     }
@@ -68,10 +65,6 @@ class CreateRoutineFragment : Fragment() {
                 Snackbar.make(binding.layout, R.string.error_while_creating_routine, Snackbar.LENGTH_SHORT).show()
             }
         }
-    }
-
-    private fun formatMinutesToString(minutes: Int): String {
-        return if(minutes < 10) "0${minutes}" else minutes.toString()
     }
 
 }

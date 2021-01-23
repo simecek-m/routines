@@ -1,16 +1,15 @@
 package dev.simecek.routines.database
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import dev.simecek.routines.database.converter.IconPickerConverter
+import dev.simecek.routines.database.converter.ReminderConverter
 import dev.simecek.routines.database.dao.RoutineDao
 import dev.simecek.routines.database.entity.Routine
 
 @Database(entities = [Routine::class], version = 1)
-@TypeConverters(IconPickerConverter::class)
+@TypeConverters(IconPickerConverter::class, ReminderConverter::class)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun routineDao(): RoutineDao
 
