@@ -10,7 +10,7 @@ import dev.simecek.routines.database.entity.Routine
 @Dao
 interface RoutineDao {
 
-    @Query("SELECT * FROM Routine")
+    @Query("SELECT * FROM Routine ORDER BY reminder ASC")
     fun getAll(): LiveData<List<Routine>>
 
     @Insert

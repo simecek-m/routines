@@ -14,7 +14,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="@dimen/max_input_width_percent" />
+        app:layout_constraintWidth_percent="@dimen/max_input_width_percent"
+        android:paddingBottom="@dimen/recycler_view_bottom_padding"
+        android:clipToPadding="false"/>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/create_button"
