@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.databinding.FragmentListBinding
 import dev.simecek.routines.list.RoutineListAdapter
@@ -43,10 +45,23 @@ class ListFragment : Fragment() {
                 val actionEmptyList = ListFragmentDirections.redirectToEmpty()
                 findNavController().navigate(actionEmptyList)
             } else {
-                adapter.list = it
+                adapter.list = ArrayList(it)
                 adapter.notifyDataSetChanged()
             }
         })
+        ItemTouchHelper(swipeToDeleteCallback).attachToRecyclerView(binding.list)
+    }
+
+    val swipeToDeleteCallback = object: ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+        override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+            return false
+        }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+            val position = viewHolder.adapterPosition
+            listViewModel.deleteRoutine(adapter.list[position])
+        }
+
     }
 
 }

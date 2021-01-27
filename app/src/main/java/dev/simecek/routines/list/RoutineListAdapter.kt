@@ -14,8 +14,9 @@ import dev.simecek.routines.databinding.RoutineListItemBinding
 import dev.simecek.routines.databinding.RoutineListItemWithTitleBinding
 import dev.simecek.routines.model.Title
 import java.util.*
+import kotlin.collections.ArrayList
 
-class RoutineListAdapter(var list: List<Routine> = ArrayList()): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RoutineListAdapter(var list: ArrayList<Routine> = ArrayList()): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         const val ROUTINE_VIEW_TYPE = 1
