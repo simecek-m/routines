@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.databinding.FragmentListBinding
 import dev.simecek.routines.list.RoutineListAdapter
+import dev.simecek.routines.model.RoutineListItem
 import dev.simecek.routines.viewModel.ListViewModel
 import javax.inject.Inject
 
@@ -45,21 +46,30 @@ class ListFragment : Fragment() {
                 val actionEmptyList = ListFragmentDirections.redirectToEmpty()
                 findNavController().navigate(actionEmptyList)
             } else {
-                adapter.list = ArrayList(it)
+                adapter.routines = it
                 adapter.notifyDataSetChanged()
             }
         })
         ItemTouchHelper(swipeToDeleteCallback).attachToRecyclerView(binding.list)
     }
 
-    val swipeToDeleteCallback = object: ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+    private val swipeToDeleteCallback = object: ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
         override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
             return false
         }
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
             val position = viewHolder.adapterPosition
-            listViewModel.deleteRoutine(adapter.list[position])
+            val swipedRoutine = (adapter.list[position] as RoutineListItem.RoutineItem).routine
+            listViewModel.deleteRoutine(swipedRoutine)
+        }
+
+        // disable Titles ViewHolder swipe
+        override fun getSwipeDirs(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
+            return when(viewHolder.itemViewType) {
+                RoutineListAdapter.TITLE_VIEW_TYPE -> 0
+                else -> return super.getSwipeDirs(recyclerView, viewHolder)
+            }
         }
 
     }

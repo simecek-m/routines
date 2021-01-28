@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="title"
+            type="dev.simecek.routines.model.RoutineListItem.Title" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="@dimen/space_big"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/shape_square_radius"
@@ -13,7 +22,8 @@
             android:id="@+id/icon"
             android:layout_width="@dimen/title_icon_size"
             android:layout_height="@dimen/title_icon_size"
-            android:background="@drawable/ic_icon"
+            android:background="@{title.icon}"
+            tools:background="@drawable/ic_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/text"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -26,7 +36,8 @@
             android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title"
+            android:text="@{title.text}"
+            tools:text="@string/title"
             app:layout_constraintBottom_toBottomOf="@+id/icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/icon"
