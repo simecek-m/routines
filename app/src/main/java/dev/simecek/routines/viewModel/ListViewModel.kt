@@ -19,4 +19,10 @@ class ListViewModel @ViewModelInject constructor(
         }
     }
 
+    fun restoreRoutine(routine: Routine) {
+        viewModelScope.launch {
+            repository.insert(routine)
+        }
+    }
+
 }

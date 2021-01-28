@@ -11,8 +11,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import dev.simecek.routines.R
 import dev.simecek.routines.databinding.FragmentListBinding
+import dev.simecek.routines.generated.callback.OnClickListener
 import dev.simecek.routines.list.RoutineListAdapter
 import dev.simecek.routines.model.RoutineListItem
 import dev.simecek.routines.viewModel.ListViewModel
@@ -62,6 +65,11 @@ class ListFragment : Fragment() {
             val position = viewHolder.adapterPosition
             val swipedRoutine = (adapter.list[position] as RoutineListItem.RoutineItem).routine
             listViewModel.deleteRoutine(swipedRoutine)
+            Snackbar.make(binding.listLayout, R.string.routine_deleted, Snackbar.LENGTH_LONG)
+                    .setAction(R.string.undo) {
+                        listViewModel.restoreRoutine(swipedRoutine)
+                    }
+                    .show()
         }
 
         // disable Titles ViewHolder swipe
