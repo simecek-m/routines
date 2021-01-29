@@ -4,21 +4,24 @@ import androidx.room.TypeConverter
 import dev.simecek.routines.database.type.Reminder
 import java.util.*
 
+// Converter for Reminder database field
+// calculate minutes from Reminder time to save it into DB and vice versa
 class ReminderConverter {
 
-    @TypeConverter
-    fun timeToInt(reminder: Reminder): Long {
-        val calendar = Calendar.getInstance()
-        calendar.set(Calendar.HOUR_OF_DAY, reminder.hour)
-        calendar.set(Calendar.MINUTE, reminder.minute)
-        return calendar.timeInMillis
+    companion object {
+        const val MINUTES = 60
     }
 
     @TypeConverter
-    fun longToTime(time: Long): Reminder {
-        val calendar = Calendar.getInstance()
-        calendar.timeInMillis = time
-        return Reminder(calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE))
+    fun reminderToMinutes(reminder: Reminder): Int {
+        return reminder.minute + reminder.hour * MINUTES
+    }
+
+    @TypeConverter
+    fun minutesToReminder(timeInMinutes: Int): Reminder {
+        val hours = timeInMinutes / MINUTES
+        val minutes = timeInMinutes - hours * MINUTES
+        return Reminder(hours, minutes)
     }
 
 }
