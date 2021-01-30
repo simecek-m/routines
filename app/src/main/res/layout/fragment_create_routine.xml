@@ -16,34 +16,41 @@
         android:layout_height="match_parent"
         tools:context=".fragment.CreateRoutineFragment">
 
-        <TextView
+        <dev.simecek.routines.view.TitleView
             android:id="@+id/header_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            app:layout_constraintWidth_percent="@dimen/max_input_width_percent"
             android:layout_height="wrap_content"
-            android:text="@string/title"
-            app:layout_constraintStart_toStartOf="@+id/title_text_layout"
+            app:icon="@drawable/ic_title"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@+id/title_text_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            style="@style/TextHeader" />
+            app:text="@string/title" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/title_text_layout"
             android:layout_width="0dp"
-            android:layout_marginTop="@dimen/space_small"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/space_small"
+            app:endIconDrawable="@{viewModel.isTitleLongEnough(viewModel.title) ? null : @drawable/ic_error}"
+            app:endIconMode="custom"
+            app:layout_constraintBottom_toTopOf="@+id/title_text_error"
+            app:layout_constraintEnd_toEndOf="@+id/header_title"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/header_title"
             app:layout_constraintTop_toBottomOf="@+id/header_title"
             app:layout_constraintWidth_percent="@dimen/max_input_width_percent"
-            app:startIconDrawable="@drawable/ic_title"
-            app:endIconMode="custom"
-            app:endIconDrawable="@{viewModel.isTitleLongEnough(viewModel.title) ? null : @drawable/ic_error}">
+            app:startIconDrawable="@drawable/ic_title">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/title_text"
-                android:text="@={viewModel.title}"
+                tools:text="@string/lunch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapSentences"/>
+                android:inputType="textCapSentences"
+                android:text="@={viewModel.title}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -52,49 +59,57 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_too_short"
-            android:layout_marginTop="@dimen/space_small"
             android:textColor="@color/error"
             android:textStyle="bold"
             android:visibility="@{viewModel.isTitleLongEnough(viewModel.title)? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/header_icon"
             app:layout_constraintEnd_toEndOf="@+id/title_text_layout"
-            app:layout_constraintTop_toBottomOf="@+id/title_text_layout"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/title_text_layout" />
 
-        <TextView
+        <dev.simecek.routines.view.TitleView
             android:id="@+id/header_icon"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/icon"
-            style="@style/TextHeader"
-            app:layout_constraintStart_toStartOf="@+id/header_title"
-            app:layout_constraintTop_toBottomOf="@+id/title_text_error" />
+            app:icon="@drawable/ic_icon"
+            android:layout_marginTop="@dimen/space_medium"
+            app:layout_constraintBottom_toTopOf="@+id/icon_picker"
+            app:layout_constraintEnd_toEndOf="@+id/title_text_layout"
+            app:layout_constraintStart_toStartOf="@+id/title_text_layout"
+            app:layout_constraintTop_toBottomOf="@+id/title_text_error"
+            app:text="@string/icon" />
 
         <dev.simecek.routines.view.IconPickerView
             android:id="@+id/icon_picker"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
-            app:selectedIcon="@={viewModel.icon}"
-            app:layout_constraintEnd_toEndOf="@+id/title_text_layout"
-            app:layout_constraintStart_toStartOf="@+id/title_text_layout"
-            app:layout_constraintTop_toBottomOf="@+id/header_icon" />
-
-        <TextView
-            android:id="@+id/header_reminder"
-            style="@style/TextHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/reminder"
+            app:layout_constraintBottom_toTopOf="@+id/header_reminder"
+            app:layout_constraintEnd_toEndOf="@+id/header_icon"
             app:layout_constraintStart_toStartOf="@+id/header_icon"
-            app:layout_constraintTop_toBottomOf="@+id/icon_picker" />
+            app:layout_constraintTop_toBottomOf="@+id/header_icon"
+            app:selectedIcon="@={viewModel.icon}" />
+
+        <dev.simecek.routines.view.TitleView
+            android:id="@+id/header_reminder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_alarm"
+            android:layout_marginTop="@dimen/space_medium"
+            app:layout_constraintBottom_toTopOf="@+id/time_picker"
+            app:layout_constraintEnd_toEndOf="@+id/icon_picker"
+            app:layout_constraintStart_toStartOf="@+id/icon_picker"
+            app:layout_constraintTop_toBottomOf="@+id/icon_picker"
+            app:text="@string/reminder" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/time_picker"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/create_button"
+            app:layout_constraintEnd_toEndOf="@+id/header_reminder"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/header_reminder"
             app:layout_constraintTop_toBottomOf="@+id/header_reminder"
             app:layout_constraintWidth_percent="@dimen/max_input_width_percent"
             app:startIconDrawable="@drawable/ic_reminder">
@@ -103,21 +118,23 @@
                 android:id="@+id/time_picker_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusable="false"
                 android:cursorVisible="false"
-                android:text="@{viewModel.reminder.toString()}"/>
+                android:focusable="false"
+                tools:text="@string/midday_time"
+                android:text="@{viewModel.reminder.toString()}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/create_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/create"
+            android:text="@string/save"
             app:icon="@drawable/ic_check"
-            app:iconGravity="textStart"
-            android:layout_marginTop="@dimen/space_big"
-            android:enabled="@{viewModel.isTitleLongEnough(viewModel.title)}"
+            enabled="@{viewModel.isTitleLongEnough(viewModel.title)}"
+            android:layout_marginTop="@dimen/space_medium"
+            style="@style/Button"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/time_picker"
             app:layout_constraintStart_toStartOf="@+id/time_picker"
             app:layout_constraintTop_toBottomOf="@+id/time_picker" />

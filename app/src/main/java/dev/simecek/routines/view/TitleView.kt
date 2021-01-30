@@ -13,14 +13,11 @@ import dev.simecek.routines.model.RoutineListItem.Title
 class TitleView(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
 
     init {
-        if(isInEditMode) {
-            View.inflate(context, R.layout.view_title, this)
-        } else {
-            val binding: ViewTitleBinding = ViewTitleBinding.inflate(LayoutInflater.from(context), this, true)
-            val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.TitleView,0, 0)
-            val text: String = styledAttributes.getString(R.styleable.TitleView_text)?: context.getString(R.string.title)
-            val icon = styledAttributes.getDrawable(R.styleable.TitleView_icon)?: ContextCompat.getDrawable(context, R.drawable.ic_icon)
-            binding.title = Title(text, icon)
-        }
+        val binding: ViewTitleBinding = ViewTitleBinding.inflate(LayoutInflater.from(context), this, true)
+        val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.TitleView,0, 0)
+        val text: String = styledAttributes.getString(R.styleable.TitleView_text)?: context.getString(R.string.title)
+        val icon = styledAttributes.getDrawable(R.styleable.TitleView_icon)?: ContextCompat.getDrawable(context, R.drawable.ic_icon)
+        binding.text.text = text
+        binding.icon.background = icon
     }
 }

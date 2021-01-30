@@ -73,7 +73,9 @@ class RoutineListAdapter(var context: Context): RecyclerView.Adapter<RecyclerVie
             TITLE_VIEW_TYPE -> {
                 val nextRoutine: Routine = (list[position+1] as RoutineListItem.RoutineItem).routine
                 val titleViewHolder = holder as TitleViewHolder
-                titleViewHolder.binding.title = getTitleByDatePhase(nextRoutine.getDayPhase())
+                val title = getTitleByDatePhase(nextRoutine.getDayPhase())
+                titleViewHolder.binding.text.text = title.text
+                titleViewHolder.binding.icon.background = title.icon
             }
         }
     }

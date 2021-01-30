@@ -58,13 +58,13 @@
     </style>
 
     <style name="FloatingActionButton" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
-        <item name="backgroundTint">@color/fab</item>
+        <item name="backgroundTint">@color/button</item>
         <item name="android:textColor">@color/white</item>
         <item name="iconTint">@color/white</item>
     </style>
 
     <style name="FloatingActionButton.Black">
-        <item name="backgroundTint">@color/fab_black</item>
+        <item name="backgroundTint">@color/button_black</item>
         <item name="android:textColor">@color/white</item>
         <item name="iconTint">@color/white</item>
     </style>
@@ -97,6 +97,10 @@
 
     <style name="RoutineWidgetIcon">
         <item name="android:backgroundTint">@color/gray_light</item>
+    </style>
+
+    <style name="Button" parent="Button.Base">
+        <item name="backgroundTint">@color/button_white</item>
     </style>
 
 </resources>

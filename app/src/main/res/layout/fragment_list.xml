@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:padding="@dimen/space_big"
+        android:paddingHorizontal="@dimen/space_big"
         android:paddingBottom="@dimen/recycler_view_bottom_padding"
         android:clipToPadding="false"/>
 

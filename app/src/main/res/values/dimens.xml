@@ -21,8 +21,12 @@
 
     <dimen name="max_input_width_percent">0.8</dimen>
 
-    <dimen name="title_text_size">26sp</dimen>
-    <dimen name="title_icon_size">30dp</dimen>
+    <dimen name="title_text_size">20sp</dimen>
+    <dimen name="title_icon_size">25dp</dimen>
+
+    <dimen name="button_text_size">16sp</dimen>
+    <dimen name="button_icon_size">20dp</dimen>
+    <dimen name="button_padding">12dp</dimen>
 
     <dimen name="routine_widget_reminder_icon_size">20sp</dimen>
     <dimen name="routine_widget_icon_size">50sp</dimen>
