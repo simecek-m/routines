@@ -21,7 +21,7 @@
 
     <dimen name="max_input_width_percent">0.8</dimen>
 
-    <dimen name="title_text_size">20sp</dimen>
+    <dimen name="title_text_size">24sp</dimen>
     <dimen name="title_icon_size">25dp</dimen>
 
     <dimen name="button_text_size">16sp</dimen>
