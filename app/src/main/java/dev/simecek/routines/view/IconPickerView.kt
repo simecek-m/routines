@@ -3,9 +3,11 @@ package dev.simecek.routines.view
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
+import androidx.databinding.DataBindingUtil
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
 import com.airbnb.paris.extensions.style
@@ -16,7 +18,7 @@ import dev.simecek.routines.listener.IconPickerListener
 
 class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
 
-    private var binding: ViewIconPickerBinding = ViewIconPickerBinding.inflate(LayoutInflater.from(context), this, true)
+    private lateinit var binding: ViewIconPickerBinding
     private var selectedIcon: Int = 0
     var listener: IconPickerListener? = null
 
@@ -31,11 +33,17 @@ class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(
     }
 
     init {
-        binding.view = this
-        val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.IconPickerView,0, 0)
-        selectedIcon = styledAttributes.getInteger(R.styleable.IconPickerView_selectedIcon, 0)
-        refreshUI(null, selectedIcon)
-        styledAttributes.recycle()
+        if(isInEditMode) {
+            View.inflate(context, R.layout.view_icon_picker, this)
+        } else {
+            binding = ViewIconPickerBinding.inflate(LayoutInflater.from(context),this, true)
+            binding.view = this
+            val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.IconPickerView,0, 0)
+            selectedIcon = styledAttributes.getInteger(R.styleable.IconPickerView_selectedIcon, 0)
+            refreshUI(null, selectedIcon)
+            styledAttributes.recycle()
+        }
+
     }
 
     private fun refreshUI(oldIcon: Int?, newIcon: Int) {
