@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 import dev.simecek.routines.constant.DayPhase
 import dev.simecek.routines.constant.IconPickerSelectedType
 import dev.simecek.routines.database.type.Reminder
+import java.io.Serializable
 
 @Entity
 data class Routine(
@@ -14,7 +15,7 @@ data class Routine(
         @ColumnInfo(name = "icon") var icon: IconPickerSelectedType,
         @ColumnInfo(name = "reminder") var reminder: Reminder,
         @ColumnInfo(name = "last_day_finished") var lastDayFinished: String? = null
-) {
+): Serializable {
     fun getDayPhase(): DayPhase {
         return when(reminder.hour) {
             in 0..11 -> DayPhase.MORNING

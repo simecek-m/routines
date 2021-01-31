@@ -126,4 +126,10 @@
         <item name="android:textSize">@dimen/font_size_medium</item>
     </style>
 
+    <style name="Button.Text" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="iconGravity">textStart</item>
+        <item name="iconTint">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>
