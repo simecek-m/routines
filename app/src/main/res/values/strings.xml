@@ -16,6 +16,11 @@
     <string name="icon_beer">Beer icon</string>
     <string name="icon_chat">Chat icon</string>
 
+    <!--  MOTIVATION  -->
+    <string name="motivation_one">Don’t stop when you’re tired. Stop when you’re done.</string>
+    <string name="motivation_two">Little things make big days.</string>
+    <string name="motivation_three">The secret of getting ahead is getting started.</string>
+
     <!--  TEXT  -->
     <string name="app_name">Routines</string>
     <string name="list">List</string>
@@ -50,4 +55,6 @@
     <string name="save">Save</string>
     <string name="routine_restore_error">Routine can\'t be restored</string>
     <string name="restore_routine">Restore routine</string>
+    <string name="notification_channel_reminders_name">Reminders</string>
+    <string name="notification_channel_reminders_description">Notifies you when routine is about to start</string>
 </resources>

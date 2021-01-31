@@ -6,13 +6,20 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.R
+import dev.simecek.routines.notification.NotificationHelper
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var helper: NotificationHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setBlackStatusAndNavigationBars()
+        helper.createNotificationChannels()
     }
 
     private fun setBlackStatusAndNavigationBars() {
