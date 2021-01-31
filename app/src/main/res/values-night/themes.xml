@@ -18,6 +18,7 @@
         <item name="textInputStyle">@style/TextInputLayout</item>
         <item name="extendedFloatingActionButtonStyle">@style/FloatingActionButton</item>
         <item name="fontFamily">@font/quicksand</item>
+        <item name="materialButtonStyle">@style/Button</item>
     </style>
 
     <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
@@ -103,6 +104,26 @@
 
     <style name="Button" parent="Button.Base">
         <item name="backgroundTint">@color/button_white</item>
+    </style>
+
+    <style name="FullscreenTitle">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/font_size_huge</item>
+        <item name="fontFamily">@font/quicksand_bold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FullscreenImage">
+        <item name="tint">@color/gray</item>
+    </style>
+
+    <style name="FullscreenDescription">
+        <item name="android:layout_marginTop">@dimen/space_small</item>
+        <item name="android:lineSpacingMultiplier">@dimen/line_spacing_bigger</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/font_size_medium</item>
     </style>
 
 </resources>

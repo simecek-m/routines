@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/brand"
     tools:context=".fragment.EmptyFragment">
 
     <TextView
@@ -27,10 +26,9 @@
         android:layout_marginTop="@dimen/space_big"
         android:contentDescription="@string/sad_face"
         android:src="@drawable/ic_sad_face"
-        app:tint="@color/white"
+        style="@style/FullscreenImage"
         app:layout_constraintBottom_toTopOf="@+id/description_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.1"
         app:layout_constraintHeight_percent="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_text" />
@@ -53,7 +51,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent=".8"/>
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/create_button"
         android:layout_width="@dimen/max_button_size"
         android:layout_height="wrap_content"
@@ -61,6 +59,7 @@
         app:icon="@drawable/ic_add"
         app:iconGravity="textStart"
         android:layout_marginTop="@dimen/space_small"
+        style="@style/Button.Brand"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline" />

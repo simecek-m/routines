@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/brand"
     tools:context=".fragment.CompleteFragment">
 
     <TextView
@@ -27,7 +26,7 @@
         android:layout_marginTop="@dimen/space_big"
         android:contentDescription="@string/logo"
         android:src="@drawable/ic_logo"
-        app:tint="@color/white"
+        style="@style/FullscreenImage"
         app:layout_constraintBottom_toTopOf="@+id/description_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.1"
@@ -53,13 +52,14 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent=".8"/>
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/resume_button"
         android:layout_width="@dimen/max_button_size"
         android:layout_height="wrap_content"
         android:text="@string/resume"
         app:icon="@drawable/ic_check"
         app:iconGravity="textStart"
+        style="@style/Button.Brand"
         android:layout_marginTop="@dimen/space_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

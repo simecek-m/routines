@@ -140,7 +140,6 @@
                 android:enabled="@{viewModel.isTitleLongEnough(viewModel.title)}"
                 android:layout_marginTop="@dimen/space_medium"
                 android:layout_marginBottom="@dimen/space_big"
-                style="@style/Button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/time_picker"
                 app:layout_constraintStart_toStartOf="@+id/time_picker"
