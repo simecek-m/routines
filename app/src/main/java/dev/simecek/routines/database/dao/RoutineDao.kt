@@ -1,10 +1,7 @@
 package dev.simecek.routines.database.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import dev.simecek.routines.database.entity.Routine
 
 @Dao
@@ -18,5 +15,8 @@ interface RoutineDao {
 
     @Delete
     suspend fun delete(routine: Routine)
+
+    @Update
+    suspend fun update(routine: Routine)
 
 }

@@ -25,4 +25,10 @@ class ListViewModel @ViewModelInject constructor(
         }
     }
 
+    fun finishRoutine(routine: Routine) {
+        viewModelScope.launch {
+            repository.finishRoutine(routine)
+        }
+    }
+
 }

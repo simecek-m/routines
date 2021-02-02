@@ -12,12 +12,15 @@ import dev.simecek.routines.constant.IconPickerSelectedType
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.databinding.ViewRoutineBinding
 import dev.simecek.routines.databinding.ViewTitleBinding
+import dev.simecek.routines.listener.FinishRoutineListener
 import dev.simecek.routines.model.RoutineListItem
 import dev.simecek.routines.model.RoutineListItem.Title
 import java.util.*
 import kotlin.collections.ArrayList
 
 class RoutineListAdapter(var context: Context): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    var finishRoutineListener: FinishRoutineListener? = null
 
     var routines: List<Routine> = ArrayList()
         set(value) {
@@ -69,6 +72,9 @@ class RoutineListAdapter(var context: Context): RecyclerView.Adapter<RecyclerVie
                 routineViewHolder.binding.routine = routine
                 val icon = getDrawableIcon(routine.icon)
                 routineViewHolder.binding.icon.background = icon
+                routineViewHolder.itemView.setOnClickListener {
+                    finishRoutineListener?.onFinishRoutine(routine)
+                }
             }
             TITLE_VIEW_TYPE -> {
                 val nextRoutine: Routine = (list[position+1] as RoutineListItem.RoutineItem).routine

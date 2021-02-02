@@ -17,6 +17,7 @@ import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.databinding.FragmentListBinding
 import dev.simecek.routines.list.RoutineListAdapter
 import dev.simecek.routines.listener.DeleteRoutineListener
+import dev.simecek.routines.listener.FinishRoutineListener
 import dev.simecek.routines.model.RoutineListItem
 import dev.simecek.routines.viewModel.ListViewModel
 import javax.inject.Inject
@@ -48,6 +49,12 @@ class ListFragment : Fragment() {
         }
     }
 
+    private val finishRoutineListener = object : FinishRoutineListener {
+        override fun onFinishRoutine(routine: Routine) {
+            listViewModel.finishRoutine(routine)
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -62,6 +69,7 @@ class ListFragment : Fragment() {
             findNavController().navigate(redirectToCreate)
         }
         binding.list.layoutManager = LinearLayoutManager(requireContext())
+        adapter.finishRoutineListener = finishRoutineListener
         binding.list.adapter = adapter
         listViewModel.routines.observe(viewLifecycleOwner, Observer{
             if(it.isEmpty()) {

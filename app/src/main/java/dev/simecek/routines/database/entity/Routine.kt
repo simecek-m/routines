@@ -7,6 +7,8 @@ import dev.simecek.routines.constant.DayPhase
 import dev.simecek.routines.constant.IconPickerSelectedType
 import dev.simecek.routines.database.type.Reminder
 import java.io.Serializable
+import java.text.SimpleDateFormat
+import java.util.*
 
 @Entity
 data class Routine(
@@ -16,6 +18,12 @@ data class Routine(
         @ColumnInfo(name = "reminder") var reminder: Reminder,
         @ColumnInfo(name = "last_day_finished") var lastDayFinished: String? = null
 ): Serializable {
+
+    companion object {
+        const val DATE_PATTERN = "yyyy-MM-dd"
+        private val sdf = SimpleDateFormat(DATE_PATTERN, Locale.getDefault())
+    }
+
     fun getDayPhase(): DayPhase {
         return when(reminder.hour) {
             in 0..11 -> DayPhase.MORNING
@@ -24,5 +32,10 @@ data class Routine(
             in 20..24 -> DayPhase.NIGHT
             else -> DayPhase.MORNING
         }
+    }
+
+    fun isFinished(): Boolean {
+        val today: String = sdf.format(Calendar.getInstance().time)
+        return lastDayFinished.equals(today)
     }
 }
