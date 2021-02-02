@@ -1,9 +1,17 @@
 package dev.simecek.routines.fragment
 
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toBitmap
+import androidx.core.view.marginLeft
+import androidx.core.view.marginStart
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -34,6 +42,12 @@ class ListFragment : Fragment() {
         Snackbar.make(binding.listLayout, R.string.routine_deleted, Snackbar.LENGTH_LONG)
     }
 
+    private val deleteIcon: Bitmap by lazy {
+        val icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_trash)!!
+        icon.setTint(ContextCompat.getColor(requireContext(), R.color.error))
+        icon.toBitmap(80, 80)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -62,7 +76,7 @@ class ListFragment : Fragment() {
         ItemTouchHelper(swipeToDeleteCallback).attachToRecyclerView(binding.list)
     }
 
-    private val swipeToDeleteCallback = object: ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+    private val swipeToDeleteCallback = object: ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
         override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
             return false
         }
@@ -83,6 +97,15 @@ class ListFragment : Fragment() {
                 RoutineListAdapter.TITLE_VIEW_TYPE -> 0
                 else -> return super.getSwipeDirs(recyclerView, viewHolder)
             }
+        }
+
+        override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
+            val view = viewHolder.itemView
+            val topMargin = view.height / 2 - deleteIcon.height /2
+            if(dX > deleteIcon.width) {
+                c.drawBitmap(deleteIcon, view.left.toFloat(), view.top.toFloat() + topMargin, null)
+            }
+            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
         }
 
     }
