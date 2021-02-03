@@ -71,13 +71,9 @@ class RoutineListAdapter(var context: Context): RecyclerView.Adapter<RecyclerVie
                 val routine = (list[position] as RoutineListItem.RoutineItem).routine
                 val routineViewHolder = holder as RoutineViewHolder
                 routineViewHolder.binding.routine = routine
+                setCorrectIconStyle(routineViewHolder, routine)
                 routineViewHolder.itemView.setOnClickListener {
                     finishRoutineListener?.onFinishRoutine(routine)
-                    if(routine.isFinished()) {
-                        routineViewHolder.binding.icon.style(R.style.RoutineWidgetIcon_Finished)
-                    } else {
-                        routineViewHolder.binding.icon.style(R.style.RoutineWidgetIcon)
-                    }
                 }
             }
             TITLE_VIEW_TYPE -> {
@@ -96,6 +92,14 @@ class RoutineListAdapter(var context: Context): RecyclerView.Adapter<RecyclerVie
             DayPhase.DAY -> Title(context.getString(R.string.noon), ContextCompat.getDrawable(context, R.drawable.ic_sun))
             DayPhase.EVENING -> Title(context.getString(R.string.evening), ContextCompat.getDrawable(context, R.drawable.ic_cloud))
             DayPhase.NIGHT -> Title(context.getString(R.string.night), ContextCompat.getDrawable(context, R.drawable.ic_night))
+        }
+    }
+
+    private fun setCorrectIconStyle(routineViewHolder: RoutineViewHolder, routine: Routine) {
+        if(routine.isFinished()) {
+            routineViewHolder.binding.icon.style(R.style.RoutineWidgetIcon_Finished)
+        } else {
+            routineViewHolder.binding.icon.style(R.style.RoutineWidgetIcon)
         }
     }
 
