@@ -1,7 +1,11 @@
 package dev.simecek.routines.database.entity
 
+import android.content.Context
+import android.graphics.drawable.Drawable
+import androidx.core.content.ContextCompat
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import dev.simecek.routines.constant.DayPhase
 import dev.simecek.routines.constant.IconPickerSelectedType
@@ -19,9 +23,11 @@ data class Routine(
         @ColumnInfo(name = "last_day_finished") var lastDayFinished: String? = null
 ): Serializable {
 
+    @Ignore
+    private val sdf = SimpleDateFormat(DATE_PATTERN, Locale.getDefault())
+
     companion object {
         const val DATE_PATTERN = "yyyy-MM-dd"
-        private val sdf = SimpleDateFormat(DATE_PATTERN, Locale.getDefault())
     }
 
     fun getDayPhase(): DayPhase {
@@ -38,4 +44,10 @@ data class Routine(
         val today: String = sdf.format(Calendar.getInstance().time)
         return lastDayFinished.equals(today)
     }
+
+    fun getDrawableIcon(context: Context): Drawable? {
+        val id = context.resources.getIdentifier(icon.toString().toLowerCase(Locale.getDefault()), "drawable", context.packageName)
+        return ContextCompat.getDrawable(context, id)
+    }
+
 }

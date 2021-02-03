@@ -61,7 +61,7 @@
             android:id="@+id/icon"
             android:layout_width="@dimen/routine_widget_icon_size"
             android:layout_height="@dimen/routine_widget_icon_size"
-            android:background="@drawable/ic_food"
+            android:background="@{routine.finished ? @drawable/ic_check : routine.getDrawableIcon(context)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/title"

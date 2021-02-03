@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.paris.extensions.style
 import dev.simecek.routines.R
 import dev.simecek.routines.constant.DayPhase
 import dev.simecek.routines.constant.IconPickerSelectedType
@@ -70,10 +71,13 @@ class RoutineListAdapter(var context: Context): RecyclerView.Adapter<RecyclerVie
                 val routine = (list[position] as RoutineListItem.RoutineItem).routine
                 val routineViewHolder = holder as RoutineViewHolder
                 routineViewHolder.binding.routine = routine
-                val icon = getDrawableIcon(routine.icon)
-                routineViewHolder.binding.icon.background = icon
                 routineViewHolder.itemView.setOnClickListener {
                     finishRoutineListener?.onFinishRoutine(routine)
+                    if(routine.isFinished()) {
+                        routineViewHolder.binding.icon.style(R.style.RoutineWidgetIcon_Finished)
+                    } else {
+                        routineViewHolder.binding.icon.style(R.style.RoutineWidgetIcon)
+                    }
                 }
             }
             TITLE_VIEW_TYPE -> {
@@ -84,11 +88,6 @@ class RoutineListAdapter(var context: Context): RecyclerView.Adapter<RecyclerVie
                 titleViewHolder.binding.icon.background = title.icon
             }
         }
-    }
-
-    private fun getDrawableIcon(icon: IconPickerSelectedType): Drawable? {
-        val id = context.resources.getIdentifier(icon.toString().toLowerCase(Locale.getDefault()), "drawable", context.packageName)
-        return ContextCompat.getDrawable(context, id)
     }
 
     private fun getTitleByDatePhase(dayPhase: DayPhase): Title {

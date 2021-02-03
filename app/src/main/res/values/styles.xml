@@ -13,4 +13,8 @@
         <item name="backgroundTint">@color/brand</item>
     </style>
 
+    <style name="RoutineWidgetIcon.Finished">
+        <item name="android:backgroundTint">@color/brand</item>
+    </style>
+
 </resources>
