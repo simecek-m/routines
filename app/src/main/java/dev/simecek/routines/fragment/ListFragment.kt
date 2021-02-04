@@ -9,12 +9,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.R
-import dev.simecek.routines.helper.RoutineWidgetHelper
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.databinding.FragmentListBinding
+import dev.simecek.routines.helper.RoutineWidgetHelper
 import dev.simecek.routines.list.RoutineListAdapter
 import dev.simecek.routines.listener.DeleteRoutineListener
 import dev.simecek.routines.listener.FinishRoutineListener
@@ -55,6 +56,10 @@ class ListFragment : Fragment() {
         }
     }
 
+    private val refreshRoutinesListener = SwipeRefreshLayout.OnRefreshListener {
+        loadRoutines()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -68,9 +73,24 @@ class ListFragment : Fragment() {
             val redirectToCreate = ListFragmentDirections.redirectToCreate()
             findNavController().navigate(redirectToCreate)
         }
+        recyclerViewSetup()
+        gesturesSetup()
+        loadRoutines()
+    }
+
+    private fun recyclerViewSetup() {
         binding.list.layoutManager = LinearLayoutManager(requireContext())
         adapter.finishRoutineListener = finishRoutineListener
         binding.list.adapter = adapter
+    }
+
+    private fun gesturesSetup() {
+        routineWidgetHelper.swipeToDeleteGesture(deleteRoutineListener).attachToRecyclerView(binding.list)
+        binding.swipeToRefresh.setOnRefreshListener(refreshRoutinesListener)
+    }
+
+    private fun loadRoutines() {
+        listViewModel.routines.removeObservers(viewLifecycleOwner)
         listViewModel.routines.observe(viewLifecycleOwner, Observer{
             if(it.isEmpty()) {
                 undoSnackbar.dismiss()
@@ -80,8 +100,8 @@ class ListFragment : Fragment() {
                 adapter.routines = it
                 adapter.notifyDataSetChanged()
             }
+            binding.swipeToRefresh.isRefreshing = false
         })
-        routineWidgetHelper.swipeToDeleteGesture(deleteRoutineListener).attachToRecyclerView(binding.list)
     }
 
 }
