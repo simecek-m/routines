@@ -31,4 +31,8 @@ class ListViewModel @ViewModelInject constructor(
         }
     }
 
+    fun getUnfinishedRoutines(): List<Routine> {
+        return routines.value!!.filter { routine -> !routine.isFinished() }
+    }
+
 }

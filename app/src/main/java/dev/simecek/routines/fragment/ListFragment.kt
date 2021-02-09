@@ -53,6 +53,10 @@ class ListFragment : Fragment() {
     private val finishRoutineListener = object : FinishRoutineListener {
         override fun onFinishRoutine(routine: Routine) {
             listViewModel.finishRoutine(routine)
+            if(listViewModel.getUnfinishedRoutines().isEmpty()) {
+                val redirectToComplete = ListFragmentDirections.redirectToComplete()
+                findNavController().navigate(redirectToComplete)
+            }
         }
     }
 
@@ -63,7 +67,7 @@ class ListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentListBinding.inflate(inflater, container, false)
         return binding.root
     }
