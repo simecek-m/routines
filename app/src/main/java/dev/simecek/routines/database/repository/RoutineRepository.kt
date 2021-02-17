@@ -17,8 +17,8 @@ class RoutineRepository @Inject constructor(
         return routineDao.getAll()
     }
 
-    suspend fun insert(routine: Routine) {
-        routineDao.insert(routine)
+    suspend fun insert(routine: Routine): Long {
+        return routineDao.insert(routine)
     }
 
     suspend fun delete(routine: Routine) {
