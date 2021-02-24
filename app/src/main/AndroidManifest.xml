@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.simecek.routines">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
     <application
         android:name=".RoutineApp"
         android:allowBackup="true"
@@ -18,6 +20,12 @@
         </activity>
 
         <receiver android:name=".broadcast.ReminderBroadcastReceiver" />
+
+        <receiver android:name=".broadcast.RebootBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
 
     </application>
 

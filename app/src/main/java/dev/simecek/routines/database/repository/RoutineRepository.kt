@@ -8,13 +8,16 @@ import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
-class RoutineRepository @Inject constructor(
-    private val routineDao: RoutineDao
-) {
+class RoutineRepository @Inject constructor(private val routineDao: RoutineDao) {
+
     private val sdf = SimpleDateFormat(Routine.DATE_PATTERN, Locale.getDefault())
 
     fun getAllRoutines(): LiveData<List<Routine>> {
         return routineDao.getAll()
+    }
+
+    suspend fun getAllRoutinesAsList(): List<Routine> {
+        return routineDao.getAllAsList()
     }
 
     suspend fun insert(routine: Routine): Long {
