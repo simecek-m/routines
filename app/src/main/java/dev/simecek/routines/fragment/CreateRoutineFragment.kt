@@ -16,8 +16,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.R
 import dev.simecek.routines.database.type.Reminder
 import dev.simecek.routines.databinding.FragmentCreateRoutineBinding
+import dev.simecek.routines.reminder.ReminderHelper
 import dev.simecek.routines.viewModel.CreateRoutineViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class CreateRoutineFragment : Fragment() {
@@ -25,10 +27,13 @@ class CreateRoutineFragment : Fragment() {
     private val viewModel: CreateRoutineViewModel by viewModels()
     private lateinit var binding: FragmentCreateRoutineBinding
 
+    @Inject
+    lateinit var reminderHelper: ReminderHelper
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_create_routine, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
@@ -58,7 +63,8 @@ class CreateRoutineFragment : Fragment() {
     private fun createRoutine() {
         lifecycleScope.launch {
             try {
-                viewModel.createNewRoutine()
+                val id = viewModel.createNewRoutine()
+                reminderHelper.setDailyReminder(id.toInt(), viewModel.title.value!!, viewModel.reminder.value!!.hour, viewModel.reminder.value!!.minute)
                 val returnBackToList = CreateRoutineFragmentDirections.returnToList()
                 findNavController().navigate(returnBackToList)
             } catch (ex: Exception) {

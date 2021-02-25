@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -20,7 +21,9 @@ import dev.simecek.routines.list.RoutineListAdapter
 import dev.simecek.routines.listener.DeleteRoutineListener
 import dev.simecek.routines.listener.FinishRoutineListener
 import dev.simecek.routines.model.RoutineListItem
+import dev.simecek.routines.reminder.ReminderHelper
 import dev.simecek.routines.viewModel.ListViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -31,6 +34,9 @@ class ListFragment : Fragment() {
 
     @Inject
     lateinit var routineWidgetHelper: RoutineWidgetHelper
+
+    @Inject
+    lateinit var reminderHelper: ReminderHelper
 
     private lateinit var binding: FragmentListBinding
     private val listViewModel: ListViewModel by viewModels()
@@ -43,9 +49,13 @@ class ListFragment : Fragment() {
         override fun onDeleteRoutineFromPosition(position: Int) {
             val swipedRoutine = (adapter.list[position] as RoutineListItem.RoutineItem).routine
             listViewModel.deleteRoutine(swipedRoutine)
+            reminderHelper.removeDailyReminder(swipedRoutine.id.toInt())
             lastDeletedRoutine = swipedRoutine
             undoSnackbar.setAction(R.string.undo) {
-                listViewModel.restoreRoutine(swipedRoutine)
+                lifecycleScope.launch {
+                    val id = listViewModel.restoreRoutine(swipedRoutine)
+                    reminderHelper.setDailyReminder(id.toInt(), swipedRoutine.title, swipedRoutine.reminder.hour, swipedRoutine.reminder.minute)
+                }
             }.show()
         }
     }
@@ -95,7 +105,7 @@ class ListFragment : Fragment() {
 
     private fun loadRoutines() {
         listViewModel.routines.removeObservers(viewLifecycleOwner)
-        listViewModel.routines.observe(viewLifecycleOwner, Observer{
+        listViewModel.routines.observe(viewLifecycleOwner,) {
             if(it.isEmpty()) {
                 undoSnackbar.dismiss()
                 val actionEmptyList = ListFragmentDirections.redirectToEmpty(lastDeletedRoutine)
@@ -105,7 +115,7 @@ class ListFragment : Fragment() {
                 adapter.notifyDataSetChanged()
             }
             binding.swipeToRefresh.isRefreshing = false
-        })
+        }
     }
 
 }

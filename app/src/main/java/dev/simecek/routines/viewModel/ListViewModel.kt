@@ -19,10 +19,8 @@ class ListViewModel @ViewModelInject constructor(
         }
     }
 
-    fun restoreRoutine(routine: Routine) {
-        viewModelScope.launch {
-            repository.insert(routine)
-        }
+    suspend fun restoreRoutine(routine: Routine): Long {
+        return repository.insert(routine)
     }
 
     fun finishRoutine(routine: Routine) {

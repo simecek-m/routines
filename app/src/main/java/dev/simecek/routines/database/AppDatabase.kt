@@ -8,7 +8,7 @@ import dev.simecek.routines.database.converter.ReminderConverter
 import dev.simecek.routines.database.dao.RoutineDao
 import dev.simecek.routines.database.entity.Routine
 
-@Database(entities = [Routine::class], version = 1)
+@Database(entities = [Routine::class], version = 1, exportSchema = false)
 @TypeConverters(IconPickerConverter::class, ReminderConverter::class)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun routineDao(): RoutineDao

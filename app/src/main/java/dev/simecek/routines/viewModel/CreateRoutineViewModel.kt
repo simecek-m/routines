@@ -23,9 +23,9 @@ class CreateRoutineViewModel @ViewModelInject constructor(
         return compareValues(text.length, MINIMAL_TITLE_LENGTH) >= 0
     }
 
-    suspend fun createNewRoutine() {
+    suspend fun createNewRoutine(): Long {
         val routine = Routine(title = title.value!!, icon = icon.value!!, reminder = reminder.value!!)
-        routineRepository.insert(routine)
+        return routineRepository.insert(routine)
     }
 
     companion object {
