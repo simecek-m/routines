@@ -105,8 +105,8 @@ class ListFragment : Fragment() {
 
     private fun loadRoutines() {
         listViewModel.routines.removeObservers(viewLifecycleOwner)
-        listViewModel.routines.observe(viewLifecycleOwner,) {
-            if(it.isEmpty()) {
+        listViewModel.routines.observe(viewLifecycleOwner, {
+            if (it.isEmpty()) {
                 undoSnackbar.dismiss()
                 val actionEmptyList = ListFragmentDirections.redirectToEmpty(lastDeletedRoutine)
                 findNavController().navigate(actionEmptyList)
@@ -115,7 +115,7 @@ class ListFragment : Fragment() {
                 adapter.notifyDataSetChanged()
             }
             binding.swipeToRefresh.isRefreshing = false
-        }
+        })
     }
 
 }
