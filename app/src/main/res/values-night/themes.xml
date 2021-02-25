@@ -115,7 +115,7 @@
     </style>
 
     <style name="FullscreenImage">
-        <item name="tint">@color/gray</item>
+        <item name="android:src">@drawable/ic_logo_dark</item>
     </style>
 
     <style name="FullscreenDescription">

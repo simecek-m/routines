@@ -9,6 +9,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.simecek.routines.R
 import dev.simecek.routines.activity.MainActivity
@@ -29,12 +30,13 @@ class NotificationHelper @Inject constructor(@ApplicationContext var context: Co
 
     private fun createRoutineNotification(title: String): Notification {
         return NotificationCompat.Builder(context, ROUTINE_REMINDER_CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_logo)
-            .setContentTitle(title)
-            .setContentText(context.getString(MOTIVATION_TEXTS.random()))
-            .setContentIntent(pendingIntent)
-            .setAutoCancel(true)
-            .build()
+                .setSmallIcon(R.drawable.ic_logo_notification)
+                .setColor(ContextCompat.getColor(context, R.color.brand))
+                .setContentTitle(title)
+                .setContentText(context.getString(MOTIVATION_TEXTS.random()))
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
+                .build()
     }
 
     fun showRoutineNotification(id: Int, title: String) {
