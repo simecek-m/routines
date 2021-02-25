@@ -24,12 +24,8 @@ class ReminderBroadcastReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         if(intent != null) {
             val title: String = intent.getStringExtra(ReminderHelper.EXTRA_NAME_TITLE) ?: applicationContext.getString(R.string.routine)
-            showNotification(title)
+            val id: Int = intent.getIntExtra(ReminderHelper.EXTRA_NAME_ID, 0)
+            notificationHelper.showRoutineNotification(id, title)
         }
-    }
-
-    private fun showNotification(title: String) {
-        val notification = notificationHelper.createRoutineReminder(title)
-        NotificationManagerCompat.from(applicationContext).notify(0, notification)
     }
 }

@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.simecek.routines.R
 import dev.simecek.routines.activity.MainActivity
@@ -26,7 +27,7 @@ class NotificationHelper @Inject constructor(@ApplicationContext var context: Co
 
     private val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, openApplicationIntent, 0)
 
-    fun createRoutineReminder(title: String): Notification {
+    private fun createRoutineNotification(title: String): Notification {
         return NotificationCompat.Builder(context, ROUTINE_REMINDER_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_logo)
             .setContentTitle(title)
@@ -34,6 +35,11 @@ class NotificationHelper @Inject constructor(@ApplicationContext var context: Co
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
             .build()
+    }
+
+    fun showRoutineNotification(id: Int, title: String) {
+        val notification = createRoutineNotification(title)
+        NotificationManagerCompat.from(context).notify(id, notification)
     }
 
     fun createNotificationChannels() {

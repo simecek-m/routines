@@ -14,6 +14,7 @@ class ReminderHelper @Inject constructor(@ApplicationContext var context: Contex
     companion object {
         const val INTERVAL_DAILY: Long = 1000 * 60 * 60 * 24
         const val EXTRA_NAME_TITLE: String = "title"
+        const val EXTRA_NAME_ID: String = "notificationId"
     }
 
     private val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -22,6 +23,7 @@ class ReminderHelper @Inject constructor(@ApplicationContext var context: Contex
     fun setDailyReminder(id: Int, title: String, hour: Int, minute: Int) {
 
         intent.putExtra(EXTRA_NAME_TITLE, title)
+        intent.putExtra(EXTRA_NAME_ID, id)
 
         val calendar = Calendar.getInstance().apply {
             set(Calendar.SECOND, 0)
