@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
@@ -18,9 +19,7 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/redirect_to_complete"
-            app:destination="@id/completeFragment"
-            app:launchSingleTop="false"
-            app:popUpToInclusive="false" />
+            app:destination="@id/completeFragment"/>
         <action
             android:id="@+id/redirect_to_create"
             app:destination="@id/createRoutineFragment" />
@@ -57,7 +56,6 @@
         <action
             android:id="@+id/return_to_list"
             app:destination="@id/listFragment"
-            app:popUpTo="@id/listFragment"
-            app:popUpToInclusive="true" />
+            app:popUpTo="@id/nav_graph" />
     </fragment>
 </navigation>
