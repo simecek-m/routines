@@ -5,12 +5,11 @@ import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import dev.simecek.routines.constant.DayPhase
 import dev.simecek.routines.constant.IconPickerSelectedType
 import java.io.Serializable
-import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.time.LocalTime
 import java.util.*
 
@@ -20,11 +19,8 @@ data class Routine(
         @ColumnInfo(name = "title") var title: String,
         @ColumnInfo(name = "icon") var icon: IconPickerSelectedType,
         @ColumnInfo(name = "reminder") var reminder: LocalTime,
-        @ColumnInfo(name = "last_day_finished") var lastDayFinished: String? = null
+        @ColumnInfo(name = "last_finished") var lastFinished: LocalDate? = null
 ): Serializable {
-
-    @Ignore
-    private val sdf = SimpleDateFormat(DATE_PATTERN, Locale.getDefault())
 
     companion object {
         const val DATE_PATTERN = "yyyy-MM-dd"
@@ -41,8 +37,7 @@ data class Routine(
     }
 
     fun isFinished(): Boolean {
-        val today: String = sdf.format(Calendar.getInstance().time)
-        return lastDayFinished.equals(today)
+        return LocalDate.now().equals(lastFinished)
     }
 
     fun getDrawableIcon(context: Context): Drawable? {

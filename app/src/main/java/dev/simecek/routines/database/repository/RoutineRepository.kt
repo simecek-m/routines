@@ -3,8 +3,8 @@ package dev.simecek.routines.database.repository
 import androidx.lifecycle.LiveData
 import dev.simecek.routines.database.dao.RoutineDao
 import dev.simecek.routines.database.entity.Routine
-import java.sql.Time
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.*
 import javax.inject.Inject
 
@@ -30,10 +30,9 @@ class RoutineRepository @Inject constructor(private val routineDao: RoutineDao) 
 
     suspend fun finishRoutine(routine: Routine) {
         if(routine.isFinished()) {
-            routine.lastDayFinished = null
+            routine.lastFinished = null
         } else {
-            val today = sdf.format(Calendar.getInstance().time)
-            routine.lastDayFinished = today
+            routine.lastFinished = LocalDate.now()
         }
         routineDao.update(routine)
     }
