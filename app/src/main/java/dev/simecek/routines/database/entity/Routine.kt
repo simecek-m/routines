@@ -9,9 +9,9 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import dev.simecek.routines.constant.DayPhase
 import dev.simecek.routines.constant.IconPickerSelectedType
-import dev.simecek.routines.database.type.Reminder
 import java.io.Serializable
 import java.text.SimpleDateFormat
+import java.time.LocalTime
 import java.util.*
 
 @Entity
@@ -19,7 +19,7 @@ data class Routine(
         @PrimaryKey(autoGenerate = true) var id: Long = 0,
         @ColumnInfo(name = "title") var title: String,
         @ColumnInfo(name = "icon") var icon: IconPickerSelectedType,
-        @ColumnInfo(name = "reminder") var reminder: Reminder,
+        @ColumnInfo(name = "reminder") var reminder: LocalTime,
         @ColumnInfo(name = "last_day_finished") var lastDayFinished: String? = null
 ): Serializable {
 

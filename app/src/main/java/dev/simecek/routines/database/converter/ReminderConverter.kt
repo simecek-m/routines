@@ -1,7 +1,8 @@
 package dev.simecek.routines.database.converter
 
 import androidx.room.TypeConverter
-import dev.simecek.routines.database.type.Reminder
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 // Converter for Reminder database field
@@ -9,19 +10,18 @@ import java.util.*
 class ReminderConverter {
 
     companion object {
-        const val MINUTES = 60
+        private const val TIME_FORMATTER_PATTERN = "HH:mm"
+        val timeFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern(TIME_FORMATTER_PATTERN)
     }
 
     @TypeConverter
-    fun reminderToMinutes(reminder: Reminder): Int {
-        return reminder.minute + reminder.hour * MINUTES
+    fun reminderToString(localTime: LocalTime): String {
+        return timeFormatter.format(localTime)
     }
 
     @TypeConverter
-    fun minutesToReminder(timeInMinutes: Int): Reminder {
-        val hours = timeInMinutes / MINUTES
-        val minutes = timeInMinutes - hours * MINUTES
-        return Reminder(hours, minutes)
+    fun formattedTimeToReminder(formattedTime: String): LocalTime {
+        return LocalTime.parse(formattedTime)
     }
 
 }

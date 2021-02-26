@@ -14,11 +14,11 @@ import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.R
-import dev.simecek.routines.database.type.Reminder
 import dev.simecek.routines.databinding.FragmentCreateRoutineBinding
 import dev.simecek.routines.reminder.ReminderHelper
 import dev.simecek.routines.viewModel.CreateRoutineViewModel
 import kotlinx.coroutines.launch
+import java.time.LocalTime
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -47,7 +47,7 @@ class CreateRoutineFragment : Fragment() {
     }
 
     private fun showTimePicker() {
-        val reminder = binding.viewModel?.reminder?.value?: Reminder()
+        val reminder = binding.viewModel?.reminder?.value?: LocalTime.now()
         val timePicker = MaterialTimePicker.Builder()
                 .setTimeFormat(TimeFormat.CLOCK_12H)
                 .setTitleText(R.string.set_reminder)
@@ -55,7 +55,7 @@ class CreateRoutineFragment : Fragment() {
                 .setMinute(reminder.minute)
                 .build()
         timePicker.addOnPositiveButtonClickListener {
-            viewModel.reminder.value = Reminder(timePicker.hour, timePicker.minute)
+            viewModel.reminder.value = LocalTime.of(timePicker.hour, timePicker.minute)
         }
         timePicker.show(parentFragmentManager, "TIME_PICKER")
     }

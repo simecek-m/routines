@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="android.view.View"/>
+        <import type="android.view.View" />
+        <import type="java.time.format.DateTimeFormatter" />
         <variable
             name="viewModel"
             type="dev.simecek.routines.viewModel.CreateRoutineViewModel" />
@@ -127,7 +128,7 @@
                     android:cursorVisible="false"
                     android:focusable="false"
                     tools:text="@string/midday_time"
-                    android:text="@{viewModel.reminder.toString()}" />
+                    android:text="@{viewModel.reminder.format(DateTimeFormatter.ofPattern(`HH:mm`))}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

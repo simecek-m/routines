@@ -8,7 +8,7 @@ import dev.simecek.routines.R
 import dev.simecek.routines.constant.IconPickerSelectedType
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.database.repository.RoutineRepository
-import dev.simecek.routines.database.type.Reminder
+import java.time.LocalTime
 
 class CreateRoutineViewModel @ViewModelInject constructor(
     application: Application,
@@ -17,7 +17,7 @@ class CreateRoutineViewModel @ViewModelInject constructor(
 
     val title: MutableLiveData<String> = MutableLiveData(application.getString(R.string.lunch))
     val icon: MutableLiveData<IconPickerSelectedType> = MutableLiveData(IconPickerSelectedType.IC_BATH)
-    val reminder: MutableLiveData<Reminder> = MutableLiveData(Reminder(LUNCH_TIME_HOUR, LUNCH_TIME_MINUTE))
+    val reminder: MutableLiveData<LocalTime> = MutableLiveData(LocalTime.of(LUNCH_TIME_HOUR, LUNCH_TIME_MINUTE))
 
     fun isTitleLongEnough(text: String): Boolean {
         return compareValues(text.length, MINIMAL_TITLE_LENGTH) >= 0
