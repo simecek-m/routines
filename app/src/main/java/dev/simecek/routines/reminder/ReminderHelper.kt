@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.simecek.routines.broadcast.ReminderBroadcastReceiver
+import java.time.ZonedDateTime
 import java.util.*
 import javax.inject.Inject
 
@@ -25,14 +26,15 @@ class ReminderHelper @Inject constructor(@ApplicationContext var context: Contex
         intent.putExtra(EXTRA_NAME_TITLE, title)
         intent.putExtra(EXTRA_NAME_ID, id)
 
-        val calendar = Calendar.getInstance().apply {
-            set(Calendar.SECOND, 0)
-            set(Calendar.MINUTE, minute)
-            set(Calendar.HOUR_OF_DAY, hour)
-        }
+        val todayReminder:ZonedDateTime = ZonedDateTime.now()
+            .withHour(hour)
+            .withMinute(minute)
+            .withSecond(0)
+            .withNano(0)
+
         alarmManager.setRepeating(
                 AlarmManager.RTC_WAKEUP,
-                calendar.timeInMillis,
+                todayReminder.toEpochSecond(),
                 INTERVAL_DAILY,
                 getPendingIntent(id)
         )
