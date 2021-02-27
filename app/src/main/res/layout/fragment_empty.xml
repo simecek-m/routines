@@ -28,11 +28,11 @@
 
         <ImageView
             android:id="@+id/sad_face_image"
-            style="@style/FullscreenImage"
+            android:src="@drawable/ic_sad_face"
+            app:tint="?attr/colorOnBackground"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:contentDescription="@string/sad_face"
-            android:src="@drawable/ic_sad_face"
             app:layout_constraintBottom_toTopOf="@+id/description_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.3"
