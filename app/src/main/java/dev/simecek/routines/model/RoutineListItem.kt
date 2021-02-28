@@ -6,6 +6,6 @@ import dev.simecek.routines.database.entity.Routine
 sealed class RoutineListItem {
 
     data class RoutineItem(val routine: Routine): RoutineListItem()
-    data class Title(var text: String, var icon: Drawable?): RoutineListItem()
+    data class TitleItem(var text: String, var icon: Drawable?): RoutineListItem()
 
 }

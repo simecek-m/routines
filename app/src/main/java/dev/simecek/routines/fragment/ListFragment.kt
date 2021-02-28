@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +14,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.R
+import dev.simecek.routines.constant.DayPhase
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.databinding.FragmentListBinding
 import dev.simecek.routines.helper.RoutineWidgetHelper
@@ -111,11 +112,33 @@ class ListFragment : Fragment() {
                 val actionEmptyList = ListFragmentDirections.redirectToEmpty(lastDeletedRoutine)
                 findNavController().navigate(actionEmptyList)
             } else {
-                adapter.routines = it
+                adapter.list = getRoutineListWithTitles(it)
                 adapter.notifyDataSetChanged()
             }
             binding.swipeToRefresh.isRefreshing = false
         })
+    }
+
+    private fun getRoutineListWithTitles(routines: List<Routine>): ArrayList<RoutineListItem> {
+        val list = ArrayList<RoutineListItem>()
+        routines.forEachIndexed { index, routine ->
+            if (index == 0 || routine.getDayPhase() != routines[index - 1].getDayPhase()) {
+                list.add(getTitleByDatePhase(routine.getDayPhase()))
+                list.add(RoutineListItem.RoutineItem(routine))
+            } else {
+                list.add(RoutineListItem.RoutineItem(routine))
+            }
+        }
+        return list
+    }
+
+    private fun getTitleByDatePhase(dayPhase: DayPhase): RoutineListItem.TitleItem {
+        return when(dayPhase) {
+            DayPhase.MORNING -> RoutineListItem.TitleItem(requireContext().getString(R.string.morning), ContextCompat.getDrawable(requireContext(), R.drawable.ic_morning))
+            DayPhase.DAY -> RoutineListItem.TitleItem(requireContext().getString(R.string.noon), ContextCompat.getDrawable(requireContext(), R.drawable.ic_sun))
+            DayPhase.EVENING -> RoutineListItem.TitleItem(requireContext().getString(R.string.evening), ContextCompat.getDrawable(requireContext(), R.drawable.ic_cloud))
+            DayPhase.NIGHT -> RoutineListItem.TitleItem(requireContext().getString(R.string.night), ContextCompat.getDrawable(requireContext(), R.drawable.ic_night))
+        }
     }
 
 }

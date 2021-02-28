@@ -13,8 +13,8 @@ import dev.simecek.routines.list.RoutineListAdapter
 class RoutineListAdapterModule {
 
     @Provides
-    fun providesRoutineListAdapter(@ApplicationContext context: Context): RoutineListAdapter {
-        return RoutineListAdapter(context)
+    fun providesRoutineListAdapter(): RoutineListAdapter {
+        return RoutineListAdapter()
     }
 
 }
