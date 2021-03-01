@@ -11,7 +11,15 @@ import dev.simecek.routines.databinding.ViewTitleBinding
 import dev.simecek.routines.listener.FinishRoutineListener
 import dev.simecek.routines.model.RoutineListItem
 
-class RoutineListAdapter(var list: List<RoutineListItem> = ArrayList()): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RoutineListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    val list: ArrayList<RoutineListItem> = ArrayList()
+
+    fun updateList(updatedList: ArrayList<RoutineListItem>) {
+        list.clear()
+        list.addAll(updatedList)
+        notifyDataSetChanged()
+    }
 
     var finishRoutineListener: FinishRoutineListener? = null
 

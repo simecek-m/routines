@@ -112,8 +112,7 @@ class ListFragment : Fragment() {
                 val actionEmptyList = ListFragmentDirections.redirectToEmpty(lastDeletedRoutine)
                 findNavController().navigate(actionEmptyList)
             } else {
-                adapter.list = getRoutineListWithTitles(it)
-                adapter.notifyDataSetChanged()
+                adapter.updateList(getRoutineListWithTitles(it))
             }
             binding.swipeToRefresh.isRefreshing = false
         })
