@@ -62,12 +62,11 @@ class ListFragment : Fragment() {
     }
 
     private val finishRoutineListener = object : FinishRoutineListener {
-        override fun onFinishRoutine(routine: Routine) {
-            listViewModel.finishRoutine(routine)
-            if(listViewModel.getUnfinishedRoutines().isEmpty()) {
-                val redirectToComplete = ListFragmentDirections.redirectToComplete()
-                findNavController().navigate(redirectToComplete)
-            }
+        override fun onFinishRoutine(id: Long) {
+           lifecycleScope.launch {
+               listViewModel.switchFinishState(id)
+               // TODO: check if all routines are finished and redirect to CompleteFragment
+           }
         }
     }
 
@@ -125,7 +124,7 @@ class ListFragment : Fragment() {
                 list.add(getTitleByDatePhase(routine.getDayPhase()))
                 list.add(RoutineListItem.RoutineItem(routine))
             } else {
-                list.add(RoutineListItem.RoutineItem(routine))
+                list.add(RoutineListItem.RoutineItem(routine.copy()))
             }
         }
         return list

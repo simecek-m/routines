@@ -23,10 +23,8 @@ class ListViewModel @ViewModelInject constructor(
         return repository.insert(routine)
     }
 
-    fun finishRoutine(routine: Routine) {
-        viewModelScope.launch {
-            repository.finishRoutine(routine)
-        }
+    suspend fun switchFinishState(id: Long) {
+        repository.switchFinishState(id)
     }
 
     fun getUnfinishedRoutines(): List<Routine> {

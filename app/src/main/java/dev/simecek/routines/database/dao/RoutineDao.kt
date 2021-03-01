@@ -22,4 +22,7 @@ interface RoutineDao {
     @Query("SELECT * FROM Routine ORDER BY reminder ASC")
     suspend fun getAllAsList(): List<Routine>
 
+    @Query("SELECT * FROM Routine WHERE id = :id")
+    suspend fun getRoutine(id: Long): Routine
+
 }

@@ -28,7 +28,12 @@ class RoutineRepository @Inject constructor(private val routineDao: RoutineDao) 
         routineDao.delete(routine)
     }
 
-    suspend fun finishRoutine(routine: Routine) {
+    suspend fun get(id: Long) {
+        routineDao.getRoutine(id)
+    }
+
+    suspend fun switchFinishState(id: Long) {
+        val routine = routineDao.getRoutine(id)
         if(routine.isFinished()) {
             routine.lastFinished = null
         } else {

@@ -2,9 +2,11 @@ package dev.simecek.routines.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.paris.extensions.style
 import dev.simecek.routines.R
+import dev.simecek.routines.callback.RoutineListDiffCallback
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.databinding.ViewRoutineBinding
 import dev.simecek.routines.databinding.ViewTitleBinding
@@ -16,9 +18,11 @@ class RoutineListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val list: ArrayList<RoutineListItem> = ArrayList()
 
     fun updateList(updatedList: ArrayList<RoutineListItem>) {
+        val diffCallback = RoutineListDiffCallback(list, updatedList)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
         list.clear()
         list.addAll(updatedList)
-        notifyDataSetChanged()
+        diffResult.dispatchUpdatesTo(this)
     }
 
     var finishRoutineListener: FinishRoutineListener? = null
@@ -63,7 +67,7 @@ class RoutineListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 routineViewHolder.binding.routine = routine
                 setCorrectIconStyle(routineViewHolder, routine)
                 routineViewHolder.itemView.setOnClickListener {
-                    finishRoutineListener?.onFinishRoutine(routine)
+                    finishRoutineListener?.onFinishRoutine(routine.id)
                 }
             }
             TITLE_VIEW_TYPE -> {
