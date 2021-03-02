@@ -17,4 +17,16 @@
         <item name="android:backgroundTint">@color/brand</item>
     </style>
 
+    <style name="ExtendedFloatingActionButton" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="iconTint">?attr/colorOnPrimary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="RoutineWidget">
+        <item name="android:backgroundTint">?attr/colorSurface</item>
+        <item name="android:elevation">2dp</item>
+    </style>
+
 </resources>
