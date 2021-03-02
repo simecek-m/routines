@@ -7,7 +7,6 @@ import android.content.Intent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.simecek.routines.broadcast.ReminderBroadcastReceiver
 import java.time.ZonedDateTime
-import java.util.*
 import javax.inject.Inject
 
 class ReminderHelper @Inject constructor(@ApplicationContext var context: Context) {
@@ -32,9 +31,11 @@ class ReminderHelper @Inject constructor(@ApplicationContext var context: Contex
             .withSecond(0)
             .withNano(0)
 
+        val reminderTimeInMillis = todayReminder.toInstant().toEpochMilli()
+
         alarmManager.setRepeating(
                 AlarmManager.RTC_WAKEUP,
-                todayReminder.toEpochSecond(),
+                reminderTimeInMillis,
                 INTERVAL_DAILY,
                 getPendingIntent(id)
         )
@@ -44,8 +45,8 @@ class ReminderHelper @Inject constructor(@ApplicationContext var context: Contex
         alarmManager.cancel(getPendingIntent(id))
     }
 
-
     private fun getPendingIntent(id: Int): PendingIntent {
         return PendingIntent.getBroadcast(context, id, intent, 0)
     }
+
 }
