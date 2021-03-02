@@ -25,11 +25,17 @@ class ReminderHelper @Inject constructor(@ApplicationContext var context: Contex
         intent.putExtra(EXTRA_NAME_TITLE, title)
         intent.putExtra(EXTRA_NAME_ID, id)
 
-        val todayReminder:ZonedDateTime = ZonedDateTime.now()
+        val now = ZonedDateTime.now()
+
+        var todayReminder = now
             .withHour(hour)
             .withMinute(minute)
             .withSecond(0)
             .withNano(0)
+
+        if(todayReminder.isBefore(now)) {
+            todayReminder = todayReminder.plusDays(1)
+        }
 
         val reminderTimeInMillis = todayReminder.toInstant().toEpochMilli()
 
