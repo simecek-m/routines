@@ -42,4 +42,8 @@ class RoutineRepository @Inject constructor(private val routineDao: RoutineDao) 
         routineDao.update(routine)
     }
 
+    suspend fun getAllUnfinishedRoutinesAsList(): List<Routine> {
+        return routineDao.getAllUnfinishedRoutinesAsList()
+    }
+
 }

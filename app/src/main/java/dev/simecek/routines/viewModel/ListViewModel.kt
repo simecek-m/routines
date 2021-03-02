@@ -27,8 +27,8 @@ class ListViewModel @ViewModelInject constructor(
         repository.switchFinishState(id)
     }
 
-    fun getUnfinishedRoutines(): List<Routine> {
-        return routines.value!!.filter { routine -> !routine.isFinished() }
+    suspend fun getAllUnfinishedRoutines(): List<Routine> {
+        return repository.getAllUnfinishedRoutinesAsList()
     }
 
 }

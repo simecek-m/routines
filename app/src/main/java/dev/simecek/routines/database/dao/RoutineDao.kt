@@ -3,6 +3,7 @@ package dev.simecek.routines.database.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import dev.simecek.routines.database.entity.Routine
+import java.time.LocalDate
 
 @Dao
 interface RoutineDao {
@@ -24,5 +25,8 @@ interface RoutineDao {
 
     @Query("SELECT * FROM Routine WHERE id = :id")
     suspend fun getRoutine(id: Long): Routine
+
+    @Query("SELECT * FROM Routine WHERE last_finished NOT LIKE :today OR last_finished IS NULL")
+    suspend fun getAllUnfinishedRoutinesAsList(today: String = LocalDate.now().toString()): List<Routine>
 
 }
