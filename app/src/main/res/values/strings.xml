@@ -36,7 +36,6 @@
     <string name="icon">Icon</string>
     <string name="create">Create</string>
     <string name="midday_time" translatable="false">12:00</string>
-    <string name="set_reminder">Set reminder</string>
     <string name="feature_not_supported">This feature is not supported yet!</string>
     <string name="reminder">Reminder</string>
     <string name="noon">Noon</string>
@@ -57,4 +56,5 @@
     <string name="restore_routine">Restore routine</string>
     <string name="notification_channel_reminders_name">Reminders</string>
     <string name="notification_channel_reminders_description">Notifies you when routine is about to start</string>
+    <string name="routines_reminder">Routine\'s reminder</string>
 </resources>

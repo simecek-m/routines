@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_KEYBOARD
 import com.google.android.material.timepicker.TimeFormat
 import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.R
@@ -49,10 +50,11 @@ class CreateRoutineFragment : Fragment() {
     private fun showTimePicker() {
         val reminder = binding.viewModel?.reminder?.value?: LocalTime.now()
         val timePicker = MaterialTimePicker.Builder()
-                .setTimeFormat(TimeFormat.CLOCK_12H)
-                .setTitleText(R.string.set_reminder)
+                .setTimeFormat(TimeFormat.CLOCK_24H)
+                .setTitleText(R.string.routines_reminder)
                 .setHour(reminder.hour)
                 .setMinute(reminder.minute)
+                .setInputMode(INPUT_MODE_KEYBOARD)
                 .build()
         timePicker.addOnPositiveButtonClickListener {
             viewModel.reminder.value = LocalTime.of(timePicker.hour, timePicker.minute)

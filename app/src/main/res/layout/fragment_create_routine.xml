@@ -28,7 +28,6 @@
                 app:layout_constraintWidth_percent="@dimen/max_input_width_percent"
                 android:layout_height="wrap_content"
                 app:icon="@drawable/ic_title"
-                android:layout_marginTop="@dimen/space_big"
                 app:layout_constraintVertical_chainStyle="packed"
                 app:layout_constraintBottom_toTopOf="@+id/title_text_layout"
                 app:layout_constraintEnd_toEndOf="parent"

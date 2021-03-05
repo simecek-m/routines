@@ -6,7 +6,6 @@
         <item name="iconSize">@dimen/button_icon_size</item>
         <item name="android:padding">@dimen/button_padding</item>
         <item name="android:textSize">@dimen/button_text_size</item>
-        <item name="android:textStyle">bold</item>
         <item name="backgroundTint">?attr/colorPrimary</item>
     </style>
 
@@ -20,7 +19,6 @@
         <item name="backgroundTint">?attr/colorPrimary</item>
         <item name="iconTint">?attr/colorOnPrimary</item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
-        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
@@ -41,8 +39,8 @@
     </style>
 
     <style name="TextInputEditText" parent="Widget.MaterialComponents.TextInputEditText.FilledBox">
-        <item name="android:textStyle">bold</item>
-        <item name="android:padding">20dp</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+        <item name="android:padding">14dp</item>
         <item name="android:maxLength">25</item>
     </style>
 
@@ -63,13 +61,12 @@
     </style>
 
     <style name="TitleText">
-        <item name="android:textColor">?attr/colorOnPrimary</item>
-        <item name="fontFamily">@font/quicksand_bold</item>
-        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline4</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
     </style>
 
     <style name="TitleIcon">
-        <item name="android:backgroundTint">?attr/colorOnPrimary</item>
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
         <item name="android:layout_marginEnd">@dimen/space_small</item>
     </style>
 
@@ -92,9 +89,7 @@
     <style name="FullscreenTitle">
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">?attr/colorOnBackground</item>
-        <item name="android:textSize">@dimen/font_size_huge</item>
-        <item name="fontFamily">@font/quicksand_bold</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline2</item>
     </style>
 
     <style name="FullscreenDescription">
@@ -102,7 +97,17 @@
         <item name="android:lineSpacingMultiplier">@dimen/line_spacing_bigger</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">?attr/colorOnBackground</item>
-        <item name="android:textSize">@dimen/font_size_medium</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="TimePickerMaterialTheme" parent="ThemeOverlay.MaterialComponents.TimePicker">
+        <item name="chipStyle">@style/TimePicker.Display</item>
+    </style>
+
+    <style name="TimePicker.Display" parent="Widget.MaterialComponents.TimePicker.Display">
+        <item name="android:textAppearance">?attr/textAppearanceHeadline3</item>
+        <item name="android:textSize">@dimen/time_picker_time_text_size</item>
     </style>
 
 </resources>
