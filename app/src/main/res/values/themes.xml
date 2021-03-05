@@ -16,111 +16,20 @@
         <item name="colorOnSurface">@color/black</item>
         <item name="colorError">@color/error</item>
         <item name="colorOnError">@color/white</item>
-        <!-- Status bar color. -->
+        <!-- Status bar color -->
         <item name="android:statusBarColor" tools:targetApi="m">@color/transparent</item>
         <item name="android:navigationBarColor">@color/transparent</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
-        <!-- Customize your theme here. -->
+        <!-- Theme customization -->
         <item name="textInputStyle">@style/TextInputLayout</item>
         <item name="extendedFloatingActionButtonStyle">@style/ExtendedFloatingActionButton</item>
         <item name="fontFamily">@font/quicksand</item>
         <item name="materialButtonStyle">@style/Button</item>
     </style>
 
-    <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
-        <item name="boxBackgroundColor">@color/gray_light</item>
-        <item name="boxStrokeWidth">0dp</item>
-        <item name="boxStrokeWidthFocused">0dp</item>
-        <item name="startIconTint">@color/black</item>
-        <item name="materialThemeOverlay">@style/MaterialThemeOverlay</item>
-        <item name="boxCornerRadiusTopStart">@dimen/corner_radius</item>
-        <item name="boxCornerRadiusTopEnd">@dimen/corner_radius</item>
-        <item name="boxCornerRadiusBottomStart">@dimen/corner_radius</item>
-        <item name="boxCornerRadiusBottomEnd">@dimen/corner_radius</item>
-    </style>
-
-    <style name="MaterialThemeOverlay" parent="ThemeOverlay.MaterialComponents.TextInputEditText.FilledBox">
-        <item name="editTextStyle">@style/TextInputEditText</item>
-        <item name="colorControlActivated">@color/black</item>
-    </style>
-
-    <style name="TextInputEditText" parent="Widget.MaterialComponents.TextInputEditText.FilledBox">
-        <item name="android:textStyle">bold</item>
-        <item name="android:padding">20dp</item>
-        <item name="android:maxLength">25</item>
-    </style>
-
-    <style name="IconPicker">
-        <item name="android:background">@drawable/shape_square_radius</item>
-        <item name="backgroundTint">@color/gray_light</item>
-    </style>
-
-    <style name="Icon">
-        <item name="android:tint">@color/gray_dark</item>
-        <item name="android:backgroundTint">@color/transparent</item>
-    </style>
-
-    <style name="Icon.Selected">
-        <item name="android:tint">@color/white</item>
-        <item name="android:background">@drawable/shape_circle</item>
-        <item name="android:backgroundTint">@color/gray_dark</item>
-    </style>
-
-    <style name="TextHeader">
-        <item name="android:layout_marginTop">@dimen/space_medium</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/font_size_medium</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="TitleText">
-        <item name="android:textColor">@color/white</item>
-        <item name="fontFamily">@font/quicksand_bold</item>
-        <item name="android:textSize">@dimen/title_text_size</item>
-    </style>
-
-    <style name="TitleIcon">
-        <item name="android:backgroundTint">@color/white</item>
-        <item name="android:layout_marginEnd">@dimen/space_small</item>
-    </style>
-
-    <style name="RoutineWidgetText">
-        <item name="android:textColor">@color/black</item>
-    </style>
-
-    <style name="RoutineWidgetIcon">
-        <item name="android:backgroundTint">@color/black</item>
-    </style>
-
-    <style name="Button" parent="Button.Base">
-        <item name="backgroundTint">@color/button_black</item>
-    </style>
-
-    <style name="FullscreenTitle">
-        <item name="android:textAllCaps">true</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/font_size_huge</item>
-        <item name="fontFamily">@font/quicksand_bold</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
     <style name="ThemedLogo">
         <item name="android:src">@drawable/ic_logo</item>
-    </style>
-
-    <style name="FullscreenDescription">
-        <item name="android:layout_marginTop">@dimen/space_small</item>
-        <item name="android:lineSpacingMultiplier">@dimen/line_spacing_bigger</item>
-        <item name="android:textAlignment">center</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/font_size_medium</item>
-    </style>
-
-    <style name="Button.Text" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="iconGravity">textStart</item>
-        <item name="iconTint">@color/black</item>
-        <item name="android:textColor">@color/black</item>
     </style>
 
 </resources>

@@ -73,7 +73,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/create_button"
-            style="@style/Button.Brand"
+            style="@style/Button"
             android:layout_width="@dimen/max_button_size"
             android:layout_height="wrap_content"
             android:text="@string/create"

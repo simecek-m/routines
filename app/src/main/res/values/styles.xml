@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Button.Base" parent="Widget.MaterialComponents.Button">
+    <style name="Button" parent="Widget.MaterialComponents.Button">
         <item name="iconGravity">textStart</item>
         <item name="iconSize">@dimen/button_icon_size</item>
         <item name="android:padding">@dimen/button_padding</item>
         <item name="android:textSize">@dimen/button_text_size</item>
         <item name="android:textStyle">bold</item>
+        <item name="backgroundTint">?attr/colorPrimary</item>
     </style>
 
-    <style name="Button.Brand" parent="Button.Base">
-        <item name="backgroundTint">@color/brand</item>
-    </style>
-
-    <style name="RoutineWidgetIcon.Finished">
-        <item name="android:backgroundTint">@color/brand</item>
+    <style name="Button.Text" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="iconGravity">textStart</item>
+        <item name="iconTint">?attr/colorOnPrimary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
 
     <style name="ExtendedFloatingActionButton" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
@@ -24,9 +23,86 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">?attr/colorSurface</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="startIconTint">?attr/colorOnSurface</item>
+        <item name="materialThemeOverlay">@style/MaterialThemeOverlay</item>
+        <item name="boxCornerRadiusTopStart">@dimen/corner_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/corner_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/corner_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/corner_radius</item>
+    </style>
+
+    <style name="MaterialThemeOverlay" parent="ThemeOverlay.MaterialComponents.TextInputEditText.FilledBox">
+        <item name="editTextStyle">@style/TextInputEditText</item>
+        <item name="colorControlActivated">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="TextInputEditText" parent="Widget.MaterialComponents.TextInputEditText.FilledBox">
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:maxLength">25</item>
+    </style>
+
+    <style name="IconPicker">
+        <item name="android:background">@drawable/shape_square_radius</item>
+        <item name="android:backgroundTint">?attr/colorSurface</item>
+    </style>
+
+    <style name="Icon">
+        <item name="android:tint">?attr/colorOnSurface</item>
+        <item name="android:backgroundTint">@color/transparent</item>
+    </style>
+
+    <style name="Icon.Selected">
+        <item name="android:tint">?attr/colorSurface</item>
+        <item name="android:background">@drawable/shape_circle</item>
+        <item name="android:backgroundTint">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="TitleText">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="fontFamily">@font/quicksand_bold</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
+    </style>
+
+    <style name="TitleIcon">
+        <item name="android:backgroundTint">?attr/colorOnPrimary</item>
+        <item name="android:layout_marginEnd">@dimen/space_small</item>
+    </style>
+
     <style name="RoutineWidget">
         <item name="android:backgroundTint">?attr/colorSurface</item>
-        <item name="android:elevation">2dp</item>
+    </style>
+
+    <style name="RoutineWidgetText">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="RoutineWidgetIcon">
+        <item name="android:backgroundTint">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="RoutineWidgetIcon.Finished">
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+    </style>
+
+    <style name="FullscreenTitle">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">@dimen/font_size_huge</item>
+        <item name="fontFamily">@font/quicksand_bold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FullscreenDescription">
+        <item name="android:layout_marginTop">@dimen/space_small</item>
+        <item name="android:lineSpacingMultiplier">@dimen/line_spacing_bigger</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">@dimen/font_size_medium</item>
     </style>
 
 </resources>
