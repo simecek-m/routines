@@ -27,7 +27,6 @@
                 android:layout_width="0dp"
                 app:layout_constraintWidth_percent="@dimen/max_input_width_percent"
                 android:layout_height="wrap_content"
-                app:icon="@drawable/ic_title"
                 app:layout_constraintVertical_chainStyle="packed"
                 app:layout_constraintBottom_toTopOf="@+id/title_text_layout"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +75,6 @@
                 android:id="@+id/header_icon"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:icon="@drawable/ic_icon"
                 android:layout_marginTop="@dimen/space_medium"
                 app:layout_constraintBottom_toTopOf="@+id/icon_picker"
                 app:layout_constraintEnd_toEndOf="@+id/title_text_layout"
@@ -99,7 +97,6 @@
                 android:id="@+id/header_reminder"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:icon="@drawable/ic_alarm"
                 android:layout_marginTop="@dimen/space_medium"
                 app:layout_constraintBottom_toTopOf="@+id/time_picker"
                 app:layout_constraintEnd_toEndOf="@+id/icon_picker"
@@ -118,7 +115,7 @@
                 app:layout_constraintStart_toStartOf="@+id/header_reminder"
                 app:layout_constraintTop_toBottomOf="@+id/header_reminder"
                 app:layout_constraintWidth_percent="@dimen/max_input_width_percent"
-                app:startIconDrawable="@drawable/ic_reminder">
+                app:startIconDrawable="@drawable/ic_alarm">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/time_picker_input"
