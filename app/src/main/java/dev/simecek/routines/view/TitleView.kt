@@ -1,6 +1,7 @@
 package dev.simecek.routines.view
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -14,8 +15,12 @@ class TitleView(context: Context, attrs: AttributeSet?) : ConstraintLayout(conte
         val binding: ViewTitleBinding = ViewTitleBinding.inflate(LayoutInflater.from(context), this, true)
         val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.TitleView,0, 0)
         val text: String = styledAttributes.getString(R.styleable.TitleView_text)?: context.getString(R.string.title)
-        val icon = styledAttributes.getDrawable(R.styleable.TitleView_icon)?: ContextCompat.getDrawable(context, R.drawable.ic_icon)
+        val icon: Drawable? = styledAttributes.getDrawable(R.styleable.TitleView_icon)
         binding.text.text = text
-        binding.icon.background = icon
+        if(icon == null) {
+            binding.icon.visibility = GONE
+        } else {
+            binding.icon.background = icon
+        }
     }
 }
