@@ -21,6 +21,7 @@ import dev.simecek.routines.helper.RoutineWidgetHelper
 import dev.simecek.routines.list.RoutineListAdapter
 import dev.simecek.routines.listener.DeleteRoutineListener
 import dev.simecek.routines.listener.FinishRoutineListener
+import dev.simecek.routines.listener.OnClickListener
 import dev.simecek.routines.model.RoutineListItem
 import dev.simecek.routines.reminder.ReminderHelper
 import dev.simecek.routines.viewModel.ListViewModel
@@ -78,6 +79,13 @@ class ListFragment : Fragment() {
         loadRoutines()
     }
 
+    private val redirectToCreateOnClick = object : OnClickListener {
+        override fun onClick() {
+            val redirectToCreate = ListFragmentDirections.redirectToCreate()
+            findNavController().navigate(redirectToCreate)
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -87,10 +95,6 @@ class ListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.createButton.setOnClickListener {
-            val redirectToCreate = ListFragmentDirections.redirectToCreate()
-            findNavController().navigate(redirectToCreate)
-        }
         recyclerViewSetup()
         gesturesSetup()
         loadRoutines()
@@ -131,6 +135,7 @@ class ListFragment : Fragment() {
                 list.add(RoutineListItem.RoutineItem(routine))
             }
         }
+        list.add(RoutineListItem.TextButtonItem(getString(R.string.add), ContextCompat.getDrawable(requireContext(), R.drawable.ic_add_circle), redirectToCreateOnClick))
         return list
     }
 

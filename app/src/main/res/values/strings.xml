@@ -57,4 +57,5 @@
     <string name="notification_channel_reminders_name">Reminders</string>
     <string name="notification_channel_reminders_description">Notifies you when routine is about to start</string>
     <string name="routines_reminder">Routine\'s reminder</string>
+    <string name="add">Add</string>
 </resources>
