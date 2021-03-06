@@ -62,8 +62,8 @@
     </style>
 
     <style name="TitleText">
-        <item name="android:textAppearance">?attr/textAppearanceHeadline4</item>
         <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline5</item>
     </style>
 
     <style name="TitleIcon">
@@ -91,7 +91,7 @@
     <style name="FullscreenTitle">
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">?attr/colorOnBackground</item>
-        <item name="android:textAppearance">?attr/textAppearanceHeadline2</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline3</item>
     </style>
 
     <style name="FullscreenDescription">
@@ -100,7 +100,6 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">?attr/colorOnBackground</item>
         <item name="android:textAppearance">?attr/textAppearanceBody1</item>
-        <item name="android:textStyle">italic</item>
     </style>
 
     <style name="TimePickerMaterialTheme" parent="ThemeOverlay.MaterialComponents.TimePicker">
