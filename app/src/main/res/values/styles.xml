@@ -75,6 +75,7 @@
     </style>
 
     <style name="RoutineWidgetText">
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
         <item name="android:textColor">?attr/colorOnSurface</item>
     </style>
 
