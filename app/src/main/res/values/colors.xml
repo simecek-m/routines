@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="brand">#1bcf4b</color>
-    <color name="brand_dark">#11bf40</color>
+    <color name="brand_light">#4fe877</color>
+    <color name="brand">#10c73f</color>
+    <color name="brand_dark">#02a12a</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
-    <color name="gray">#C8C8C8</color>
-    <color name="gray_light">#F1F1F1</color>
-    <color name="gray_dark">#242424</color>
+    <color name="gray_light">#f5f5f5</color>
+    <color name="gray">#292929</color>
+    <color name="gray_dark">#121212</color>
     <color name="transparent">#00000000</color>
     <color name="error">#FC0330</color>
 </resources>
