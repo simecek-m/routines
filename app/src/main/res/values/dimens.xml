@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="corner_radius">15dp</dimen>
+    <dimen name="corner_radius">16dp</dimen>
 
-    <dimen name="icon_picker_icon_size">50dp</dimen>
-    <dimen name="icon_picker_icon_padding">10dp</dimen>
-    <dimen name="icon_picker_icon_margin">5dp</dimen>
-    <dimen name="icon_picker_vertical_margin">20dp</dimen>
+    <dimen name="icon_picker_icon_size">48dp</dimen>
+    <dimen name="icon_picker_icon_padding">8dp</dimen>
+    <dimen name="icon_picker_icon_margin">4dp</dimen>
+    <dimen name="icon_picker_vertical_margin">16dp</dimen>
 
-    <dimen name="space_small">10dp</dimen>
-    <dimen name="space_medium">20dp</dimen>
-    <dimen name="space_big">30dp</dimen>
+    <dimen name="space_small">8dp</dimen>
+    <dimen name="space_medium">16dp</dimen>
+    <dimen name="space_big">32dp</dimen>
 
     <dimen name="font_size_huge">48sp</dimen>
     <dimen name="font_size_big">32sp</dimen>
@@ -17,12 +17,12 @@
     <dimen name="font_size_small">16sp</dimen>
 
     <dimen name="max_button_size">250dp</dimen>
-    <item name="line_spacing_bigger" type="dimen" format="float">1.2</item>
+    <dimen name="line_spacing_bigger">1.2</dimen>
 
     <dimen name="max_input_width_percent">0.8</dimen>
 
     <dimen name="title_text_size">24sp</dimen>
-    <dimen name="title_icon_size">35dp</dimen>
+    <dimen name="title_icon_size">36dp</dimen>
 
     <dimen name="button_text_size">16sp</dimen>
     <dimen name="button_icon_size">20dp</dimen>
@@ -34,6 +34,6 @@
 
     <dimen name="recycler_view_bottom_padding">100dp</dimen>
 
-    <dimen name="time_picker_time_text_size">38sp</dimen>
+    <dimen name="time_picker_time_text_size">32sp</dimen>
 
 </resources>
