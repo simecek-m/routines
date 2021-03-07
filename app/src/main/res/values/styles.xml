@@ -73,7 +73,6 @@
 
     <style name="RoutineWidget">
         <item name="android:backgroundTint">?attr/colorSurface</item>
-        <item name="android:elevation">@dimen/routine_widget_elevation</item>
     </style>
 
     <style name="RoutineWidgetText">

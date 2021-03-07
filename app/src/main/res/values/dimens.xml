@@ -30,7 +30,6 @@
 
     <dimen name="routine_widget_reminder_icon_size">20sp</dimen>
     <dimen name="routine_widget_icon_size">50sp</dimen>
-    <dimen name="routine_widget_elevation">2dp</dimen>
 
     <dimen name="recycler_view_bottom_padding">100dp</dimen>
 
