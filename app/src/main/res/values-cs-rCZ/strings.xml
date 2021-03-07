@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ICON CONTENT DESCRIPTION -->
+    <string name="icon_loop">Ikona cyklu</string>
+    <string name="icon_school">Ikona školy</string>
+    <string name="icon_walk">Ikona chůze</string>
+    <string name="icon_work">Ikona práce</string>
+    <string name="icon_book">Ikona knihy</string>
+    <string name="icon_meditation">Ikona meditace</string>
+    <string name="icon_sport">Ikona sportu</string>
+    <string name="icon_food">Ikona jídla</string>
+    <string name="icon_gym">Ikona posilovny</string>
+    <string name="icon_bath">Ikona koupelny</string>
+    <string name="icon_tooth_brush">Ikona kartáčku</string>
+    <string name="icon_pet">Ikona mazlíčka</string>
+    <string name="icon_compass">Ikona kompasu</string>
+    <string name="icon_beer">Ikona piva</string>
+    <string name="icon_chat">Ikona chatu</string>
+
+    <!--  MOTIVATION  -->
+    <string name="motivation_one">Nepřestávej, když jsi unavený. Přestaň když jsi hotový.</string>
+    <string name="motivation_two">To maličkosti tvoří velké dny.</string>
+    <string name="motivation_three">Tajemství v tom jak se zlepšit spočívá v tom začít.</string>
+
+    <!--  TEXT  -->
+    <string name="list">Seznam</string>
+    <string name="empty">Prázdno</string>
+    <string name="empty_description">Nemáte žádnou rutinu. Zkuste vytvořit Vaši první!</string>
+    <string name="routine">Rutina</string>
+    <string name="sad_face">Smutný smajlík</string>
+    <string name="awesome">Skvěle</string>
+    <string name="logo">Logo</string>
+    <string name="complete_description">Všechny Vaše ruiny jsou pro dnešek splněné!</string>
+    <string name="resume">Pokračovat</string>
+    <string name="title">Název</string>
+    <string name="icon">Ikona</string>
+    <string name="create">Vytvořit</string>
+    <string name="feature_not_supported">Tato funkce není prozatím dostupná!</string>
+    <string name="reminder">Připomenutí</string>
+    <string name="noon">Poledne</string>
+    <string name="text_too_short">Příliš krátký text</string>
+    <string name="lunch">Oběd</string>
+    <string name="error_while_creating_routine">Chyba při vytváření nové rutiny!</string>
+    <string name="title_icon">Ikona názvu</string>
+    <string name="routine_icon">Ikona rutiny</string>
+    <string name="icon_alarm">Ikona budíku</string>
+    <string name="morning">Ráno</string>
+    <string name="evening">Večer</string>
+    <string name="night">Noc</string>
+    <string name="routine_deleted">Rutina byla smazána!</string>
+    <string name="undo">Vrátit</string>
+    <string name="save">Uložit</string>
+    <string name="routine_restore_error">Rutina nemůže být obnovena!</string>
+    <string name="restore_routine">Obnovit rutinu</string>
+    <string name="notification_channel_reminders_name">Připomenutí</string>
+    <string name="notification_channel_reminders_description">Upozornění na rutiny, které právě začaly.</string>
+    <string name="add">Přidat</string>
+</resources>

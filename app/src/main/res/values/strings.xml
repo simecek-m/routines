@@ -22,14 +22,14 @@
     <string name="motivation_three">The secret of getting ahead is getting started.</string>
 
     <!--  TEXT  -->
-    <string name="app_name">Routines</string>
+    <string name="app_name" translatable="false">Routines</string>
     <string name="list">List</string>
     <string name="empty">Empty</string>
-    <string name="empty_description">You have no routines!\nTry to create your first one!</string>
+    <string name="empty_description">You have no routines.\nTry to create your first one!</string>
     <string name="routine">Routine</string>
-    <string name="sad_face">sad face</string>
+    <string name="sad_face">Sad face</string>
     <string name="awesome">Awesome</string>
-    <string name="logo">logo</string>
+    <string name="logo">Logo</string>
     <string name="complete_description">All your routines were completed today!</string>
     <string name="resume">Resume</string>
     <string name="title">Title</string>
@@ -41,7 +41,7 @@
     <string name="noon">Noon</string>
     <string name="text_too_short">Text is too short</string>
     <string name="lunch">Lunch</string>
-    <string name="error_while_creating_routine">Error occurred while creating new routine</string>
+    <string name="error_while_creating_routine">Error occurred while creating new routine!</string>
     <string name="title_icon">Title icon</string>
     <string name="lunch_time" translatable="false">12:00</string>
     <string name="routine_icon">Routine icon</string>
@@ -49,13 +49,12 @@
     <string name="morning">Morning</string>
     <string name="evening">Evening</string>
     <string name="night">Night</string>
-    <string name="routine_deleted">Routine was deleted</string>
+    <string name="routine_deleted">Routine was deleted!</string>
     <string name="undo">Undo</string>
     <string name="save">Save</string>
-    <string name="routine_restore_error">Routine can\'t be restored</string>
+    <string name="routine_restore_error">Routine can\'t be restored!</string>
     <string name="restore_routine">Restore routine</string>
     <string name="notification_channel_reminders_name">Reminders</string>
-    <string name="notification_channel_reminders_description">Notifies you when routine is about to start</string>
-    <string name="routines_reminder">Routine\'s reminder</string>
+    <string name="notification_channel_reminders_description">Notifies you when routine is about to start.</string>
     <string name="add">Add</string>
 </resources>

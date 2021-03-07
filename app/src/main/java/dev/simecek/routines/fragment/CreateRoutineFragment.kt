@@ -51,7 +51,7 @@ class CreateRoutineFragment : Fragment() {
         val reminder = binding.viewModel?.reminder?.value?: LocalTime.now()
         val timePicker = MaterialTimePicker.Builder()
                 .setTimeFormat(TimeFormat.CLOCK_24H)
-                .setTitleText(R.string.routines_reminder)
+                .setTitleText(R.string.reminder)
                 .setHour(reminder.hour)
                 .setMinute(reminder.minute)
                 .setInputMode(INPUT_MODE_KEYBOARD)
