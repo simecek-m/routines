@@ -3,7 +3,6 @@ package dev.simecek.routines.database.converter
 import androidx.room.TypeConverter
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
-import java.util.*
 
 // Converter for Reminder database field
 // calculate minutes from Reminder time to save it into DB and vice versa
