@@ -53,6 +53,7 @@
     <style name="Icon">
         <item name="android:tint">?attr/colorOnSurface</item>
         <item name="android:backgroundTint">@color/transparent</item>
+        <item name="android:padding">@dimen/icon_picker_icon_padding</item>
     </style>
 
     <style name="Icon.Selected">
