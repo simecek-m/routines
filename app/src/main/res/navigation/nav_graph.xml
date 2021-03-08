@@ -14,15 +14,24 @@
         <action
             android:id="@+id/redirect_to_empty"
             app:destination="@id/emptyFragment"
+            app:enterAnim="@android:anim/fade_in"
             app:launchSingleTop="false"
             app:popUpTo="@id/listFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/redirect_to_complete"
-            app:destination="@id/completeFragment"/>
+            app:destination="@id/completeFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right" />
         <action
             android:id="@+id/redirect_to_create"
-            app:destination="@id/createRoutineFragment" />
+            app:destination="@id/createRoutineFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right" />
     </fragment>
     <fragment
         android:id="@+id/emptyFragment"
@@ -31,7 +40,11 @@
         tools:layout="@layout/fragment_empty" >
         <action
             android:id="@+id/redirect_to_create_first"
-            app:destination="@id/createRoutineFragment" />
+            app:destination="@id/createRoutineFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right" />
         <argument
             android:name="lastDeletedRoutine"
             app:argType="dev.simecek.routines.database.entity.Routine"
@@ -40,6 +53,7 @@
         <action
             android:id="@+id/redirect_back_to_list"
             app:destination="@id/listFragment"
+            app:enterAnim="@android:anim/fade_in"
             app:popUpTo="@id/emptyFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -56,6 +70,8 @@
         <action
             android:id="@+id/return_to_list"
             app:destination="@id/listFragment"
+            app:enterAnim="@anim/slide_in_from_left"
+            app:exitAnim="@anim/slide_out_to_right"
             app:popUpTo="@id/nav_graph" />
     </fragment>
 </navigation>
