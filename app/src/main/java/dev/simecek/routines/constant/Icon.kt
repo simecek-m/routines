@@ -1,6 +1,6 @@
 package dev.simecek.routines.constant
 
-enum class IconPickerSelectedType {
+enum class Icon {
     IC_LOOP,
     IC_SCHOOL,
     IC_WALK,

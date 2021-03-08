@@ -11,7 +11,7 @@ import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
 import com.airbnb.paris.extensions.style
 import dev.simecek.routines.R
-import dev.simecek.routines.constant.IconPickerSelectedType
+import dev.simecek.routines.constant.Icon
 import dev.simecek.routines.databinding.ViewIconPickerBinding
 import dev.simecek.routines.listener.IconPickerListener
 
@@ -21,11 +21,11 @@ class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(
     private var selectedIcon: Int = 0
     var listener: IconPickerListener? = null
 
-    fun getSelectedIcon():IconPickerSelectedType {
-        return IconPickerSelectedType.values()[selectedIcon]
+    fun getSelectedIcon():Icon {
+        return Icon.values()[selectedIcon]
     }
 
-    fun setSelectedIcon(icon: IconPickerSelectedType) {
+    fun setSelectedIcon(icon: Icon) {
         refreshUI(selectedIcon, icon.ordinal)
         selectedIcon = icon.ordinal
         listener?.onSelectedIconChanged()
@@ -84,13 +84,13 @@ class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(
 
         @JvmStatic
         @InverseBindingAdapter(attribute = "app:selectedIcon")
-        fun getSelectedIcon(view: IconPickerView): IconPickerSelectedType {
+        fun getSelectedIcon(view: IconPickerView): Icon {
             return view.getSelectedIcon()
         }
 
         @JvmStatic
         @BindingAdapter("app:selectedIcon")
-        fun setSelectedIcon(view: IconPickerView, icon: IconPickerSelectedType) {
+        fun setSelectedIcon(view: IconPickerView, icon: Icon) {
             if(view.selectedIcon != icon.ordinal) {
                 view.setSelectedIcon(icon)
             }

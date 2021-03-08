@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <import type="dev.simecek.routines.constant.IconPickerSelectedType" alias="ICON"/>
+        <import type="dev.simecek.routines.constant.Icon" alias="ICON"/>
         <variable
             name="view"
             type="dev.simecek.routines.view.IconPickerView" />

@@ -1,17 +1,17 @@
 package dev.simecek.routines.database.converter
 
 import androidx.room.TypeConverter
-import dev.simecek.routines.constant.IconPickerSelectedType
+import dev.simecek.routines.constant.Icon
 
 class IconPickerConverter {
 
     @TypeConverter
-    fun iconFromInt(value: Int): IconPickerSelectedType {
-        return IconPickerSelectedType.values()[value]
+    fun iconFromInt(value: Int): Icon {
+        return Icon.values()[value]
     }
 
     @TypeConverter
-    fun iconToInt(icon: IconPickerSelectedType): Int {
+    fun iconToInt(icon: Icon): Int {
         return icon.ordinal
     }
 }

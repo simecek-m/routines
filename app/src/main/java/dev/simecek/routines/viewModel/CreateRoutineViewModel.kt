@@ -5,7 +5,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dev.simecek.routines.R
-import dev.simecek.routines.constant.IconPickerSelectedType
+import dev.simecek.routines.constant.Icon
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.database.repository.RoutineRepository
 import java.time.LocalTime
@@ -16,7 +16,7 @@ class CreateRoutineViewModel @ViewModelInject constructor(
 ): ViewModel() {
 
     val title: MutableLiveData<String> = MutableLiveData(application.getString(R.string.lunch))
-    val icon: MutableLiveData<IconPickerSelectedType> = MutableLiveData(IconPickerSelectedType.IC_LOOP)
+    val icon: MutableLiveData<Icon> = MutableLiveData(Icon.IC_LOOP)
     val reminder: MutableLiveData<LocalTime> = MutableLiveData(LocalTime.of(LUNCH_TIME_HOUR, LUNCH_TIME_MINUTE))
 
     fun isTitleLongEnough(text: String): Boolean {
