@@ -142,7 +142,8 @@ class ListFragment : Fragment() {
     private fun getTitleByDatePhase(dayPhase: DayPhase): RoutineListItem.TitleItem {
         return when(dayPhase) {
             DayPhase.MORNING -> RoutineListItem.TitleItem(requireContext().getString(R.string.morning), ContextCompat.getDrawable(requireContext(), R.drawable.ic_morning))
-            DayPhase.DAY -> RoutineListItem.TitleItem(requireContext().getString(R.string.noon), ContextCompat.getDrawable(requireContext(), R.drawable.ic_sun))
+            DayPhase.NOON -> RoutineListItem.TitleItem(requireContext().getString(R.string.noon), ContextCompat.getDrawable(requireContext(), R.drawable.ic_sun))
+            DayPhase.AFTERNOON -> RoutineListItem.TitleItem(requireContext().getString(R.string.afternoon), ContextCompat.getDrawable(requireContext(), R.drawable.ic_affternoon))
             DayPhase.EVENING -> RoutineListItem.TitleItem(requireContext().getString(R.string.evening), ContextCompat.getDrawable(requireContext(), R.drawable.ic_cloud))
             DayPhase.NIGHT -> RoutineListItem.TitleItem(requireContext().getString(R.string.night), ContextCompat.getDrawable(requireContext(), R.drawable.ic_night))
         }

@@ -28,10 +28,12 @@ data class Routine(
 
     fun getDayPhase(): DayPhase {
         return when(reminder.hour) {
-            in 0..11 -> DayPhase.MORNING
-            in 12..16 -> DayPhase.DAY
-            in 17..20 -> DayPhase.EVENING
-            in 20..24 -> DayPhase.NIGHT
+            in 0..3 -> DayPhase.NIGHT
+            in 4..10 -> DayPhase.MORNING
+            in 11..13 -> DayPhase.NOON
+            in 14..18 -> DayPhase.AFTERNOON
+            in 19..23 -> DayPhase.EVENING
+            in 23..24 -> DayPhase.NIGHT
             else -> DayPhase.MORNING
         }
     }

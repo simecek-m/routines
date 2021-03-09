@@ -2,7 +2,8 @@ package dev.simecek.routines.constant
 
 enum class DayPhase {
     MORNING,
-    DAY,
+    NOON,
+    AFTERNOON,
     EVENING,
     NIGHT
 }
