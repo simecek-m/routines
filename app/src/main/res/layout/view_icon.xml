@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="handler"
+            type="dev.simecek.routines.handler.IconUiHandler" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/ic_icon"
+            android:contentDescription="@string/icon"
+            android:src="@{handler.icon}"
+            android:visibility="@{handler.picked? View.GONE : View.VISIBLE}"
+            style="@style/SelectableIcon"
+            />
+
+        <ImageView
+            style="@style/SelectableIcon.Selected"
+            android:id="@+id/icon_picked"
+            android:contentDescription="@string/icon_picked"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="@+id/icon"
+            app:layout_constraintTop_toBottomOf="@id/icon"
+            tools:src="@drawable/ic_food"
+            android:src="@{handler.selectedIcon}"
+            android:visibility="@{handler.picked? View.VISIBLE : View.GONE}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

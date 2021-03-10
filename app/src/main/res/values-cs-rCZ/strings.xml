@@ -56,4 +56,5 @@
     <string name="notification_channel_reminders_description">Upozornění na rutiny, které právě začaly.</string>
     <string name="add">Přidat</string>
     <string name="afternoon">Odpoledne</string>
+    <string name="icon_picked">Vybraná ikona</string>
 </resources>

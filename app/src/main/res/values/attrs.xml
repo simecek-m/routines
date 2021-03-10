@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="icon" format="reference" />
+
     <declare-styleable name="IconPickerView">
         <attr name="selectedIcon" format="enum">
             <enum name="ic_loop" value="0"/>
@@ -21,6 +23,10 @@
     </declare-styleable>
     <declare-styleable name="TitleView">
         <attr name="text" format="string" />
-        <attr name="icon" format="reference" />
+        <attr name="icon"/>
+    </declare-styleable>
+    <declare-styleable name="IconView">
+        <attr name="picked" format="boolean"/>
+        <attr name="icon"/>
     </declare-styleable>
 </resources>
