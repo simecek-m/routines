@@ -1,13 +1,15 @@
 package dev.simecek.routines.viewModel
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.database.repository.RoutineRepository
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ListViewModel @ViewModelInject constructor(
+@HiltViewModel
+class ListViewModel @Inject constructor(
     private val repository: RoutineRepository
 ): ViewModel() {
 

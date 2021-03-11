@@ -1,16 +1,18 @@
 package dev.simecek.routines.viewModel
 
 import android.app.Application
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.simecek.routines.R
 import dev.simecek.routines.constant.Icon
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.database.repository.RoutineRepository
 import java.time.LocalTime
+import javax.inject.Inject
 
-class CreateRoutineViewModel @ViewModelInject constructor(
+@HiltViewModel
+class CreateRoutineViewModel @Inject constructor(
     application: Application,
     private val routineRepository: RoutineRepository
 ): ViewModel() {
