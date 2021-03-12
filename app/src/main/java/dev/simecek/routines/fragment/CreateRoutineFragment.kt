@@ -46,8 +46,8 @@ class CreateRoutineFragment : Fragment() {
         }
         return binding.root
     }
-
     private fun showTimePicker() {
+        binding.timePicker.requestFocus()
         val reminder = binding.viewModel?.reminder?.value?: LocalTime.now()
         val timePicker = MaterialTimePicker.Builder()
                 .setTimeFormat(TimeFormat.CLOCK_24H)

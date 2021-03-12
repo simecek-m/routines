@@ -4,8 +4,10 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
@@ -26,6 +28,7 @@ class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(
     }
 
     fun setSelectedIcon(icon: Icon) {
+        requestFocusAndHideKeyboard()
         refreshUI(selectedIcon, icon.ordinal)
         selectedIcon = icon.ordinal
         listener?.onSelectedIconChanged()
@@ -35,9 +38,9 @@ class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(
         if(isInEditMode) {
             View.inflate(context, R.layout.view_icon_picker, this)
         } else {
-            binding = ViewIconPickerBinding.inflate(LayoutInflater.from(context),this, true)
+            binding = ViewIconPickerBinding.inflate(LayoutInflater.from(context), this, true)
             binding.view = this
-            val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.IconPickerView,0, 0)
+            val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.IconPickerView, 0, 0)
             selectedIcon = styledAttributes.getInteger(R.styleable.IconPickerView_selectedIcon, 0)
             refreshUI(null, selectedIcon)
             styledAttributes.recycle()
@@ -95,6 +98,12 @@ class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(
                 view.setSelectedIcon(icon)
             }
         }
+    }
+
+    private fun requestFocusAndHideKeyboard() {
+        requestFocus()
+        val manager: InputMethodManager? = getSystemService(context, InputMethodManager::class.java)
+        manager?.hideSoftInputFromWindow(windowToken, 0)
     }
 
 }
