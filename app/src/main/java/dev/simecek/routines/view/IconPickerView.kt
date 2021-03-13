@@ -5,13 +5,11 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
-import com.airbnb.paris.extensions.style
 import dev.simecek.routines.R
 import dev.simecek.routines.constant.Icon
 import dev.simecek.routines.databinding.ViewIconPickerBinding
@@ -49,11 +47,11 @@ class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(
     }
 
     private fun refreshUI(oldIcon: Int?, newIcon: Int) {
-        findIconView(oldIcon)?.style(R.style.Icon)
-        findIconView(newIcon)?.style(R.style.Icon_Selected)
+        findIconView(oldIcon)?.setPicked(false)
+        findIconView(newIcon)?.setPicked(true)
     }
 
-    private fun findIconView(iconTypeNumber: Int?): ImageView? {
+    private fun findIconView(iconTypeNumber: Int?): IconView? {
         return when (iconTypeNumber) {
             0 -> binding.iconLoop
             1 -> binding.iconSchool
