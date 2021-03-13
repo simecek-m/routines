@@ -18,17 +18,17 @@ import dev.simecek.routines.listener.IconPickerListener
 class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
 
     private lateinit var binding: ViewIconPickerBinding
-    private var selectedIcon: Int = 0
+    private var pickedIconOrdinal: Int = 0
     var listener: IconPickerListener? = null
 
     fun getSelectedIcon():Icon {
-        return Icon.values()[selectedIcon]
+        return Icon.values()[pickedIconOrdinal]
     }
 
     fun setSelectedIcon(icon: Icon) {
         requestFocusAndHideKeyboard()
-        refreshUI(selectedIcon, icon.ordinal)
-        selectedIcon = icon.ordinal
+        refreshUI(pickedIconOrdinal, icon.ordinal)
+        pickedIconOrdinal = icon.ordinal
         listener?.onSelectedIconChanged()
     }
 
@@ -39,35 +39,35 @@ class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(
             binding = ViewIconPickerBinding.inflate(LayoutInflater.from(context), this, true)
             binding.view = this
             val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.IconPickerView, 0, 0)
-            selectedIcon = styledAttributes.getInteger(R.styleable.IconPickerView_selectedIcon, 0)
-            refreshUI(null, selectedIcon)
+            pickedIconOrdinal = styledAttributes.getInteger(R.styleable.IconPickerView_pickedIcon, 0)
+            refreshUI(null, pickedIconOrdinal)
             styledAttributes.recycle()
         }
 
     }
 
-    private fun refreshUI(oldIcon: Int?, newIcon: Int) {
-        findIconView(oldIcon)?.setPicked(false)
-        findIconView(newIcon)?.setPicked(true)
+    private fun refreshUI(oldIconOrdinal: Int?, newIconOrdinal: Int) {
+        findIconView(oldIconOrdinal)?.setPicked(false)
+        findIconView(newIconOrdinal)?.setPicked(true)
     }
 
-    private fun findIconView(iconTypeNumber: Int?): IconView? {
-        return when (iconTypeNumber) {
-            0 -> binding.iconLoop
-            1 -> binding.iconSchool
-            2 -> binding.iconWalk
-            3 -> binding.iconWork
-            4 -> binding.iconBook
-            5 -> binding.iconMeditation
-            6 -> binding.iconSport
-            7 -> binding.iconFood
-            8 -> binding.iconGym
-            9 -> binding.iconBath
-            10 -> binding.iconToothBrush
-            11 -> binding.iconPet
-            12 -> binding.iconCompass
-            13 -> binding.iconBeer
-            14 -> binding.iconChat
+    private fun findIconView(iconOrdinal: Int?): IconView? {
+        return when (iconOrdinal) {
+            Icon.IC_LOOP.ordinal -> binding.iconLoop
+            Icon.IC_SCHOOL.ordinal -> binding.iconSchool
+            Icon.IC_WALK.ordinal -> binding.iconWalk
+            Icon.IC_WORK.ordinal -> binding.iconWork
+            Icon.IC_BOOK.ordinal -> binding.iconBook
+            Icon.IC_MEDITATION.ordinal -> binding.iconMeditation
+            Icon.IC_SPORT.ordinal -> binding.iconSport
+            Icon.IC_FOOD.ordinal -> binding.iconFood
+            Icon.IC_GYM.ordinal -> binding.iconGym
+            Icon.IC_BATH.ordinal -> binding.iconBath
+            Icon.IC_TOOTH_BRUSH.ordinal -> binding.iconToothBrush
+            Icon.IC_PET.ordinal -> binding.iconPet
+            Icon.IC_COMPASS.ordinal -> binding.iconCompass
+            Icon.IC_BEER.ordinal -> binding.iconBeer
+            Icon.IC_CHAT.ordinal -> binding.iconChat
             else -> null
         }
     }
@@ -92,7 +92,7 @@ class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(
         @JvmStatic
         @BindingAdapter("app:selectedIcon")
         fun setSelectedIcon(view: IconPickerView, icon: Icon) {
-            if(view.selectedIcon != icon.ordinal) {
+            if(view.pickedIconOrdinal != icon.ordinal) {
                 view.setSelectedIcon(icon)
             }
         }
