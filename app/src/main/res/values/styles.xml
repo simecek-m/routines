@@ -62,14 +62,14 @@
         <item name="android:backgroundTint">?attr/colorOnSurface</item>
     </style>
 
-    <style name="SelectableIcon">
+    <style name="PickableIcon">
         <item name="android:padding">@dimen/icon_picker_icon_padding</item>
         <item name="tint">?attr/colorOnSurface</item>
         <item name="android:background">@drawable/shape_circle</item>
         <item name="android:backgroundTint">@color/transparent</item>
     </style>
 
-    <style name="SelectableIcon.Selected">
+    <style name="PickableIcon.Picked">
         <item name="tint">?attr/colorSurface</item>
         <item name="android:backgroundTint">?attr/colorOnSurface</item>
     </style>
