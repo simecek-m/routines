@@ -68,6 +68,8 @@
     </style>
 
     <style name="TitleIcon">
+        <item name="android:layout_marginTop">@dimen/title_icon_margin</item>
+        <item name="android:layout_marginBottom">@dimen/title_icon_margin</item>
         <item name="android:backgroundTint">?attr/colorPrimary</item>
         <item name="android:layout_marginEnd">@dimen/space_small</item>
     </style>

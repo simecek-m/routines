@@ -7,24 +7,54 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.widget.TextViewCompat
 import dev.simecek.routines.R
+import dev.simecek.routines.constant.TitleSize
 import dev.simecek.routines.databinding.ViewTitleBinding
 
 class TitleView(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
 
+    private val binding: ViewTitleBinding = ViewTitleBinding.inflate(LayoutInflater.from(context), this, true)
+    private val text: String
+    private val icon: Drawable?
+    private val size: Int
+    private val color: Int
+
     init {
-        val binding: ViewTitleBinding = ViewTitleBinding.inflate(LayoutInflater.from(context), this, true)
         val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.TitleView,0, 0)
-        val text: String = styledAttributes.getString(R.styleable.TitleView_text)?: context.getString(R.string.title)
-        val icon: Drawable? = styledAttributes.getDrawable(R.styleable.TitleView_icon)
-        val color: Int = styledAttributes.getColor(R.styleable.TitleView_color, ContextCompat.getColor(context, R.color.brand))
+        text = styledAttributes.getString(R.styleable.TitleView_text)?: context.getString(R.string.title)
+        icon = styledAttributes.getDrawable(R.styleable.TitleView_icon)
+        size = styledAttributes.getInt(R.styleable.TitleView_size, TitleSize.MEDIUM.ordinal)
+        color = styledAttributes.getColor(R.styleable.TitleView_color, ContextCompat.getColor(context, R.color.brand))
+        styledAttributes.recycle()
+        setSize()
+        setContentAndColor()
+    }
+
+    private fun setContentAndColor() {
         binding.text.text = text
         binding.text.setTextColor(color)
         if(icon == null) {
             binding.icon.visibility = GONE
         } else {
+            binding.icon.visibility = VISIBLE
             binding.icon.background = icon
             DrawableCompat.setTint(binding.icon.background, color)
+        }
+    }
+
+    private fun setSize() {
+        println(size)
+        when(size) {
+            TitleSize.SMALL.ordinal -> {
+                TextViewCompat.setTextAppearance(binding.text, R.style.TextAppearance_MdcTypographyStyles_Subtitle1)
+            }
+            TitleSize.MEDIUM.ordinal -> {
+                TextViewCompat.setTextAppearance(binding.text, R.style.TextAppearance_MdcTypographyStyles_Headline6)
+            }
+            TitleSize.BIG.ordinal -> {
+                TextViewCompat.setTextAppearance(binding.text, R.style.TextAppearance_MdcTypographyStyles_Headline5)
+            }
         }
     }
 }

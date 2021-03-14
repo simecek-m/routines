@@ -11,25 +11,27 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="@dimen/title_icon_size"
-        android:layout_height="@dimen/title_icon_size"
-        tools:background="@drawable/ic_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/TitleIcon"
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@string/title_icon"
+        app:layout_constraintBottom_toBottomOf="@id/text"
         app:layout_constraintEnd_toStartOf="@+id/text"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/title_icon"
-        style="@style/TitleIcon" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text"
+        tools:background="@drawable/ic_icon" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text"
         style="@style/TitleText"
-        android:layout_marginStart="@dimen/space_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/icon"
+        android:layout_marginStart="@dimen/space_small"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon"
-        app:layout_constraintTop_toTopOf="@+id/icon"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

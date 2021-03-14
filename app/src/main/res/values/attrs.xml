@@ -27,6 +27,11 @@
         <attr name="text" format="string"/>
         <attr name="icon"/>
         <attr name="color"/>
+        <attr name="size" format="enum">
+            <enum name="small" value="0" />
+            <enum name="medium" value="1" />
+            <enum name="big" value="2" />
+        </attr>/
     </declare-styleable>
 
     <declare-styleable name="IconView">
