@@ -24,8 +24,9 @@
     </declare-styleable>
 
     <declare-styleable name="TitleView">
-        <attr name="text" format="string" />
+        <attr name="text" format="string"/>
         <attr name="icon"/>
+        <attr name="color"/>
     </declare-styleable>
 
     <declare-styleable name="IconView">

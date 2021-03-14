@@ -25,6 +25,7 @@
             <dev.simecek.routines.view.TitleView
                 android:id="@+id/header_title"
                 android:layout_width="0dp"
+                app:color="?attr/colorOnBackground"
                 app:layout_constraintWidth_percent="@dimen/max_input_width_percent"
                 android:layout_height="wrap_content"
                 app:layout_constraintVertical_chainStyle="packed"
@@ -76,6 +77,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_medium"
+                app:color="?attr/colorOnBackground"
                 app:layout_constraintBottom_toTopOf="@+id/icon_picker"
                 app:layout_constraintEnd_toEndOf="@+id/title_text_layout"
                 app:layout_constraintStart_toStartOf="@+id/title_text_layout"
@@ -99,6 +101,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_medium"
+                app:color="?attr/colorOnBackground"
                 app:layout_constraintBottom_toTopOf="@+id/time_picker"
                 app:layout_constraintEnd_toEndOf="@+id/icon_picker"
                 app:layout_constraintStart_toStartOf="@+id/icon_picker"
