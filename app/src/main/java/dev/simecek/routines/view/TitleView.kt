@@ -53,7 +53,7 @@ class TitleView(context: Context, attrs: AttributeSet?) : ConstraintLayout(conte
                 TextViewCompat.setTextAppearance(binding.text, R.style.TextAppearance_MdcTypographyStyles_Headline6)
             }
             TitleSize.BIG.ordinal -> {
-                TextViewCompat.setTextAppearance(binding.text, R.style.TextAppearance_MdcTypographyStyles_Headline5)
+                TextViewCompat.setTextAppearance(binding.text, R.style.TextAppearance_MdcTypographyStyles_Headline4)
             }
         }
     }

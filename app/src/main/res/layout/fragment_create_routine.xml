@@ -23,16 +23,28 @@
             tools:context=".fragment.CreateRoutineFragment">
 
             <dev.simecek.routines.view.TitleView
+                android:id="@+id/page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/header_title"
+                app:layout_constraintStart_toStartOf="@id/header_title"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:size="big"
+                app:text="@string/routine" />
+
+            <dev.simecek.routines.view.TitleView
                 android:id="@+id/header_title"
                 android:layout_width="0dp"
                 app:color="?attr/colorOnBackground"
                 app:layout_constraintWidth_percent="@dimen/max_input_width_percent"
                 android:layout_height="wrap_content"
-                app:layout_constraintVertical_chainStyle="packed"
+                app:size="small"
+                android:layout_marginTop="@dimen/space_small"
                 app:layout_constraintBottom_toTopOf="@+id/title_text_layout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/page_title"
                 app:text="@string/title" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -78,6 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_medium"
                 app:color="?attr/colorOnBackground"
+                app:size="small"
                 app:layout_constraintBottom_toTopOf="@+id/icon_picker"
                 app:layout_constraintEnd_toEndOf="@+id/title_text_layout"
                 app:layout_constraintStart_toStartOf="@+id/title_text_layout"
@@ -102,6 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_medium"
                 app:color="?attr/colorOnBackground"
+                app:size="small"
                 app:layout_constraintBottom_toTopOf="@+id/time_picker"
                 app:layout_constraintEnd_toEndOf="@+id/icon_picker"
                 app:layout_constraintStart_toStartOf="@+id/icon_picker"
@@ -140,7 +154,7 @@
                 android:text="@string/save"
                 app:icon="@drawable/ic_check"
                 android:enabled="@{viewModel.isTitleLongEnough(viewModel.title)}"
-                android:layout_marginTop="@dimen/space_medium"
+                android:layout_marginTop="@dimen/space_big"
                 android:layout_marginBottom="@dimen/space_big"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/time_picker"
