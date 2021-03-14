@@ -3,9 +3,9 @@ package dev.simecek.routines.view
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.widget.TextViewCompat
 import dev.simecek.routines.R
@@ -19,13 +19,14 @@ class TitleView(context: Context, attrs: AttributeSet?) : ConstraintLayout(conte
     private val icon: Drawable?
     private val size: Int
     private val color: Int
+    private val colorPrimary: Int = getPrimaryColor()
 
     init {
-        val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.TitleView,0, 0)
+        val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.TitleView, 0, 0)
         text = styledAttributes.getString(R.styleable.TitleView_text)?: context.getString(R.string.title)
         icon = styledAttributes.getDrawable(R.styleable.TitleView_icon)
         size = styledAttributes.getInt(R.styleable.TitleView_size, TitleSize.MEDIUM.ordinal)
-        color = styledAttributes.getColor(R.styleable.TitleView_color, ContextCompat.getColor(context, R.color.brand))
+        color = styledAttributes.getColor(R.styleable.TitleView_color, colorPrimary)
         styledAttributes.recycle()
         setSize()
         setContentAndColor()
@@ -56,5 +57,11 @@ class TitleView(context: Context, attrs: AttributeSet?) : ConstraintLayout(conte
                 TextViewCompat.setTextAppearance(binding.text, R.style.TextAppearance_MdcTypographyStyles_Headline4)
             }
         }
+    }
+
+    private fun getPrimaryColor(): Int {
+        val value = TypedValue()
+        context.theme.resolveAttribute(R.attr.colorPrimary, value, true)
+        return value.data
     }
 }
