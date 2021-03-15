@@ -4,10 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.airbnb.paris.extensions.style
-import dev.simecek.routines.R
 import dev.simecek.routines.callback.RoutineListDiffCallback
-import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.databinding.ViewRoutineBinding
 import dev.simecek.routines.databinding.ViewTextButtonBinding
 import dev.simecek.routines.databinding.ViewTitleBinding
@@ -73,7 +70,6 @@ class RoutineListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 val routine = (list[position] as RoutineListItem.RoutineItem).routine
                 val routineViewHolder = holder as RoutineViewHolder
                 routineViewHolder.binding.routine = routine
-                setCorrectIconStyle(routineViewHolder, routine)
                 routineViewHolder.itemView.setOnClickListener {
                     finishRoutineListener?.onFinishRoutine(routine.id)
                 }
@@ -94,14 +90,6 @@ class RoutineListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                     button.onClickListener.onClick()
                 }
             }
-        }
-    }
-
-    private fun setCorrectIconStyle(routineViewHolder: RoutineViewHolder, routine: Routine) {
-        if(routine.isFinished()) {
-            routineViewHolder.binding.icon.style(R.style.RoutineWidgetIcon_Finished)
-        } else {
-            routineViewHolder.binding.icon.style(R.style.RoutineWidgetIcon)
         }
     }
 

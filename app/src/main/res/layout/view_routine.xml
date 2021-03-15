@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="dev.simecek.routines.utils.ThemeColorUtils" />
         <variable
             name="routine"
             type="dev.simecek.routines.database.entity.Routine" />
@@ -64,11 +65,11 @@
             android:layout_height="@dimen/routine_widget_icon_size"
             tools:src="@drawable/ic_food"
             android:background="@{routine.finished ? @drawable/ic_check : routine.getDrawableIcon(context)}"
+            android:backgroundTint="@{routine.finished ? ThemeColorUtils.getPrimaryColor(context) : ThemeColorUtils.getOnSurfaceColor(context) }"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/title"
             app:layout_constraintTop_toTopOf="parent"
-            style="@style/RoutineWidgetIcon"
             android:contentDescription="@string/routine_icon" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

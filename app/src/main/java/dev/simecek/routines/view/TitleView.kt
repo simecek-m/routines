@@ -3,7 +3,6 @@ package dev.simecek.routines.view
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.graphics.drawable.DrawableCompat
@@ -11,6 +10,7 @@ import androidx.core.widget.TextViewCompat
 import dev.simecek.routines.R
 import dev.simecek.routines.constant.TitleSize
 import dev.simecek.routines.databinding.ViewTitleBinding
+import dev.simecek.routines.utils.ThemeColorUtils
 
 class TitleView(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
 
@@ -19,7 +19,7 @@ class TitleView(context: Context, attrs: AttributeSet?) : ConstraintLayout(conte
     private val icon: Drawable?
     private val size: Int
     private val color: Int
-    private val colorPrimary: Int = getPrimaryColor()
+    private val colorPrimary: Int = ThemeColorUtils.getPrimaryColor(context)
 
     init {
         val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.TitleView, 0, 0)
@@ -59,9 +59,4 @@ class TitleView(context: Context, attrs: AttributeSet?) : ConstraintLayout(conte
         }
     }
 
-    private fun getPrimaryColor(): Int {
-        val value = TypedValue()
-        context.theme.resolveAttribute(R.attr.colorPrimary, value, true)
-        return value.data
-    }
 }
