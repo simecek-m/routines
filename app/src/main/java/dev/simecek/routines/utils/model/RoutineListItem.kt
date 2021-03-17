@@ -1,4 +1,4 @@
-package dev.simecek.routines.model
+package dev.simecek.routines.utils.model
 
 import android.graphics.drawable.Drawable
 import dev.simecek.routines.database.entity.Routine

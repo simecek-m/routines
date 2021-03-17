@@ -1,4 +1,4 @@
-package dev.simecek.routines.reminder
+package dev.simecek.routines.utils.managers
 
 import android.app.AlarmManager
 import android.app.PendingIntent
@@ -9,7 +9,7 @@ import dev.simecek.routines.broadcast.ReminderBroadcastReceiver
 import java.time.ZonedDateTime
 import javax.inject.Inject
 
-class ReminderHelper @Inject constructor(@ApplicationContext var context: Context) {
+class ReminderManager @Inject constructor(@ApplicationContext var context: Context) {
 
     companion object {
         const val INTERVAL_DAILY: Long = 1000 * 60 * 60 * 24

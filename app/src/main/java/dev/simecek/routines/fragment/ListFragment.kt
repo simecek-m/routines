@@ -14,16 +14,16 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.R
-import dev.simecek.routines.constant.DayPhase
+import dev.simecek.routines.adapter.RoutineListAdapter
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.databinding.FragmentListBinding
-import dev.simecek.routines.helper.RoutineWidgetHelper
-import dev.simecek.routines.list.RoutineListAdapter
 import dev.simecek.routines.listener.DeleteRoutineListener
 import dev.simecek.routines.listener.FinishRoutineListener
 import dev.simecek.routines.listener.OnClickListener
-import dev.simecek.routines.model.RoutineListItem
-import dev.simecek.routines.reminder.ReminderHelper
+import dev.simecek.routines.utils.constant.DayPhase
+import dev.simecek.routines.utils.gesture.RoutineListGestures
+import dev.simecek.routines.utils.managers.ReminderManager
+import dev.simecek.routines.utils.model.RoutineListItem
 import dev.simecek.routines.viewModel.ListViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -35,10 +35,10 @@ class ListFragment : Fragment() {
     lateinit var adapter: RoutineListAdapter
 
     @Inject
-    lateinit var routineWidgetHelper: RoutineWidgetHelper
+    lateinit var routineListGestures: RoutineListGestures
 
     @Inject
-    lateinit var reminderHelper: ReminderHelper
+    lateinit var reminderManager: ReminderManager
 
     private lateinit var binding: FragmentListBinding
     private val listViewModel: ListViewModel by viewModels()
@@ -51,12 +51,12 @@ class ListFragment : Fragment() {
         override fun onDeleteRoutineFromPosition(position: Int) {
             val swipedRoutine = (adapter.list[position] as RoutineListItem.RoutineItem).routine
             listViewModel.deleteRoutine(swipedRoutine)
-            reminderHelper.removeDailyReminder(swipedRoutine.id.toInt())
+            reminderManager.removeDailyReminder(swipedRoutine.id.toInt())
             lastDeletedRoutine = swipedRoutine
             undoSnackbar.setAction(R.string.undo) {
                 lifecycleScope.launch {
                     val id = listViewModel.restoreRoutine(swipedRoutine)
-                    reminderHelper.setDailyReminder(id.toInt(), swipedRoutine.title, swipedRoutine.reminder.hour, swipedRoutine.reminder.minute)
+                    reminderManager.setDailyReminder(id.toInt(), swipedRoutine.title, swipedRoutine.reminder.hour, swipedRoutine.reminder.minute)
                 }
             }.show()
         }
@@ -107,7 +107,7 @@ class ListFragment : Fragment() {
     }
 
     private fun gesturesSetup() {
-        routineWidgetHelper.swipeToDeleteGesture(deleteRoutineListener).attachToRecyclerView(binding.list)
+        routineListGestures.enableSwipeToDeleteGesture(deleteRoutineListener).attachToRecyclerView(binding.list)
         binding.swipeToRefresh.setOnRefreshListener(refreshRoutinesListener)
     }
 

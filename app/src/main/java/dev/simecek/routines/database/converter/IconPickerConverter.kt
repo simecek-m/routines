@@ -1,7 +1,7 @@
 package dev.simecek.routines.database.converter
 
 import androidx.room.TypeConverter
-import dev.simecek.routines.constant.Icon
+import dev.simecek.routines.utils.constant.Icon
 
 class IconPickerConverter {
 

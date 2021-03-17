@@ -1,4 +1,4 @@
-package dev.simecek.routines.constant
+package dev.simecek.routines.utils.constant
 
 enum class Icon {
     IC_LOOP,

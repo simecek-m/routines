@@ -1,10 +1,10 @@
-package dev.simecek.routines.utils
+package dev.simecek.routines.utils.theme
 
 import android.content.Context
 import android.util.TypedValue
 import dev.simecek.routines.R
 
-class ThemeColorUtils {
+class ColorUtils {
 
     companion object {
 
@@ -22,4 +22,5 @@ class ThemeColorUtils {
             return value.data
         }
     }
+
 }

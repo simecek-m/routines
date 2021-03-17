@@ -1,4 +1,4 @@
-package dev.simecek.routines.hilt
+package dev.simecek.routines.utils.hilt
 
 import android.content.Context
 import androidx.room.Room

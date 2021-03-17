@@ -15,6 +15,6 @@ abstract class AppDatabase: RoomDatabase() {
     abstract fun routineDao(): RoutineDao
 
     companion object {
-        const val NAME: String = "Routine-DB"
+        const val NAME: String = "Routines-DB"
     }
 }

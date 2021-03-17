@@ -1,4 +1,4 @@
-package dev.simecek.routines.notification
+package dev.simecek.routines.utils.managers
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -15,7 +15,7 @@ import dev.simecek.routines.R
 import dev.simecek.routines.activity.MainActivity
 import javax.inject.Inject
 
-class NotificationHelper @Inject constructor(@ApplicationContext var context: Context) {
+class NotificationManager @Inject constructor(@ApplicationContext var context: Context) {
 
     companion object {
         const val ROUTINE_REMINDER_CHANNEL_ID = "ROUTINE_CHANNEL"
@@ -56,9 +56,9 @@ class NotificationHelper @Inject constructor(@ApplicationContext var context: Co
             val channel = NotificationChannel(ROUTINE_REMINDER_CHANNEL_ID, name, importance).apply {
                 description = descriptionText
             }
-            val notificationManager: NotificationManager =
+            val notificationManagerManager: NotificationManager =
                 context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
+            notificationManagerManager.createNotificationChannel(channel)
         }
     }
 

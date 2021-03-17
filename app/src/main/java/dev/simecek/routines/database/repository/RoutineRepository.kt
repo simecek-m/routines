@@ -3,14 +3,10 @@ package dev.simecek.routines.database.repository
 import androidx.lifecycle.LiveData
 import dev.simecek.routines.database.dao.RoutineDao
 import dev.simecek.routines.database.entity.Routine
-import java.text.SimpleDateFormat
 import java.time.LocalDate
-import java.util.*
 import javax.inject.Inject
 
 class RoutineRepository @Inject constructor(private val routineDao: RoutineDao) {
-
-    private val sdf = SimpleDateFormat(Routine.DATE_PATTERN, Locale.getDefault())
 
     fun getAllRoutines(): LiveData<List<Routine>> {
         return routineDao.getAll()

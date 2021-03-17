@@ -4,7 +4,7 @@
         <import type="android.view.View" />
         <variable
             name="handler"
-            type="dev.simecek.routines.handler.IconUiHandler" />
+            type="dev.simecek.routines.utils.handler.IconUiHandler" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

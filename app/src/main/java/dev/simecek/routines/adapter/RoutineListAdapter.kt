@@ -1,4 +1,4 @@
-package dev.simecek.routines.list
+package dev.simecek.routines.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,9 +9,10 @@ import dev.simecek.routines.databinding.ViewRoutineBinding
 import dev.simecek.routines.databinding.ViewTextButtonBinding
 import dev.simecek.routines.databinding.ViewTitleBinding
 import dev.simecek.routines.listener.FinishRoutineListener
-import dev.simecek.routines.model.RoutineListItem
+import dev.simecek.routines.utils.model.RoutineListItem
+import javax.inject.Inject
 
-class RoutineListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RoutineListAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val list: ArrayList<RoutineListItem> = ArrayList()
 

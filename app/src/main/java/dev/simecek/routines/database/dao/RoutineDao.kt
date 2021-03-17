@@ -8,7 +8,7 @@ import java.time.LocalDate
 @Dao
 interface RoutineDao {
 
-    @Query("SELECT * FROM Routine ORDER BY reminder ASC")
+    @Query("SELECT * FROM Routine ORDER BY reminderManager ASC")
     fun getAll(): LiveData<List<Routine>>
 
     @Insert
@@ -20,7 +20,7 @@ interface RoutineDao {
     @Update
     suspend fun update(routine: Routine)
 
-    @Query("SELECT * FROM Routine ORDER BY reminder ASC")
+    @Query("SELECT * FROM Routine ORDER BY reminderManager ASC")
     suspend fun getAllAsList(): List<Routine>
 
     @Query("SELECT * FROM Routine WHERE id = :id")

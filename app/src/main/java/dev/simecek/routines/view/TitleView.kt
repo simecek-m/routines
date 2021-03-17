@@ -8,9 +8,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.widget.TextViewCompat
 import dev.simecek.routines.R
-import dev.simecek.routines.constant.TitleSize
 import dev.simecek.routines.databinding.ViewTitleBinding
-import dev.simecek.routines.utils.ThemeColorUtils
+import dev.simecek.routines.utils.constant.TitleSize
+import dev.simecek.routines.utils.theme.ColorUtils
 
 class TitleView(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
 
@@ -19,7 +19,7 @@ class TitleView(context: Context, attrs: AttributeSet?) : ConstraintLayout(conte
     private val icon: Drawable?
     private val size: Int
     private val color: Int
-    private val colorPrimary: Int = ThemeColorUtils.getPrimaryColor(context)
+    private val colorPrimary: Int = ColorUtils.getPrimaryColor(context)
 
     init {
         val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.TitleView, 0, 0)

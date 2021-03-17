@@ -13,7 +13,7 @@ import androidx.lifecycle.LifecycleRegistry
 import androidx.lifecycle.MutableLiveData
 import dev.simecek.routines.R
 import dev.simecek.routines.databinding.ViewIconBinding
-import dev.simecek.routines.handler.IconUiHandler
+import dev.simecek.routines.utils.handler.IconUiHandler
 
 class IconView(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs), LifecycleOwner {
 

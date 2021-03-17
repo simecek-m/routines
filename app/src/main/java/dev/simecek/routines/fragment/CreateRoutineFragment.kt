@@ -16,7 +16,7 @@ import com.google.android.material.timepicker.TimeFormat
 import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.R
 import dev.simecek.routines.databinding.FragmentCreateRoutineBinding
-import dev.simecek.routines.reminder.ReminderHelper
+import dev.simecek.routines.utils.managers.ReminderManager
 import dev.simecek.routines.viewModel.CreateRoutineViewModel
 import kotlinx.coroutines.launch
 import java.time.LocalTime
@@ -29,7 +29,7 @@ class CreateRoutineFragment : Fragment() {
     private lateinit var binding: FragmentCreateRoutineBinding
 
     @Inject
-    lateinit var reminderHelper: ReminderHelper
+    lateinit var reminderManager: ReminderManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,7 +66,7 @@ class CreateRoutineFragment : Fragment() {
         lifecycleScope.launch {
             try {
                 val id = viewModel.createNewRoutine()
-                reminderHelper.setDailyReminder(id.toInt(), viewModel.title.value!!, viewModel.reminder.value!!.hour, viewModel.reminder.value!!.minute)
+                reminderManager.setDailyReminder(id.toInt(), viewModel.title.value!!, viewModel.reminder.value!!.hour, viewModel.reminder.value!!.minute)
                 val returnBackToList = CreateRoutineFragmentDirections.returnToList()
                 findNavController().navigate(returnBackToList)
             } catch (ex: Exception) {

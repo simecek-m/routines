@@ -11,9 +11,9 @@ import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
 import dev.simecek.routines.R
-import dev.simecek.routines.constant.Icon
 import dev.simecek.routines.databinding.ViewIconPickerBinding
 import dev.simecek.routines.listener.IconPickerListener
+import dev.simecek.routines.utils.constant.Icon
 
 class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
 
@@ -21,15 +21,15 @@ class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(
     private var pickedIconOrdinal: Int = 0
     var listener: IconPickerListener? = null
 
-    fun getSelectedIcon():Icon {
+    fun getPickedIcon():Icon {
         return Icon.values()[pickedIconOrdinal]
     }
 
-    fun setSelectedIcon(icon: Icon) {
+    fun setPickedIcon(icon: Icon) {
         requestFocusAndHideKeyboard()
         refreshUI(pickedIconOrdinal, icon.ordinal)
         pickedIconOrdinal = icon.ordinal
-        listener?.onSelectedIconChanged()
+        listener?.onPickedIconChanged()
     }
 
     init {
@@ -77,7 +77,7 @@ class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(
         @JvmStatic
         fun setListeners(view: IconPickerView, attrChange: InverseBindingListener) {
             view.listener = object: IconPickerListener {
-                override fun onSelectedIconChanged() {
+                override fun onPickedIconChanged() {
                     attrChange.onChange()
                 }
             }
@@ -86,14 +86,14 @@ class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(
         @JvmStatic
         @InverseBindingAdapter(attribute = "app:selectedIcon")
         fun getSelectedIcon(view: IconPickerView): Icon {
-            return view.getSelectedIcon()
+            return view.getPickedIcon()
         }
 
         @JvmStatic
         @BindingAdapter("app:selectedIcon")
         fun setSelectedIcon(view: IconPickerView, icon: Icon) {
             if(view.pickedIconOrdinal != icon.ordinal) {
-                view.setSelectedIcon(icon)
+                view.setPickedIcon(icon)
             }
         }
     }

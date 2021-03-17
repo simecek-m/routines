@@ -1,4 +1,4 @@
-package dev.simecek.routines.handler
+package dev.simecek.routines.utils.handler
 
 import android.graphics.drawable.Drawable
 import androidx.lifecycle.MutableLiveData

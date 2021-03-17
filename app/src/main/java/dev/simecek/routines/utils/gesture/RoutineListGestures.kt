@@ -1,4 +1,4 @@
-package dev.simecek.routines.helper
+package dev.simecek.routines.utils.gesture
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.simecek.routines.R
-import dev.simecek.routines.list.RoutineListAdapter
+import dev.simecek.routines.adapter.RoutineListAdapter
 import dev.simecek.routines.listener.DeleteRoutineListener
 import javax.inject.Inject
 
-class RoutineWidgetHelper @Inject constructor(@ApplicationContext context: Context) {
+class RoutineListGestures @Inject constructor(@ApplicationContext context: Context) {
 
     private var deleteRoutineListener: DeleteRoutineListener? = null
 
@@ -51,7 +51,7 @@ class RoutineWidgetHelper @Inject constructor(@ApplicationContext context: Conte
         }
     }
 
-    fun swipeToDeleteGesture(deleteRoutineListener: DeleteRoutineListener): ItemTouchHelper {
+    fun enableSwipeToDeleteGesture(deleteRoutineListener: DeleteRoutineListener): ItemTouchHelper {
         this.deleteRoutineListener = deleteRoutineListener
         return ItemTouchHelper(swipeToDeleteCallback)
     }

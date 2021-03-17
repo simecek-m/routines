@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.simecek.routines.R
-import dev.simecek.routines.constant.Icon
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.database.repository.RoutineRepository
+import dev.simecek.routines.utils.constant.Icon
 import java.time.LocalTime
 import javax.inject.Inject
 

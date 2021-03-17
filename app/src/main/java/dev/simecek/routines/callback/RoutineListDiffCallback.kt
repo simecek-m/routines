@@ -1,8 +1,8 @@
 package dev.simecek.routines.callback
 
 import androidx.recyclerview.widget.DiffUtil
-import dev.simecek.routines.model.RoutineListItem
-import dev.simecek.routines.model.RoutineListItem.*
+import dev.simecek.routines.utils.model.RoutineListItem
+import dev.simecek.routines.utils.model.RoutineListItem.*
 
 
 class RoutineListDiffCallback(private val oldList: List<RoutineListItem>, private val newList: List<RoutineListItem>): DiffUtil.Callback() {

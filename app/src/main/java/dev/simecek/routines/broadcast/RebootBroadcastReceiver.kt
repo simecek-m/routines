@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.database.repository.RoutineRepository
-import dev.simecek.routines.reminder.ReminderHelper
+import dev.simecek.routines.utils.managers.ReminderManager
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,14 +17,14 @@ class RebootBroadcastReceiver: BroadcastReceiver() {
     lateinit var repository: RoutineRepository
 
     @Inject
-    lateinit var reminderHelper: ReminderHelper
+    lateinit var reminderManager: ReminderManager
 
     override fun onReceive(context: Context?, intent: Intent?) {
         if(intent?.action == Intent.ACTION_BOOT_COMPLETED) {
             GlobalScope.launch {
                 val routines = repository.getAllRoutinesAsList()
                 routines.forEach {
-                    reminderHelper.setDailyReminder(it.id.toInt(), it.title, it.reminder.hour, it.reminder.minute)
+                    reminderManager.setDailyReminder(it.id.toInt(), it.title, it.reminder.hour, it.reminder.minute)
                 }
             }
         }
