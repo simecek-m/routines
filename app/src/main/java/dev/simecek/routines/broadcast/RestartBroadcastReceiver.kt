@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class RebootBroadcastReceiver: BroadcastReceiver() {
+class RestartBroadcastReceiver: BroadcastReceiver() {
 
     @Inject
     lateinit var repository: RoutineRepository
@@ -20,7 +20,7 @@ class RebootBroadcastReceiver: BroadcastReceiver() {
     lateinit var reminderManager: ReminderManager
 
     override fun onReceive(context: Context?, intent: Intent?) {
-        if(intent?.action == Intent.ACTION_BOOT_COMPLETED) {
+        if(intent?.action == Intent.ACTION_BOOT_COMPLETED || intent?.action == Intent.ACTION_MY_PACKAGE_REPLACED) {
             GlobalScope.launch {
                 val routines = repository.getAllRoutinesAsList()
                 routines.forEach {
