@@ -35,8 +35,8 @@ class RoutineListGestures @Inject constructor(@ApplicationContext context: Conte
         // disable Titles ViewHolder swipe
         override fun getSwipeDirs(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
             return when(viewHolder.itemViewType) {
-                RoutineListAdapter.TITLE_VIEW_TYPE -> 0
-                else -> return super.getSwipeDirs(recyclerView, viewHolder)
+                RoutineListAdapter.ROUTINE_VIEW_TYPE -> super.getSwipeDirs(recyclerView, viewHolder)
+                else -> 0
             }
         }
 
