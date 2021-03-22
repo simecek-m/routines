@@ -22,6 +22,11 @@ data class Routine(
         @ColumnInfo(name = "last_finished") var lastFinished: LocalDate? = null
 ): Serializable {
 
+    companion object {
+        const val ICON_ID_NOT_FOUND = 0
+        const val ICON_PREFIX = "ic_"
+    }
+
     fun getDayPhase(): DayPhase {
         return when(reminder.hour) {
             in 0..3 -> DayPhase.NIGHT
@@ -39,8 +44,14 @@ data class Routine(
     }
 
     fun getDrawableIcon(context: Context): Drawable? {
-        val id = context.resources.getIdentifier("ic_${icon.toString().toLowerCase(Locale.getDefault())}", "drawable", context.packageName)
-        return ContextCompat.getDrawable(context, id)
+        val iconName: String = icon.toString().toLowerCase(Locale.getDefault())
+        val identifier = "$ICON_PREFIX$iconName"
+        val iconId = context.resources.getIdentifier(identifier, "drawable", context.packageName)
+        return if(iconId == ICON_ID_NOT_FOUND) {
+            null
+        } else {
+            ContextCompat.getDrawable(context, iconId)
+        }
     }
 
 }
