@@ -21,15 +21,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/empty"
-            app:layout_constraintBottom_toTopOf="@+id/sad_face_image"
+            app:layout_constraintBottom_toTopOf="@+id/description_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/sad_face_image"
-            android:src="@drawable/ic_sad_face"
-            app:tint="?attr/colorOnBackground"
+            android:id="@+id/description_image"
+            android:src="@drawable/ic_alarm_off"
+            app:tint="?attr/colorPrimary"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:contentDescription="@string/sad_face"
@@ -48,7 +48,7 @@
             app:layout_constraintBottom_toTopOf="@+id/restore_routine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sad_face_image" />
+            app:layout_constraintTop_toBottomOf="@+id/description_image" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
