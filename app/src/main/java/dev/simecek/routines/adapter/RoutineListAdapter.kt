@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import dev.simecek.routines.callback.RoutineListDiffCallback
+import dev.simecek.routines.databinding.ViewListButtonBinding
 import dev.simecek.routines.databinding.ViewRoutineBinding
-import dev.simecek.routines.databinding.ViewTextButtonBinding
 import dev.simecek.routines.databinding.ViewTitleBinding
 import dev.simecek.routines.listener.FinishRoutineListener
 import dev.simecek.routines.utils.model.RoutineListItem
@@ -29,12 +29,12 @@ class RoutineListAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerVie
     companion object {
         const val TITLE_VIEW_TYPE = 1
         const val ROUTINE_VIEW_TYPE = 2
-        const val TEXT_BUTTON_VIEW_TYPE = 3
+        const val BUTTON_VIEW_TYPE = 3
     }
 
     class RoutineViewHolder(val binding: ViewRoutineBinding): RecyclerView.ViewHolder(binding.root)
     class TitleViewHolder(val binding: ViewTitleBinding): RecyclerView.ViewHolder(binding.root)
-    class TextButtonViewHolder(val binding: ViewTextButtonBinding): RecyclerView.ViewHolder(binding.root)
+    class ButtonViewHolder(val binding: ViewListButtonBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType) {
@@ -42,9 +42,9 @@ class RoutineListAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerVie
                 val binding = ViewTitleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
                 TitleViewHolder(binding)
             }
-            TEXT_BUTTON_VIEW_TYPE -> {
-                val binding =  ViewTextButtonBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-                TextButtonViewHolder(binding)
+            BUTTON_VIEW_TYPE -> {
+                val binding =  ViewListButtonBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                ButtonViewHolder(binding)
             }
             else -> {
                 val binding = ViewRoutineBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -60,7 +60,7 @@ class RoutineListAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerVie
     override fun getItemViewType(position: Int): Int {
         return when {
             list[position] is RoutineListItem.RoutineItem -> ROUTINE_VIEW_TYPE
-            list[position] is RoutineListItem.TextButtonItem -> TEXT_BUTTON_VIEW_TYPE
+            list[position] is RoutineListItem.ButtonItem -> BUTTON_VIEW_TYPE
             else -> TITLE_VIEW_TYPE
         }
     }
@@ -81,10 +81,10 @@ class RoutineListAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerVie
                 titleViewHolder.binding.text.text = title.text
                 titleViewHolder.binding.icon.background = title.icon
             }
-            TEXT_BUTTON_VIEW_TYPE -> {
-                val button: RoutineListItem.TextButtonItem = list[position] as RoutineListItem.TextButtonItem
-                val textButtonViewHolder = holder as TextButtonViewHolder
-                val buttonView = textButtonViewHolder.binding.button
+            BUTTON_VIEW_TYPE -> {
+                val button: RoutineListItem.ButtonItem = list[position] as RoutineListItem.ButtonItem
+                val buttonViewHolder = holder as ButtonViewHolder
+                val buttonView = buttonViewHolder.binding.button
                 buttonView.text = button.text
                 buttonView.icon = button.icon
                 buttonView.setOnClickListener {

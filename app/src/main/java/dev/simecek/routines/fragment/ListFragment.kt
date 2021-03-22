@@ -135,7 +135,7 @@ class ListFragment : Fragment() {
                 list.add(RoutineListItem.RoutineItem(routine))
             }
         }
-        list.add(RoutineListItem.TextButtonItem(getString(R.string.add), ContextCompat.getDrawable(requireContext(), R.drawable.ic_add_circle), redirectToCreateOnClick))
+        list.add(RoutineListItem.ButtonItem(getString(R.string.add), ContextCompat.getDrawable(requireContext(), R.drawable.ic_add), redirectToCreateOnClick))
         return list
     }
 

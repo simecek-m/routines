@@ -22,7 +22,7 @@ class RoutineListDiffCallback(private val oldList: List<RoutineListItem>, privat
             oldItem.routine.id == newItem.routine.id
         } else if(oldItem is TitleItem && newItem is TitleItem) {
             oldItem.text == newItem.text
-        } else if(oldItem is TextButtonItem && newItem is TextButtonItem) {
+        } else if(oldItem is ButtonItem && newItem is ButtonItem) {
             oldItem.text == newItem.text
         } else {
             false
@@ -36,7 +36,7 @@ class RoutineListDiffCallback(private val oldList: List<RoutineListItem>, privat
             oldItem.routine == newItem.routine
         } else if(oldItem is TitleItem && newItem is TitleItem) {
             oldItem.text == newItem.text && oldItem.icon == newItem.icon
-        } else if(oldItem is TextButtonItem && newItem is TextButtonItem) {
+        } else if(oldItem is ButtonItem && newItem is ButtonItem) {
             oldItem.text == newItem.text && newItem.icon == oldItem.icon
         } else {
             false
