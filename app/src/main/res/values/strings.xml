@@ -1,20 +1,30 @@
 <resources>
     <!-- ICON CONTENT DESCRIPTION -->
-    <string name="icon_loop">Loop icon</string>
-    <string name="icon_school">School icon</string>
-    <string name="icon_walk">Walk icon</string>
-    <string name="icon_work">Work icon</string>
-    <string name="icon_book">Book icon</string>
-    <string name="icon_meditation">Meditation icon</string>
-    <string name="icon_sport">Sport icon</string>
     <string name="icon_food">Food icon</string>
+    <string name="icon_pizza">Pizza icon</string>
+    <string name="icon_snack">Snack icon</string>
+    <string name="icon_coffee">Coffee icon</string>
+    <string name="icon_tea">Tea icon</string>
+    <string name="icon_football">Football icon</string>
+    <string name="icon_basketball">Basketball icon</string>
+    <string name="icon_volleyball">Volleyball icon</string>
+    <string name="icon_tennis">Tennis icon</string>
+    <string name="icon_golf">Golf icon</string>
     <string name="icon_gym">Gym icon</string>
-    <string name="icon_bath">Bath icon</string>
-    <string name="icon_tooth_brush">Tooth brush icon</string>
-    <string name="icon_pet">Pet icon</string>
-    <string name="icon_compass">Compass icon</string>
-    <string name="icon_beer">Beer icon</string>
-    <string name="icon_chat">Chat icon</string>
+    <string name="icon_running">Running icon</string>
+    <string name="icon_cycling">Cycling icon</string>
+    <string name="icon_hiking">Hiking icon</string>
+    <string name="icon_swimming">Swimming icon</string>
+    <string name="icon_music">Music icon</string>
+    <string name="icon_painting">Painting icon</string>
+    <string name="icon_gaming">Gaming icon</string>
+    <string name="icon_laptop">Laptop icon</string>
+    <string name="icon_design">Design icon</string>
+    <string name="icon_study">Study icon</string>
+    <string name="icon_work">Work icon</string>
+    <string name="icon_sleep">Sleeping icon</string>
+    <string name="icon_shower">Shower icon</string>
+    <string name="icon_toothbrush">Toothbrush icon</string>
 
     <!--  MOTIVATION  -->
     <string name="motivation_one">Don’t stop when you’re tired. Stop when you’re done.</string>

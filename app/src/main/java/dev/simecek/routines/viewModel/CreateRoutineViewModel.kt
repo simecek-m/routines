@@ -18,7 +18,7 @@ class CreateRoutineViewModel @Inject constructor(
 ): ViewModel() {
 
     val title: MutableLiveData<String> = MutableLiveData(application.getString(R.string.lunch))
-    val icon: MutableLiveData<Icon> = MutableLiveData(Icon.IC_LOOP)
+    val icon: MutableLiveData<Icon> = MutableLiveData(Icon.FOOD)
     val reminder: MutableLiveData<LocalTime> = MutableLiveData(LocalTime.of(LUNCH_TIME_HOUR, LUNCH_TIME_MINUTE))
 
     fun isTitleLongEnough(text: String): Boolean {

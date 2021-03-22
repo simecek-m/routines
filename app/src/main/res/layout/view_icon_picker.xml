@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <import type="dev.simecek.routines.utils.constant.Icon" alias="ICON"/>
+        <import type="dev.simecek.routines.utils.constant.Icon" alias="Icon"/>
         <variable
             name="view"
             type="dev.simecek.routines.view.IconPickerView" />
@@ -22,173 +22,266 @@
             app:flow_wrapMode="aligned"
             app:flow_verticalGap="@dimen/icon_picker_icon_gap_vertical"
             app:flow_horizontalGap="@dimen/icon_picker_icon_gap_horizontal"
-            app:constraint_referenced_ids="icon_loop, icon_school, icon_walk, icon_work, icon_book, icon_meditation, icon_sport, icon_food, icon_gym, icon_bath, icon_tooth_brush, icon_pet, icon_compass, icon_beer, icon_chat"
+            app:flow_maxElementsWrap="5"
+            app:constraint_referenced_ids="icon_food, icon_pizza,
+                icon_snack, icon_coffee, icon_tea, icon_football,
+                icon_basketball, icon_volleyball, icon_tennis,
+                icon_golf, icon_gym, icon_running, icon_cycling,
+                icon_hiking, icon_swimming, icon_music,
+                icon_painting, icon_gaming, icon_laptop,
+                icon_design, icon_study, icon_work, icon_sleep,
+                icon_shower, icon_toothbrush"
             />
-
-        <dev.simecek.routines.view.IconView
-            android:id="@+id/icon_loop"
-            android:layout_width="@dimen/icon_picker_icon_size"
-            android:layout_height="@dimen/icon_picker_icon_size"
-            android:tag="ic_loop"
-            app:icon="@drawable/ic_loop"
-            android:onClick="@{() -> view.setPickedIcon(ICON.IC_LOOP)}"
-            android:contentDescription="@string/icon_loop" />
-
-        <dev.simecek.routines.view.IconView
-            android:id="@+id/icon_school"
-            android:layout_width="@dimen/icon_picker_icon_size"
-            android:layout_height="@dimen/icon_picker_icon_size"
-            android:onClick="@{() -> view.setPickedIcon(ICON.IC_SCHOOL)}"
-            app:icon="@drawable/ic_school"
-            android:tag="ic_school"
-            app:layout_constraintTop_toTopOf="@id/icon_loop"
-            app:layout_constraintStart_toEndOf="@id/icon_loop"
-            android:contentDescription="@string/icon_school" />
-
-        <dev.simecek.routines.view.IconView
-            android:id="@+id/icon_walk"
-            android:layout_width="@dimen/icon_picker_icon_size"
-            android:layout_height="@dimen/icon_picker_icon_size"
-            android:onClick="@{() -> view.setPickedIcon(ICON.IC_WALK)}"
-            app:icon="@drawable/ic_walk"
-            android:tag="ic_walk"
-            app:layout_constraintTop_toTopOf="@id/icon_school"
-            app:layout_constraintStart_toEndOf="@id/icon_school"
-            android:contentDescription="@string/icon_walk" />
-
-        <dev.simecek.routines.view.IconView
-            android:id="@+id/icon_work"
-            android:layout_width="@dimen/icon_picker_icon_size"
-            android:layout_height="@dimen/icon_picker_icon_size"
-            android:onClick="@{() -> view.setPickedIcon(ICON.IC_WORK)}"
-            app:icon="@drawable/ic_work"
-            android:tag="ic_work"
-            app:layout_constraintTop_toTopOf="@id/icon_walk"
-            app:layout_constraintStart_toEndOf="@id/icon_walk"
-            android:contentDescription="@string/icon_work" />
-
-        <dev.simecek.routines.view.IconView
-            android:id="@+id/icon_book"
-            android:layout_width="@dimen/icon_picker_icon_size"
-            android:layout_height="@dimen/icon_picker_icon_size"
-            android:onClick="@{() -> view.setPickedIcon(ICON.IC_BOOK)}"
-            app:icon="@drawable/ic_book"
-            android:tag="ic_book"
-            app:layout_constraintTop_toTopOf="@id/icon_work"
-            app:layout_constraintStart_toEndOf="@id/icon_work"
-            android:contentDescription="@string/icon_book" />
-
-        <dev.simecek.routines.view.IconView
-            android:id="@+id/icon_meditation"
-            android:layout_width="@dimen/icon_picker_icon_size"
-            android:layout_height="@dimen/icon_picker_icon_size"
-            android:onClick="@{() -> view.setPickedIcon(ICON.IC_MEDITATION)}"
-            app:icon="@drawable/ic_meditation"
-            android:tag="ic_meditation"
-            app:layout_constraintTop_toTopOf="@id/icon_book"
-            app:layout_constraintStart_toEndOf="@id/icon_book"
-            android:contentDescription="@string/icon_meditation" />
-
-        <dev.simecek.routines.view.IconView
-            android:id="@+id/icon_sport"
-            android:layout_width="@dimen/icon_picker_icon_size"
-            android:layout_height="@dimen/icon_picker_icon_size"
-            android:onClick="@{() -> view.setPickedIcon(ICON.IC_SPORT)}"
-            app:icon="@drawable/ic_sport"
-            android:tag="ic_sport"
-            app:layout_constraintTop_toTopOf="@id/icon_meditation"
-            app:layout_constraintStart_toEndOf="@id/icon_meditation"
-            android:contentDescription="@string/icon_sport" />
 
         <dev.simecek.routines.view.IconView
             android:id="@+id/icon_food"
             android:layout_width="@dimen/icon_picker_icon_size"
             android:layout_height="@dimen/icon_picker_icon_size"
-            android:onClick="@{() -> view.setPickedIcon(ICON.IC_FOOD)}"
+            android:onClick="@{() -> view.setPickedIcon(Icon.FOOD)}"
             app:icon="@drawable/ic_food"
-            android:tag="ic_food"
-            app:layout_constraintTop_toTopOf="@id/icon_sport"
-            app:layout_constraintStart_toEndOf="@id/icon_sport"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:contentDescription="@string/icon_food" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_pizza"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.PIZZA)}"
+            app:icon="@drawable/ic_pizza"
+            app:layout_constraintTop_toTopOf="@id/icon_food"
+            app:layout_constraintStart_toEndOf="@id/icon_food"
+            android:contentDescription="@string/icon_pizza" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_snack"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.SNACK)}"
+            app:icon="@drawable/ic_snack"
+            app:layout_constraintTop_toTopOf="@id/icon_pizza"
+            app:layout_constraintStart_toEndOf="@id/icon_pizza"
+            android:contentDescription="@string/icon_snack" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_coffee"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.COFFEE)}"
+            app:icon="@drawable/ic_coffee"
+            app:layout_constraintTop_toTopOf="@id/icon_snack"
+            app:layout_constraintStart_toEndOf="@id/icon_snack"
+            android:contentDescription="@string/icon_coffee" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_tea"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.TEA)}"
+            app:icon="@drawable/ic_tea"
+            app:layout_constraintTop_toTopOf="@id/icon_coffee"
+            app:layout_constraintStart_toEndOf="@id/icon_coffee"
+            android:contentDescription="@string/icon_tea" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_football"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.FOOTBALL)}"
+            app:icon="@drawable/ic_football"
+            app:layout_constraintTop_toTopOf="@id/icon_tea"
+            app:layout_constraintStart_toEndOf="@id/icon_tea"
+            android:contentDescription="@string/icon_football" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_basketball"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.BASKETBALL)}"
+            app:icon="@drawable/ic_basketball"
+            app:layout_constraintTop_toTopOf="@id/icon_football"
+            app:layout_constraintStart_toEndOf="@id/icon_football"
+            android:contentDescription="@string/icon_basketball" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_volleyball"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.VOLLEYBALL)}"
+            app:icon="@drawable/ic_volleyball"
+            app:layout_constraintTop_toTopOf="@id/icon_basketball"
+            app:layout_constraintStart_toEndOf="@id/icon_basketball"
+            android:contentDescription="@string/icon_volleyball" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_tennis"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.TENNIS)}"
+            app:icon="@drawable/ic_tennis"
+            app:layout_constraintTop_toTopOf="@id/icon_volleyball"
+            app:layout_constraintStart_toEndOf="@id/icon_volleyball"
+            android:contentDescription="@string/icon_tennis" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_golf"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.GOLF)}"
+            app:icon="@drawable/ic_golf"
+            app:layout_constraintTop_toTopOf="@id/icon_tennis"
+            app:layout_constraintStart_toEndOf="@id/icon_tennis"
+            android:contentDescription="@string/icon_golf" />
 
         <dev.simecek.routines.view.IconView
             android:id="@+id/icon_gym"
             android:layout_width="@dimen/icon_picker_icon_size"
             android:layout_height="@dimen/icon_picker_icon_size"
-            android:onClick="@{() -> view.setPickedIcon(ICON.IC_GYM)}"
+            android:onClick="@{() -> view.setPickedIcon(Icon.GYM)}"
             app:icon="@drawable/ic_gym"
-            android:tag="ic_gym"
-            app:layout_constraintTop_toTopOf="@id/icon_food"
-            app:layout_constraintStart_toEndOf="@id/icon_food"
+            app:layout_constraintTop_toTopOf="@id/icon_golf"
+            app:layout_constraintStart_toEndOf="@id/icon_golf"
             android:contentDescription="@string/icon_gym" />
 
         <dev.simecek.routines.view.IconView
-            android:id="@+id/icon_bath"
+            android:id="@+id/icon_running"
             android:layout_width="@dimen/icon_picker_icon_size"
             android:layout_height="@dimen/icon_picker_icon_size"
-            android:onClick="@{() -> view.setPickedIcon(ICON.IC_BATH)}"
-            app:icon="@drawable/ic_bath"
-            android:tag="ic_bath"
+            android:onClick="@{() -> view.setPickedIcon(Icon.RUNNING)}"
+            app:icon="@drawable/ic_running"
             app:layout_constraintTop_toTopOf="@id/icon_gym"
             app:layout_constraintStart_toEndOf="@id/icon_gym"
-            android:contentDescription="@string/icon_bath" />
+            android:contentDescription="@string/icon_running" />
 
         <dev.simecek.routines.view.IconView
-            android:id="@+id/icon_tooth_brush"
+            android:id="@+id/icon_cycling"
             android:layout_width="@dimen/icon_picker_icon_size"
             android:layout_height="@dimen/icon_picker_icon_size"
-            android:onClick="@{() -> view.setPickedIcon(ICON.IC_TOOTH_BRUSH)}"
-            android:contentDescription="@string/icon_tooth_brush"
-            app:layout_constraintTop_toTopOf="@id/icon_bath"
-            app:layout_constraintStart_toEndOf="@id/icon_bath"
-            app:icon="@drawable/ic_tooth_brush"
-            android:tag="ic_tooth_brush" />
-
+            android:onClick="@{() -> view.setPickedIcon(Icon.CYCLING)}"
+            app:icon="@drawable/ic_cycling"
+            app:layout_constraintTop_toTopOf="@id/icon_running"
+            app:layout_constraintStart_toEndOf="@id/icon_running"
+            android:contentDescription="@string/icon_cycling" />
 
         <dev.simecek.routines.view.IconView
-            android:id="@+id/icon_pet"
+            android:id="@+id/icon_hiking"
             android:layout_width="@dimen/icon_picker_icon_size"
             android:layout_height="@dimen/icon_picker_icon_size"
-            android:onClick="@{() -> view.setPickedIcon(ICON.IC_PET)}"
-            app:icon="@drawable/ic_pet"
-            android:tag="ic_pet"
-            app:layout_constraintTop_toTopOf="@id/icon_tooth_brush"
-            app:layout_constraintStart_toEndOf="@id/icon_tooth_brush"
-            android:contentDescription="@string/icon_pet" />
+            android:onClick="@{() -> view.setPickedIcon(Icon.HIKING)}"
+            app:icon="@drawable/ic_hiking"
+            app:layout_constraintTop_toTopOf="@id/icon_cycling"
+            app:layout_constraintStart_toEndOf="@id/icon_cycling"
+            android:contentDescription="@string/icon_hiking" />
 
         <dev.simecek.routines.view.IconView
-            android:id="@+id/icon_compass"
+            android:id="@+id/icon_swimming"
             android:layout_width="@dimen/icon_picker_icon_size"
             android:layout_height="@dimen/icon_picker_icon_size"
-            android:onClick="@{() -> view.setPickedIcon(ICON.IC_COMPASS)}"
-            app:icon="@drawable/ic_compass"
-            android:tag="ic_compass"
-            app:layout_constraintTop_toTopOf="@id/icon_pet"
-            app:layout_constraintStart_toEndOf="@id/icon_pet"
-            android:contentDescription="@string/icon_compass" />
+            android:onClick="@{() -> view.setPickedIcon(Icon.SWIMMING)}"
+            app:icon="@drawable/ic_swimming"
+            app:layout_constraintTop_toTopOf="@id/icon_hiking"
+            app:layout_constraintStart_toEndOf="@id/icon_hiking"
+            android:contentDescription="@string/icon_swimming" />
 
         <dev.simecek.routines.view.IconView
-            android:id="@+id/icon_beer"
+            android:id="@+id/icon_music"
             android:layout_width="@dimen/icon_picker_icon_size"
             android:layout_height="@dimen/icon_picker_icon_size"
-            android:onClick="@{() -> view.setPickedIcon(ICON.IC_BEER)}"
-            app:icon="@drawable/ic_beer"
-            android:tag="ic_beer"
-            app:layout_constraintTop_toTopOf="@id/icon_compass"
-            app:layout_constraintStart_toEndOf="@id/icon_compass"
-            android:contentDescription="@string/icon_beer" />
+            android:onClick="@{() -> view.setPickedIcon(Icon.MUSIC)}"
+            app:icon="@drawable/ic_music"
+            app:layout_constraintTop_toTopOf="@id/icon_swimming"
+            app:layout_constraintStart_toEndOf="@id/icon_swimming"
+            android:contentDescription="@string/icon_music" />
 
         <dev.simecek.routines.view.IconView
-            android:id="@+id/icon_chat"
+            android:id="@+id/icon_painting"
             android:layout_width="@dimen/icon_picker_icon_size"
             android:layout_height="@dimen/icon_picker_icon_size"
-            android:onClick="@{() -> view.setPickedIcon(ICON.IC_CHAT)}"
-            app:icon="@drawable/ic_chat"
-            android:tag="ic_chat"
-            app:layout_constraintTop_toTopOf="@id/icon_beer"
-            app:layout_constraintStart_toEndOf="@id/icon_beer"
-            android:contentDescription="@string/icon_chat" />
+            android:onClick="@{() -> view.setPickedIcon(Icon.PAINTING)}"
+            app:icon="@drawable/ic_painting"
+            app:layout_constraintTop_toTopOf="@id/icon_music"
+            app:layout_constraintStart_toEndOf="@id/icon_music"
+            android:contentDescription="@string/icon_painting" />
 
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_gaming"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.GAMING)}"
+            app:icon="@drawable/ic_gaming"
+            app:layout_constraintTop_toTopOf="@id/icon_painting"
+            app:layout_constraintStart_toEndOf="@id/icon_painting"
+            android:contentDescription="@string/icon_gaming" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_laptop"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.LAPTOP)}"
+            app:icon="@drawable/ic_laptop"
+            app:layout_constraintTop_toTopOf="@id/icon_gaming"
+            app:layout_constraintStart_toEndOf="@id/icon_gaming"
+            android:contentDescription="@string/icon_laptop" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_design"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.DESIGN)}"
+            app:icon="@drawable/ic_design"
+            app:layout_constraintTop_toTopOf="@id/icon_laptop"
+            app:layout_constraintStart_toEndOf="@id/icon_laptop"
+            android:contentDescription="@string/icon_design" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_study"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.STUDY)}"
+            app:icon="@drawable/ic_study"
+            app:layout_constraintTop_toTopOf="@id/icon_design"
+            app:layout_constraintStart_toEndOf="@id/icon_design"
+            android:contentDescription="@string/icon_study" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_work"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.WORK)}"
+            app:icon="@drawable/ic_work"
+            app:layout_constraintTop_toTopOf="@id/icon_study"
+            app:layout_constraintStart_toEndOf="@id/icon_study"
+            android:contentDescription="@string/icon_work" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_sleep"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.SLEEP)}"
+            app:icon="@drawable/ic_sleep"
+            app:layout_constraintTop_toTopOf="@id/icon_work"
+            app:layout_constraintStart_toEndOf="@id/icon_work"
+            android:contentDescription="@string/icon_sleep" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_shower"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.SHOWER)}"
+            app:icon="@drawable/ic_shower"
+            app:layout_constraintTop_toTopOf="@id/icon_sleep"
+            app:layout_constraintStart_toEndOf="@id/icon_sleep"
+            android:contentDescription="@string/icon_shower" />
+
+        <dev.simecek.routines.view.IconView
+            android:id="@+id/icon_toothbrush"
+            android:layout_width="@dimen/icon_picker_icon_size"
+            android:layout_height="@dimen/icon_picker_icon_size"
+            android:onClick="@{() -> view.setPickedIcon(Icon.TOOTHBRUSH)}"
+            app:icon="@drawable/ic_toothbrush"
+            app:layout_constraintTop_toTopOf="@id/icon_shower"
+            app:layout_constraintStart_toEndOf="@id/icon_shower"
+            android:contentDescription="@string/icon_toothbrush" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -23,7 +23,7 @@
             style="@style/PickableIcon"
             android:src="@{handler.iconDefault}"
             android:visibility="@{handler.pickedState? View.GONE : View.VISIBLE}"
-            tools:src="@drawable/ic_loop"
+            tools:src="@drawable/ic_food"
             tools:visibility="visible"
             />
 
@@ -37,7 +37,7 @@
             style="@style/PickableIcon.Picked"
             android:src="@{handler.iconPicked}"
             android:visibility="@{handler.pickedState? View.VISIBLE : View.GONE}"
-            tools:src="@drawable/ic_loop"
+            tools:src="@drawable/ic_food"
             tools:visibility="gone"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- ICON CONTENT DESCRIPTION -->
-    <string name="icon_loop">Ikona cyklu</string>
-    <string name="icon_school">Ikona školy</string>
-    <string name="icon_walk">Ikona chůze</string>
-    <string name="icon_work">Ikona práce</string>
-    <string name="icon_book">Ikona knihy</string>
-    <string name="icon_meditation">Ikona meditace</string>
-    <string name="icon_sport">Ikona sportu</string>
     <string name="icon_food">Ikona jídla</string>
+    <string name="icon_pizza">Ikona pizzy</string>
+    <string name="icon_snack">Ikona svačiny</string>
+    <string name="icon_coffee">Ikona kávy</string>
+    <string name="icon_tea">Ikona čaje</string>
+    <string name="icon_football">Ikona fotbalu</string>
+    <string name="icon_basketball">Ikona basketbalu</string>
+    <string name="icon_volleyball">Ikona volejbalu</string>
+    <string name="icon_tennis">Ikona tenisu</string>
+    <string name="icon_golf">Ikona golfu</string>
     <string name="icon_gym">Ikona posilovny</string>
-    <string name="icon_bath">Ikona koupelny</string>
-    <string name="icon_tooth_brush">Ikona kartáčku</string>
-    <string name="icon_pet">Ikona mazlíčka</string>
-    <string name="icon_compass">Ikona kompasu</string>
-    <string name="icon_beer">Ikona piva</string>
-    <string name="icon_chat">Ikona chatu</string>
+    <string name="icon_running">Ikona běhu</string>
+    <string name="icon_cycling">Ikona cyklistiky</string>
+    <string name="icon_hiking">Ikona turistiky</string>
+    <string name="icon_swimming">Ikona plavání</string>
+    <string name="icon_music">Ikona muziky</string>
+    <string name="icon_painting">Ikona malování</string>
+    <string name="icon_gaming">Ikona hraní</string>
+    <string name="icon_laptop">Ikona laptopu</string>
+    <string name="icon_design">Ikona designu</string>
+    <string name="icon_study">Ikona studia</string>
+    <string name="icon_work">Ikona práce</string>
+    <string name="icon_sleep">Ikona spánku</string>
+    <string name="icon_shower">Ikona sprchy</string>
+    <string name="icon_toothbrush">Ikona kartáčku na zuby</string>
 
     <!--  MOTIVATION  -->
     <string name="motivation_one">Nepřestávej, když jsi unavený. Přestaň když jsi hotový.</string>

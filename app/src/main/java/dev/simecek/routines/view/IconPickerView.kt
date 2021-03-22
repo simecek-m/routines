@@ -53,21 +53,31 @@ class IconPickerView(context: Context, attrs: AttributeSet?) : ConstraintLayout(
 
     private fun findIconView(iconOrdinal: Int?): IconView? {
         return when (iconOrdinal) {
-            Icon.IC_LOOP.ordinal -> binding.iconLoop
-            Icon.IC_SCHOOL.ordinal -> binding.iconSchool
-            Icon.IC_WALK.ordinal -> binding.iconWalk
-            Icon.IC_WORK.ordinal -> binding.iconWork
-            Icon.IC_BOOK.ordinal -> binding.iconBook
-            Icon.IC_MEDITATION.ordinal -> binding.iconMeditation
-            Icon.IC_SPORT.ordinal -> binding.iconSport
-            Icon.IC_FOOD.ordinal -> binding.iconFood
-            Icon.IC_GYM.ordinal -> binding.iconGym
-            Icon.IC_BATH.ordinal -> binding.iconBath
-            Icon.IC_TOOTH_BRUSH.ordinal -> binding.iconToothBrush
-            Icon.IC_PET.ordinal -> binding.iconPet
-            Icon.IC_COMPASS.ordinal -> binding.iconCompass
-            Icon.IC_BEER.ordinal -> binding.iconBeer
-            Icon.IC_CHAT.ordinal -> binding.iconChat
+            Icon.FOOD.ordinal -> binding.iconFood
+            Icon.PIZZA.ordinal -> binding.iconPizza
+            Icon.SNACK.ordinal -> binding.iconSnack
+            Icon.COFFEE.ordinal -> binding.iconCoffee
+            Icon.TEA.ordinal -> binding.iconTea
+            Icon.FOOTBALL.ordinal -> binding.iconFootball
+            Icon.BASKETBALL.ordinal -> binding.iconBasketball
+            Icon.VOLLEYBALL.ordinal -> binding.iconVolleyball
+            Icon.TENNIS.ordinal -> binding.iconTennis
+            Icon.GOLF.ordinal -> binding.iconGolf
+            Icon.GYM.ordinal -> binding.iconGym
+            Icon.RUNNING.ordinal -> binding.iconRunning
+            Icon.CYCLING.ordinal -> binding.iconCycling
+            Icon.HIKING.ordinal -> binding.iconHiking
+            Icon.SWIMMING.ordinal -> binding.iconSwimming
+            Icon.MUSIC.ordinal -> binding.iconMusic
+            Icon.PAINTING.ordinal -> binding.iconPainting
+            Icon.GAMING.ordinal -> binding.iconGaming
+            Icon.LAPTOP.ordinal -> binding.iconLaptop
+            Icon.DESIGN.ordinal -> binding.iconDesign
+            Icon.STUDY.ordinal -> binding.iconStudy
+            Icon.WORK.ordinal -> binding.iconWork
+            Icon.SLEEP.ordinal -> binding.iconSleep
+            Icon.SHOWER.ordinal -> binding.iconShower
+            Icon.TOOTHBRUSH.ordinal -> binding.iconToothbrush
             else -> null
         }
     }

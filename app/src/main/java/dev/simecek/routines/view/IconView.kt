@@ -24,8 +24,8 @@ class IconView(context: Context, attrs: AttributeSet?) : ConstraintLayout(contex
 
     init {
         val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.IconView,0, 0)
-        iconDefault = styledAttributes.getDrawable(R.styleable.IconView_icon) ?: ContextCompat.getDrawable(context, R.drawable.ic_loop)!!
-        iconPicked = styledAttributes.getDrawable(R.styleable.IconView_icon) ?: ContextCompat.getDrawable(context, R.drawable.ic_loop)!!
+        iconDefault = styledAttributes.getDrawable(R.styleable.IconView_icon) ?: ContextCompat.getDrawable(context, R.drawable.ic_food)!!
+        iconPicked = styledAttributes.getDrawable(R.styleable.IconView_icon) ?: ContextCompat.getDrawable(context, R.drawable.ic_food)!!
         val pickedAttribute = styledAttributes.getBoolean(R.styleable.IconView_picked, false)
         pickedState = MutableLiveData(pickedAttribute)
         styledAttributes.recycle()

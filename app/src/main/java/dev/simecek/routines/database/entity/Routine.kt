@@ -39,7 +39,7 @@ data class Routine(
     }
 
     fun getDrawableIcon(context: Context): Drawable? {
-        val id = context.resources.getIdentifier(icon.toString().toLowerCase(Locale.getDefault()), "drawable", context.packageName)
+        val id = context.resources.getIdentifier("ic_${icon.toString().toLowerCase(Locale.getDefault())}", "drawable", context.packageName)
         return ContextCompat.getDrawable(context, id)
     }
 

@@ -5,21 +5,31 @@
 
     <declare-styleable name="IconPickerView">
         <attr name="pickedIcon" format="enum">
-            <enum name="ic_loop" value="0"/>
-            <enum name="ic_school" value="1"/>
-            <enum name="ic_walk" value="2"/>
-            <enum name="ic_work" value="3"/>
-            <enum name="ic_book" value="4"/>
-            <enum name="ic_meditation" value="5"/>
-            <enum name="ic_sport" value="6"/>
-            <enum name="ic_food" value="7"/>
-            <enum name="ic_gym" value="8"/>
-            <enum name="ic_bath" value="9"/>
-            <enum name="ic_tooth_brush" value="10"/>
-            <enum name="ic_pet" value="11"/>
-            <enum name="ic_compass" value="12"/>
-            <enum name="ic_beer" value="13"/>
-            <enum name="ic_chat" value="14"/>
+            <enum name="food" value="0"/>
+            <enum name="pizza" value="1"/>
+            <enum name="snack" value="2"/>
+            <enum name="coffee" value="3"/>
+            <enum name="tea" value="4"/>
+            <enum name="football" value="5"/>
+            <enum name="basketball" value="6"/>
+            <enum name="volleyball" value="7"/>
+            <enum name="tennis" value="8"/>
+            <enum name="golf" value="9"/>
+            <enum name="gym" value="10"/>
+            <enum name="running" value="11"/>
+            <enum name="cycling" value="12"/>
+            <enum name="hiking" value="13"/>
+            <enum name="swimming" value="14"/>
+            <enum name="music" value="15"/>
+            <enum name="painting" value="16"/>
+            <enum name="gaming" value="17"/>
+            <enum name="laptop" value="18"/>
+            <enum name="design" value="19"/>
+            <enum name="study" value="20"/>
+            <enum name="work" value="21"/>
+            <enum name="sleep" value="22"/>
+            <enum name="shower" value="23"/>
+            <enum name="toothbrush" value="24"/>
         </attr>
     </declare-styleable>
 
