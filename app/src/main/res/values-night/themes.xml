@@ -41,9 +41,4 @@
         <item name="textAppearanceCaption">@style/TextAppearance.MdcTypographyStyles.Caption</item>
         <item name="textAppearanceOverline">@style/TextAppearance.MdcTypographyStyles.Overline</item>
     </style>
-
-    <style name="ThemedLogo">
-        <item name="android:src">@drawable/ic_logo_dark</item>
-    </style>
-
 </resources>

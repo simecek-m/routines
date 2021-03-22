@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- ICON CONTENT DESCRIPTION -->
+    <!-- activities   -->
     <string name="icon_food">Ikona jídla</string>
     <string name="icon_pizza">Ikona pizzy</string>
     <string name="icon_snack">Ikona svačiny</string>
@@ -26,6 +27,9 @@
     <string name="icon_sleep">Ikona spánku</string>
     <string name="icon_shower">Ikona sprchy</string>
     <string name="icon_toothbrush">Ikona kartáčku na zuby</string>
+
+    <!-- states   -->
+    <string name="icon_complete">Ikona splněných rutin</string>
 
     <!--  MOTIVATION  -->
     <string name="motivation_one">Nepřestávej, když jsi unavený. Přestaň když jsi hotový.</string>
