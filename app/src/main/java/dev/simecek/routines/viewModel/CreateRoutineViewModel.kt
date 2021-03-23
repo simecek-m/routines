@@ -17,6 +17,12 @@ class CreateRoutineViewModel @Inject constructor(
     private val routineRepository: RoutineRepository
 ): ViewModel() {
 
+    companion object {
+        const val MINIMAL_TITLE_LENGTH: Int = 3
+        const val LUNCH_TIME_HOUR = 12
+        const val LUNCH_TIME_MINUTE = 0
+    }
+
     val title: MutableLiveData<String> = MutableLiveData(application.getString(R.string.lunch))
     val icon: MutableLiveData<Icon> = MutableLiveData(Icon.FOOD)
     val reminder: MutableLiveData<LocalTime> = MutableLiveData(LocalTime.of(LUNCH_TIME_HOUR, LUNCH_TIME_MINUTE))
@@ -30,9 +36,4 @@ class CreateRoutineViewModel @Inject constructor(
         return routineRepository.insert(routine)
     }
 
-    companion object {
-        const val MINIMAL_TITLE_LENGTH: Int = 3
-        const val LUNCH_TIME_HOUR = 12
-        const val LUNCH_TIME_MINUTE = 0
-    }
 }

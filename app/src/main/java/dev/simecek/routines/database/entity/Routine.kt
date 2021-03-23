@@ -32,8 +32,8 @@ data class Routine(
             in 0..3 -> DayPhase.NIGHT
             in 4..10 -> DayPhase.MORNING
             in 11..13 -> DayPhase.NOON
-            in 14..18 -> DayPhase.AFTERNOON
-            in 19..23 -> DayPhase.EVENING
+            in 14..17 -> DayPhase.AFTERNOON
+            in 18..22 -> DayPhase.EVENING
             in 23..24 -> DayPhase.NIGHT
             else -> DayPhase.MORNING
         }

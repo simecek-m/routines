@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/shape_square_radius"
         android:padding="@dimen/space_medium"
-        style="@style/RoutineWidget"
+        style="@style/RoutineCard"
         android:layout_marginTop="@dimen/space_small">
 
         <TextView
@@ -30,8 +30,7 @@
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            style="@style/RoutineWidgetText"
-            android:textSize="@dimen/font_size_medium"
+            style="@style/RoutineCard.Text"
             android:textStyle="bold"/>
 
         <ImageView
@@ -40,7 +39,7 @@
             android:layout_height="@dimen/routine_widget_reminder_icon_size"
             android:layout_marginTop="@dimen/space_small"
             android:background="@drawable/ic_alarm"
-            style="@style/RoutineWidgetIcon"
+            style="@style/RoutineCard.Icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/title"
             app:layout_constraintTop_toBottomOf="@+id/title"
@@ -51,11 +50,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{routine.reminder.toString()}"
-            android:textSize="@dimen/font_size_small"
             tools:text="@string/midday_time"
             android:layout_marginStart="@dimen/space_small"
             android:textAppearance="?attr/textAppearanceBody2"
-            style="@style/RoutineWidgetText"
+            style="@style/RoutineCard.Text"
             app:layout_constraintBottom_toBottomOf="@+id/reminder_icon"
             app:layout_constraintStart_toEndOf="@+id/reminder_icon"
             app:layout_constraintTop_toTopOf="@+id/reminder_icon" />

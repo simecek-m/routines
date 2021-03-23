@@ -32,7 +32,7 @@ class RoutineListGestures @Inject constructor(@ApplicationContext context: Conte
             deleteRoutineListener?.onDeleteRoutineFromPosition(viewHolder.adapterPosition)
         }
 
-        // disable Titles ViewHolder swipe
+        // disable Titles and Button ViewHolder swipe
         override fun getSwipeDirs(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
             return when(viewHolder.itemViewType) {
                 RoutineListAdapter.ROUTINE_VIEW_TYPE -> super.getSwipeDirs(recyclerView, viewHolder)

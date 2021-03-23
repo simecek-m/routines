@@ -14,6 +14,12 @@ import javax.inject.Inject
 
 class RoutineListAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    companion object {
+        const val TITLE_VIEW_TYPE = 1
+        const val ROUTINE_VIEW_TYPE = 2
+        const val BUTTON_VIEW_TYPE = 3
+    }
+
     val list: ArrayList<RoutineListItem> = ArrayList()
 
     fun updateList(updatedList: ArrayList<RoutineListItem>) {
@@ -25,12 +31,6 @@ class RoutineListAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerVie
     }
 
     var finishRoutineListener: FinishRoutineListener? = null
-
-    companion object {
-        const val TITLE_VIEW_TYPE = 1
-        const val ROUTINE_VIEW_TYPE = 2
-        const val BUTTON_VIEW_TYPE = 3
-    }
 
     class RoutineViewHolder(val binding: ViewRoutineBinding): RecyclerView.ViewHolder(binding.root)
     class TitleViewHolder(val binding: ViewTitleBinding): RecyclerView.ViewHolder(binding.root)

@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/title_text"
-            style="@style/FullscreenTitle"
+            style="@style/Fullscreen.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/empty"
@@ -32,7 +32,7 @@
             app:tint="?attr/colorPrimary"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:contentDescription="@string/sad_face"
+            android:contentDescription="@string/icon_empty_list"
             app:layout_constraintBottom_toTopOf="@+id/description_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.3"
@@ -41,7 +41,7 @@
 
         <TextView
             android:id="@+id/description_text"
-            style="@style/FullscreenDescription"
+            style="@style/Fullscreen.Description"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="@string/empty_description"
@@ -49,13 +49,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description_image" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".8" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/restore_routine"
@@ -66,15 +59,22 @@
             android:textAllCaps="false"
             app:icon="@drawable/ic_restore"
             android:visibility="@{deletedRoutine == null ? View.GONE : View.VISIBLE }"
-            app:layout_constraintBottom_toTopOf="@+id/create_button"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintEnd_toEndOf="@+id/description_text"
             app:layout_constraintStart_toStartOf="@+id/description_text"
             app:layout_constraintTop_toBottomOf="@+id/description_text" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".8" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/create_button"
             style="@style/Button"
-            android:layout_width="@dimen/max_button_size"
+            android:layout_width="@dimen/button_size"
             android:layout_height="wrap_content"
             android:text="@string/create"
             app:icon="@drawable/ic_add"
@@ -82,7 +82,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/restore_routine"
             app:layout_constraintStart_toStartOf="@+id/restore_routine"
-            app:layout_constraintTop_toBottomOf="@+id/restore_routine" />
+            app:layout_constraintTop_toBottomOf="@+id/guideline" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

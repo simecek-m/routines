@@ -116,8 +116,8 @@ class ListFragment : Fragment() {
         listViewModel.routines.observe(viewLifecycleOwner, {
             if (it.isEmpty()) {
                 undoSnackbar.dismiss()
-                val actionEmptyList = ListFragmentDirections.redirectToEmpty(lastDeletedRoutine)
-                findNavController().navigate(actionEmptyList)
+                val redirectToEmptyList = ListFragmentDirections.redirectToEmpty(lastDeletedRoutine)
+                findNavController().navigate(redirectToEmptyList)
             } else {
                 adapter.updateList(getRoutineListWithTitles(it))
             }

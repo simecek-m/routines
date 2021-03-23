@@ -11,7 +11,7 @@
 
     <ImageView
         android:id="@+id/icon"
-        style="@style/TitleIcon"
+        style="@style/Title.Icon"
         android:layout_height="0dp"
         android:layout_width="0dp"
         app:layout_constraintDimensionRatio="1:1"
@@ -25,7 +25,7 @@
 
     <TextView
         android:id="@+id/text"
-        style="@style/TitleText"
+        style="@style/Title.Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/space_small"

@@ -27,27 +27,27 @@ class EmptyFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         binding = FragmentEmptyBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         binding.deletedRoutine = lastDeletedRoutine
-        binding.createButton.setOnClickListener {
-            val createRoutineAction = EmptyFragmentDirections.redirectToCreateFirst()
-            findNavController().navigate(createRoutineAction)
-        }
-        emptyListViewModel.routines.observe(viewLifecycleOwner, Observer {
+        emptyListViewModel.routines.observe(viewLifecycleOwner, {
             if(it.isNotEmpty()) {
                 val redirectBackToList = EmptyFragmentDirections.redirectBackToList()
                 findNavController().navigate(redirectBackToList)
             }
         })
+        binding.createButton.setOnClickListener {
+            redirectToCreateFirst()
+        }
         binding.restoreRoutine.setOnClickListener {
             restoreRoutine()
         }
+        return binding.root
+    }
+
+    private fun redirectToCreateFirst() {
+        val createRoutineAction = EmptyFragmentDirections.redirectToCreateFirst()
+        findNavController().navigate(createRoutineAction)
     }
 
     private fun restoreRoutine() {
@@ -57,4 +57,5 @@ class EmptyFragment : Fragment() {
             Snackbar.make(binding.emptyList, R.string.routine_restore_error, Snackbar.LENGTH_LONG)
         }
     }
+
 }

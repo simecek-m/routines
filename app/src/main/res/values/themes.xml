@@ -23,7 +23,6 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <!-- Theme customization. -->
         <item name="textInputStyle">@style/TextInputLayout</item>
-        <item name="extendedFloatingActionButtonStyle">@style/ExtendedFloatingActionButton</item>
         <item name="materialButtonStyle">@style/Button</item>
         <item name="materialTimePickerTheme">@style/TimePickerMaterialTheme</item>
         <!-- Text styles. -->

@@ -27,7 +27,8 @@
     <string name="icon_toothbrush">Toothbrush icon</string>
 
     <!-- states   -->
-    <string name="icon_complete">Complete routines icon</string>
+    <string name="icon_routines_complete">Complete routines icon</string>
+    <string name="icon_empty_list">Empty list icon</string>
 
     <!--  MOTIVATION  -->
     <string name="motivation_one">Don’t stop when you’re tired. Stop when you’re done.</string>

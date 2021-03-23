@@ -4,8 +4,6 @@ import androidx.room.TypeConverter
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 
-// Converter for ReminderManager database field
-// calculate minutes from ReminderManager time to save it into DB and vice versa
 class ReminderConverter {
 
     companion object {

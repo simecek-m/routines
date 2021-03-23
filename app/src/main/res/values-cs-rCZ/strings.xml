@@ -29,7 +29,8 @@
     <string name="icon_toothbrush">Ikona kartáčku na zuby</string>
 
     <!-- states   -->
-    <string name="icon_complete">Ikona splněných rutin</string>
+    <string name="icon_routines_complete">Ikona splněných rutin</string>
+    <string name="icon_empty_list">Ikona prázdného seznamu</string>
 
     <!--  MOTIVATION  -->
     <string name="motivation_one">Nepřestávej, když jsi unavený. Přestaň když jsi hotový.</string>
