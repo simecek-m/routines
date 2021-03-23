@@ -10,5 +10,6 @@
     <color name="gray_dark">#121212</color>
     <color name="transparent">#00000000</color>
     <color name="error">#FC0330</color>
+    <color name="error_light">#ff365a</color>
 </resources>
 
