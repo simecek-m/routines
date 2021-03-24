@@ -13,6 +13,7 @@
     <dimen name="space_big">32dp</dimen>
 
     <dimen name="button_size">250dp</dimen>
+
     <dimen name="line_spacing_bigger">1.2</dimen>
 
     <dimen name="max_input_width_percent">0.8</dimen>
@@ -23,8 +24,8 @@
     <dimen name="button_icon_size">20dp</dimen>
     <dimen name="button_padding">12dp</dimen>
 
-    <dimen name="routine_widget_reminder_icon_size">20sp</dimen>
-    <dimen name="routine_widget_icon_size">50sp</dimen>
+    <dimen name="routine_card_reminder_icon_size">20sp</dimen>
+    <dimen name="routine_card_icon_size">32dp</dimen>
 
     <dimen name="time_picker_time_text_size">32sp</dimen>
 

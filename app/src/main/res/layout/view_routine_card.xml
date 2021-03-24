@@ -35,8 +35,8 @@
 
         <ImageView
             android:id="@+id/reminder_icon"
-            android:layout_width="@dimen/routine_widget_reminder_icon_size"
-            android:layout_height="@dimen/routine_widget_reminder_icon_size"
+            android:layout_width="@dimen/routine_card_reminder_icon_size"
+            android:layout_height="@dimen/routine_card_reminder_icon_size"
             android:layout_marginTop="@dimen/space_small"
             android:background="@drawable/ic_alarm"
             style="@style/RoutineCard.Icon"
@@ -60,8 +60,8 @@
 
         <ImageView
             android:id="@+id/icon"
-            android:layout_width="@dimen/routine_widget_icon_size"
-            android:layout_height="@dimen/routine_widget_icon_size"
+            android:layout_width="@dimen/routine_card_icon_size"
+            android:layout_height="@dimen/routine_card_icon_size"
             tools:src="@drawable/ic_food"
             android:background="@{routine.finished ? @drawable/ic_check : routine.getDrawableIcon(context)}"
             android:backgroundTint="@{routine.finished ? ColorUtils.getPrimaryColor(context) : ColorUtils.getOnSurfaceColor(context) }"

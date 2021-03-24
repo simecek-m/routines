@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import dev.simecek.routines.callback.RoutineListDiffCallback
 import dev.simecek.routines.databinding.ViewListButtonBinding
-import dev.simecek.routines.databinding.ViewRoutineBinding
+import dev.simecek.routines.databinding.ViewRoutineCardBinding
 import dev.simecek.routines.databinding.ViewTitleBinding
 import dev.simecek.routines.listener.FinishRoutineListener
 import dev.simecek.routines.utils.model.RoutineListItem
@@ -32,7 +32,7 @@ class RoutineListAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerVie
 
     var finishRoutineListener: FinishRoutineListener? = null
 
-    class RoutineViewHolder(val binding: ViewRoutineBinding): RecyclerView.ViewHolder(binding.root)
+    class RoutineCardViewHolder(val binding: ViewRoutineCardBinding): RecyclerView.ViewHolder(binding.root)
     class TitleViewHolder(val binding: ViewTitleBinding): RecyclerView.ViewHolder(binding.root)
     class ButtonViewHolder(val binding: ViewListButtonBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -47,8 +47,8 @@ class RoutineListAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerVie
                 ButtonViewHolder(binding)
             }
             else -> {
-                val binding = ViewRoutineBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-                RoutineViewHolder(binding)
+                val binding = ViewRoutineCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                RoutineCardViewHolder(binding)
             }
         }
     }
@@ -69,7 +69,7 @@ class RoutineListAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerVie
         when(holder.itemViewType) {
             ROUTINE_VIEW_TYPE -> {
                 val routine = (list[position] as RoutineListItem.RoutineItem).routine
-                val routineViewHolder = holder as RoutineViewHolder
+                val routineViewHolder = holder as RoutineCardViewHolder
                 routineViewHolder.binding.routine = routine
                 routineViewHolder.itemView.setOnClickListener {
                     finishRoutineListener?.onFinishRoutine(routine.id)
