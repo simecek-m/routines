@@ -3,11 +3,13 @@ package dev.simecek.routines.viewModel
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.simecek.routines.R
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.database.repository.RoutineRepository
 import dev.simecek.routines.utils.constant.Icon
+import kotlinx.coroutines.launch
 import java.time.LocalTime
 import javax.inject.Inject
 
@@ -31,9 +33,11 @@ class CreateRoutineViewModel @Inject constructor(
         return compareValues(text.length, MINIMAL_TITLE_LENGTH) >= 0
     }
 
-    suspend fun createNewRoutine(): Long {
-        val routine = Routine(title = title.value!!, icon = icon.value!!, reminder = reminder.value!!)
-        return routineRepository.insert(routine)
+    fun createNewRoutine() {
+        viewModelScope.launch {
+            val routine = Routine(title = title.value!!, icon = icon.value!!, reminder = reminder.value!!)
+            routineRepository.insert(routine)
+        }
     }
 
 }

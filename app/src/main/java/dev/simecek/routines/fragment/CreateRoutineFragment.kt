@@ -4,29 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_KEYBOARD
 import com.google.android.material.timepicker.TimeFormat
 import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.R
 import dev.simecek.routines.databinding.FragmentCreateRoutineBinding
-import dev.simecek.routines.utils.managers.ReminderManager
 import dev.simecek.routines.viewModel.CreateRoutineViewModel
-import kotlinx.coroutines.launch
 import java.time.LocalTime
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class CreateRoutineFragment : Fragment() {
-
-    @Inject
-    lateinit var reminderManager: ReminderManager
 
     private val viewModel: CreateRoutineViewModel by viewModels()
     private lateinit var binding: FragmentCreateRoutineBinding
@@ -42,7 +33,7 @@ class CreateRoutineFragment : Fragment() {
             showTimePicker()
         }
         binding.createButton.setOnClickListener {
-            createRoutine()
+            createRoutineAndRedirect()
         }
         return binding.root
     }
@@ -62,17 +53,10 @@ class CreateRoutineFragment : Fragment() {
         timePicker.show(parentFragmentManager, "TIME_PICKER")
     }
 
-    private fun createRoutine() {
-        lifecycleScope.launch {
-            try {
-                val id = viewModel.createNewRoutine()
-                reminderManager.setDailyReminder(id.toInt(), viewModel.title.value!!, viewModel.reminder.value!!.hour, viewModel.reminder.value!!.minute)
-                val returnBackToList = CreateRoutineFragmentDirections.returnToList()
-                findNavController().navigate(returnBackToList)
-            } catch (ex: Exception) {
-                Snackbar.make(binding.layout, R.string.error_while_creating_routine, Snackbar.LENGTH_SHORT).show()
-            }
-        }
+    private fun createRoutineAndRedirect() {
+        viewModel.createNewRoutine()
+        val returnBackToList = CreateRoutineFragmentDirections.returnToList()
+        findNavController().navigate(returnBackToList)
     }
 
 }

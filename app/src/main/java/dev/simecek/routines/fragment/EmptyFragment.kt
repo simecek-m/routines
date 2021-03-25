@@ -14,10 +14,15 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.R
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.databinding.FragmentEmptyBinding
+import dev.simecek.routines.utils.managers.ReminderManager
 import dev.simecek.routines.viewModel.EmptyListViewModel
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class EmptyFragment : Fragment() {
+
+    @Inject
+    lateinit var reminderManager: ReminderManager
 
     private lateinit var binding: FragmentEmptyBinding
     private val emptyListViewModel: EmptyListViewModel by viewModels()
@@ -51,11 +56,7 @@ class EmptyFragment : Fragment() {
     }
 
     private fun restoreRoutine() {
-        if(lastDeletedRoutine != null) {
-            emptyListViewModel.restoreRoutine(lastDeletedRoutine!!)
-        } else {
-            Snackbar.make(binding.emptyList, R.string.routine_restore_error, Snackbar.LENGTH_LONG)
-        }
+        emptyListViewModel.restoreRoutine(lastDeletedRoutine!!)
     }
 
 }

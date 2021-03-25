@@ -54,10 +54,7 @@ class ListFragment : Fragment() {
             reminderManager.removeDailyReminder(swipedRoutine.id.toInt())
             lastDeletedRoutine = swipedRoutine
             undoSnackbar.setAction(R.string.undo) {
-                lifecycleScope.launch {
-                    val id = listViewModel.restoreRoutine(swipedRoutine)
-                    reminderManager.setDailyReminder(id.toInt(), swipedRoutine.title, swipedRoutine.reminder.hour, swipedRoutine.reminder.minute)
-                }
+                listViewModel.restoreRoutine(swipedRoutine)
             }.show()
         }
     }

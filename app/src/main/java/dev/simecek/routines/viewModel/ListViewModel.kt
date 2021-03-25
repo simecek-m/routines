@@ -21,8 +21,10 @@ class ListViewModel @Inject constructor(
         }
     }
 
-    suspend fun restoreRoutine(routine: Routine): Long {
-        return repository.insert(routine)
+    fun restoreRoutine(routine: Routine) {
+        viewModelScope.launch {
+            repository.insert(routine)
+        }
     }
 
     suspend fun switchFinishState(id: Long) {
