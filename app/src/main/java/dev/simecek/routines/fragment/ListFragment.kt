@@ -51,7 +51,6 @@ class ListFragment : Fragment() {
         override fun onDeleteRoutineFromPosition(position: Int) {
             val swipedRoutine = (adapter.list[position] as RoutineListItem.RoutineItem).routine
             listViewModel.deleteRoutine(swipedRoutine)
-            reminderManager.removeDailyReminder(swipedRoutine.id.toInt())
             lastDeletedRoutine = swipedRoutine
             undoSnackbar.setAction(R.string.undo) {
                 listViewModel.restoreRoutine(swipedRoutine)

@@ -20,11 +20,17 @@ class ReminderBroadcastReceiver: BroadcastReceiver() {
     @Inject
     lateinit var notificationManager: NotificationManager
 
+    @Inject
+    lateinit var reminderManager: ReminderManager
+
     override fun onReceive(context: Context?, intent: Intent?) {
         if(intent != null) {
-            val title: String = intent.getStringExtra(ReminderManager.EXTRA_NAME_TITLE) ?: applicationContext.getString(R.string.routine)
-            val id: Int = intent.getIntExtra(ReminderManager.EXTRA_NAME_ID, 0)
+            val title: String = intent.getStringExtra(ReminderManager.INTENT_EXTRA_TITLE) ?: applicationContext.getString(R.string.routine)
+            val id: Int = intent.getIntExtra(ReminderManager.INTENT_EXTRA_ID, 0)
+            val hour: Int = intent.getIntExtra(ReminderManager.INTENT_EXTRA_HOUR, 12)
+            val minute: Int = intent.getIntExtra(ReminderManager.INTENT_EXTRA_MINUTE, 0)
             notificationManager.showRoutineNotification(id, title)
+            reminderManager.setReminder(id, title, hour, minute)
         }
     }
 

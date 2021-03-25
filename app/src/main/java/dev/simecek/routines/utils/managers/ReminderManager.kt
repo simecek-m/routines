@@ -12,42 +12,50 @@ import javax.inject.Inject
 class ReminderManager @Inject constructor(@ApplicationContext var context: Context) {
 
     companion object {
-        const val INTERVAL_DAILY: Long = 1000 * 60 * 60 * 24
-        const val EXTRA_NAME_TITLE: String = "title"
-        const val EXTRA_NAME_ID: String = "notificationId"
+        const val INTENT_EXTRA_TITLE: String = "title"
+        const val INTENT_EXTRA_ID: String = "id"
+        const val INTENT_EXTRA_HOUR: String = "hour"
+        const val INTENT_EXTRA_MINUTE: String = "minute"
     }
 
     private val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
     private val intent = Intent(context, ReminderBroadcastReceiver::class.java)
 
-    fun setDailyReminder(id: Int, title: String, hour: Int, minute: Int) {
+    fun setReminder(id: Int, title: String, hour: Int, minute: Int) {
 
-        intent.putExtra(EXTRA_NAME_TITLE, title)
-        intent.putExtra(EXTRA_NAME_ID, id)
+        intent.putExtra(INTENT_EXTRA_TITLE, title)
+        intent.putExtra(INTENT_EXTRA_ID, id)
+        intent.putExtra(INTENT_EXTRA_HOUR, hour)
+        intent.putExtra(INTENT_EXTRA_MINUTE, minute)
 
         val now = ZonedDateTime.now()
 
-        var todayReminder = now
+        var reminder = now
             .withHour(hour)
             .withMinute(minute)
             .withSecond(0)
             .withNano(0)
 
-        if(todayReminder.isBefore(now)) {
-            todayReminder = todayReminder.plusDays(1)
+        if(reminder.isBefore(now)) {
+            reminder = reminder.plusDays(1)
         }
 
-        val reminderTimeInMillis = todayReminder.toInstant().toEpochMilli()
+        val reminderTimeInMillis = reminder.toInstant().toEpochMilli()
 
-        alarmManager.setRepeating(
-                AlarmManager.RTC_WAKEUP,
-                reminderTimeInMillis,
-                INTERVAL_DAILY,
-                getPendingIntent(id)
-        )
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            alarmManager.setExactAndAllowWhileIdle(
+                    AlarmManager.RTC_WAKEUP,
+                    reminderTimeInMillis,
+                    getPendingIntent(id))
+        } else {
+            alarmManager.setExact(
+                   AlarmManager.RTC_WAKEUP,
+                    reminderTimeInMillis,
+                    getPendingIntent(id))
+        }
     }
 
-    fun removeDailyReminder(id: Int) {
+    fun removeReminder(id: Int) {
         alarmManager.cancel(getPendingIntent(id))
     }
 

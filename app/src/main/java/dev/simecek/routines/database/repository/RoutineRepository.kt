@@ -20,12 +20,13 @@ class RoutineRepository @Inject constructor(private val routineDao: RoutineDao, 
 
     suspend fun insert(routine: Routine): Long {
         val id = routineDao.insert(routine)
-        reminderManager.setDailyReminder(id.toInt(), routine.title, routine.reminder.hour, routine.reminder.minute)
+        reminderManager.setReminder(id.toInt(), routine.title, routine.reminder.hour, routine.reminder.minute)
         return id
     }
 
     suspend fun delete(routine: Routine) {
         routineDao.delete(routine)
+        reminderManager.removeReminder(routine.id.toInt())
     }
 
     suspend fun get(id: Long) {

@@ -24,7 +24,7 @@ class RestartBroadcastReceiver: BroadcastReceiver() {
             GlobalScope.launch {
                 val routines = repository.getAllRoutinesAsList()
                 routines.forEach {
-                    reminderManager.setDailyReminder(it.id.toInt(), it.title, it.reminder.hour, it.reminder.minute)
+                    reminderManager.setReminder(it.id.toInt(), it.title, it.reminder.hour, it.reminder.minute)
                 }
             }
         }
