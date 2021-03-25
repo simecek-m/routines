@@ -45,7 +45,6 @@ class TitleView(context: Context, attrs: AttributeSet?) : ConstraintLayout(conte
     }
 
     private fun setSize() {
-        println(size)
         when(size) {
             TitleSize.SMALL.ordinal -> {
                 TextViewCompat.setTextAppearance(binding.text, R.style.TextAppearance_MdcTypographyStyles_Subtitle1)
