@@ -14,7 +14,7 @@ This application is available for all Android devices running on Android 5.0 and
 ## Download / Installation
 1. go to [releases section](https://github.com/simecek-m/routines/releases)
 1. download .apk file
-1. copy dowloaded file to your phone
+1. copy downloaded file to your phone
 1. install .apk file ([how?](https://developer.android.com/distribute/marketing-tools/alternative-distribution#unknown-sources))
 1. enjoy
 
