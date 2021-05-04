@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.simecek.routines.R
 import dev.simecek.routines.activity.MainActivity
+import timber.log.Timber
 import javax.inject.Inject
 
 class NotificationManager @Inject constructor(@ApplicationContext var context: Context) {
@@ -40,6 +41,7 @@ class NotificationManager @Inject constructor(@ApplicationContext var context: C
     }
 
     fun showRoutineNotification(id: Int, title: String) {
+        Timber.i("Show notification for $title routine with id: $id.")
         val notification = createRoutineNotification(title)
         NotificationManagerCompat.from(context).notify(id, notification)
     }

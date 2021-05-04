@@ -8,6 +8,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.simecek.routines.R
 import dev.simecek.routines.utils.managers.NotificationManager
 import dev.simecek.routines.utils.managers.ReminderManager
+import timber.log.Timber
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -24,6 +25,7 @@ class ReminderBroadcastReceiver: BroadcastReceiver() {
     lateinit var reminderManager: ReminderManager
 
     override fun onReceive(context: Context?, intent: Intent?) {
+        Timber.i("Reminder Broadcast Receiver was called (should show notification and reset reminder for tomorrow).")
         if(intent != null) {
             val title: String = intent.getStringExtra(ReminderManager.INTENT_EXTRA_TITLE) ?: applicationContext.getString(R.string.routine)
             val id: Int = intent.getIntExtra(ReminderManager.INTENT_EXTRA_ID, 0)

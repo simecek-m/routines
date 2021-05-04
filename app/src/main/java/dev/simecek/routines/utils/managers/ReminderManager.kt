@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.simecek.routines.broadcast.ReminderBroadcastReceiver
+import timber.log.Timber
 import java.time.ZonedDateTime
 import javax.inject.Inject
 
@@ -22,7 +23,7 @@ class ReminderManager @Inject constructor(@ApplicationContext var context: Conte
     private val intent = Intent(context, ReminderBroadcastReceiver::class.java)
 
     fun setReminder(id: Int, title: String, hour: Int, minute: Int) {
-
+        Timber.i("Set new reminder for $title routine ($hour:$minute) with id: $id.")
         intent.putExtra(INTENT_EXTRA_TITLE, title)
         intent.putExtra(INTENT_EXTRA_ID, id)
         intent.putExtra(INTENT_EXTRA_HOUR, hour)
@@ -47,15 +48,18 @@ class ReminderManager @Inject constructor(@ApplicationContext var context: Conte
                     AlarmManager.RTC_WAKEUP,
                     reminderTimeInMillis,
                     getPendingIntent(id))
+            Timber.i("Alarm was set.")
         } else {
             alarmManager.setExact(
                    AlarmManager.RTC_WAKEUP,
                     reminderTimeInMillis,
                     getPendingIntent(id))
+            Timber.i("Alarm was set.")
         }
     }
 
     fun removeReminder(id: Int) {
+        Timber.i("Remove reminder of routine with id: $id.")
         alarmManager.cancel(getPendingIntent(id))
     }
 
