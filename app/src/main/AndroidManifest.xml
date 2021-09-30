@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Routines">
 
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -22,7 +23,8 @@
 
         <receiver android:name=".broadcast.ReminderBroadcastReceiver" />
 
-        <receiver android:name=".broadcast.RestartBroadcastReceiver" >
+        <receiver android:name=".broadcast.RestartBroadcastReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
