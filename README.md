@@ -5,7 +5,7 @@
 Simple Android application that help you create healthy, stable, regular habits. #covid #lockdown
 
 ## User Interface
-![light theme](https://i.imgur.com/oCouhNG.png)
+![light theme](https://i.imgur.com/sRA5ebu.png)
 ![dark theme](https://i.imgur.com/xfKQXVx.png)
 
 ## Availability
