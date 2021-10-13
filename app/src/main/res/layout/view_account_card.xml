@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/RoutineCard"
+    android:background="@drawable/shape_square_radius"
+    android:padding="@dimen/space_medium"
+    android:layout_marginTop="@dimen/space_small">
+
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="@dimen/account_card_icon_size"
+        android:layout_height="@dimen/account_card_icon_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/account_picture"
+        tools:src="@drawable/ic_profile"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/picture"
+        app:layout_constraintStart_toEndOf="@+id/picture"
+        app:layout_constraintTop_toTopOf="@+id/picture"
+        android:layout_marginStart="@dimen/space_small"
+        tools:text="Martin"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
