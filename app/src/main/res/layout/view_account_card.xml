@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription="@string/account_picture"
-        tools:src="@drawable/ic_profile"/>
+        tools:src="@drawable/avatar_10"/>
 
     <TextView
         android:id="@+id/name"
