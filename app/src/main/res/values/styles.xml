@@ -104,4 +104,9 @@
         <item name="android:textAppearance">?attr/textAppearanceBody1</item>
     </style>
 
+    <style name="Title">
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline3</item>
+    </style>
+
 </resources>

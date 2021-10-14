@@ -31,4 +31,6 @@
 
     <dimen name="account_card_icon_size">48dp</dimen>
 
+    <dimen name="account_picture_size">250dp</dimen>
+
 </resources>
