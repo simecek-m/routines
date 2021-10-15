@@ -73,4 +73,5 @@
     <string name="afternoon">Odpoledne</string>
     <string name="icon_picked">Vybraná ikona</string>
     <string name="account_picture">Obrázek účtu</string>
+    <string name="avatar">Avatar</string>
 </resources>

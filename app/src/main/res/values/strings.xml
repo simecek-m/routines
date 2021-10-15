@@ -74,4 +74,5 @@
     <string name="afternoon">Afternoon</string>
     <string name="icon_picked">Picked icon</string>
     <string name="account_picture">Account picture</string>
+    <string name="avatar">Avatar</string>
 </resources>
