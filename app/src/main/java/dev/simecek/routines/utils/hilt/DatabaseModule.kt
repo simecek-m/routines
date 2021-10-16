@@ -9,6 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dev.simecek.routines.database.AppDatabase
 import dev.simecek.routines.database.dao.RoutineDao
+import dev.simecek.routines.database.dao.UserDao
 import javax.inject.Singleton
 
 @Module
@@ -28,6 +29,11 @@ class DatabaseModule {
     @Provides
     fun provideRoutineDao(appDatabase: AppDatabase): RoutineDao {
         return appDatabase.routineDao()
+    }
+
+    @Provides
+    fun provideUserDao(appDatabase: AppDatabase): UserDao {
+        return appDatabase.userDao()
     }
 
 }

@@ -1,6 +1,13 @@
 package dev.simecek.routines.database.entity
 
-data class User(var name: String, var avatar: String = DEFAULT_AVATAR) {
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
+data class User(
+    @PrimaryKey var name: String,
+    @ColumnInfo(name = "avatar")var avatar: String = DEFAULT_AVATAR) {
 
     companion object {
         const val DEFAULT_AVATAR: String = "avatar_1"

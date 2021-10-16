@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
+import dev.simecek.routines.R
 import dev.simecek.routines.databinding.FragmentRegistrationBinding
+import dev.simecek.routines.exception.UserAlreadyExistsException
 import dev.simecek.routines.viewModel.RegistrationViewModel
-import timber.log.Timber
+import kotlinx.coroutines.runBlocking
 
 class RegistrationFragment : Fragment() {
 
@@ -35,7 +38,18 @@ class RegistrationFragment : Fragment() {
             findNavController().navigate(redirectToAvatarPicker)
         }
         binding.registrationButton.setOnClickListener {
-            findNavController().navigate(redirectToListAction)
+            runBlocking {
+                try {
+                    viewModel.register()
+                    findNavController().navigate(redirectToListAction)
+                } catch (ex: UserAlreadyExistsException) {
+                    Snackbar.make(
+                        binding.layout,
+                        R.string.user_already_exists,
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                }
+            }
         }
     }
 }
