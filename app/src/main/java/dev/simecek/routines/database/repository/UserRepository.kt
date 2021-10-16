@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class UserRepository @Inject constructor(private val userDao: UserDao) {
 
-    fun getAllUsers(): LiveData<List<User>> {
+    fun getAll(): LiveData<List<User>> {
         return userDao.getAll()
     }
 

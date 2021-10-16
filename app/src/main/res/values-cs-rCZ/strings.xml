@@ -79,4 +79,5 @@
     <string name="registration_name">Jak ti mám říkat?</string>
     <string name="registration_avatar">Jak vypadáš?</string>
     <string name="user_already_exists">Uživatelské jméno je již zabrané</string>
+    <string name="accounts">Účty</string>
 </resources>

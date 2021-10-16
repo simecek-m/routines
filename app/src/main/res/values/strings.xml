@@ -80,4 +80,5 @@
     <string name="registration_name">How should I call you?</string>
     <string name="registration_avatar">How do you look like?</string>
     <string name="user_already_exists">User name is already taken</string>
+    <string name="accounts">Accounts</string>
 </resources>

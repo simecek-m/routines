@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/registrationFragment">
+    app:startDestination="@id/createNewAccount">
 
     <fragment
         android:id="@+id/registrationFragment"
@@ -95,4 +95,16 @@
         android:name="dev.simecek.routines.fragment.AvatarPickerFragment"
         android:label="fragment_account_picker"
         tools:layout="@layout/fragment_avatar_picker" />
+    <fragment
+        android:id="@+id/createNewAccount"
+        android:name="dev.simecek.routines.fragment.AccountListFragment"
+        android:label="fragment_account_list"
+        tools:layout="@layout/fragment_account_list" >
+        <action
+            android:id="@+id/register"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/login"
+            app:destination="@id/emptyFragment" />
+    </fragment>
 </navigation>
