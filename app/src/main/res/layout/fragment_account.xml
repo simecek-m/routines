@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        style="@style/Title"
+        style="@style/Fullscreen.Title"
         android:layout_marginBottom="@dimen/space_small"
         tools:text="Martin" />
 

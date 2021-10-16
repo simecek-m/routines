@@ -6,6 +6,7 @@
 
     <data>
         <import type="dev.simecek.routines.utils.theme.ColorUtils" />
+        <import type="dev.simecek.routines.utils.drawable.DrawableUtils" />
         <variable
             name="routine"
             type="dev.simecek.routines.database.entity.Routine" />
@@ -63,7 +64,7 @@
             android:layout_width="@dimen/routine_card_icon_size"
             android:layout_height="@dimen/routine_card_icon_size"
             tools:src="@drawable/ic_food"
-            android:background="@{routine.finished ? @drawable/ic_check : routine.getDrawableIcon(context)}"
+            android:background="@{routine.finished ? @drawable/ic_check : DrawableUtils.getDrawableIcon(context, routine.icon)}"
             android:backgroundTint="@{routine.finished ? ColorUtils.getPrimaryColor(context) : ColorUtils.getOnSurfaceColor(context) }"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

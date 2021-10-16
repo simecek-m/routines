@@ -74,4 +74,8 @@
     <string name="icon_picked">Vybraná ikona</string>
     <string name="account_picture">Obrázek účtu</string>
     <string name="avatar">Avatar</string>
+    <string name="name">Jméno</string>
+    <string name="welcome">Vítejte</string>
+    <string name="registration_name">Jak ti mám říkat?</string>
+    <string name="registration_avatar">Jak vypadáš?</string>
 </resources>

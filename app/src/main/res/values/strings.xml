@@ -75,4 +75,8 @@
     <string name="icon_picked">Picked icon</string>
     <string name="account_picture">Account picture</string>
     <string name="avatar">Avatar</string>
+    <string name="name">Name</string>
+    <string name="welcome">Welcome</string>
+    <string name="registration_name">How should I call you?</string>
+    <string name="registration_avatar">How do you look like?</string>
 </resources>

@@ -8,6 +8,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import dev.simecek.routines.utils.constant.DayPhase
 import dev.simecek.routines.utils.constant.Icon
+import dev.simecek.routines.utils.drawable.DrawableUtils
 import java.io.Serializable
 import java.time.LocalDate
 import java.time.LocalTime
@@ -23,7 +24,6 @@ data class Routine(
 ): Serializable {
 
     companion object {
-        const val ICON_ID_NOT_FOUND = 0
         const val ICON_PREFIX = "ic_"
     }
 
@@ -41,17 +41,6 @@ data class Routine(
 
     fun isFinished(): Boolean {
         return LocalDate.now().equals(lastFinished)
-    }
-
-    fun getDrawableIcon(context: Context): Drawable? {
-        val iconName: String = icon.toString().toLowerCase(Locale.getDefault())
-        val identifier = "$ICON_PREFIX$iconName"
-        val iconId = context.resources.getIdentifier(identifier, "drawable", context.packageName)
-        return if(iconId == ICON_ID_NOT_FOUND) {
-            null
-        } else {
-            ContextCompat.getDrawable(context, iconId)
-        }
     }
 
 }

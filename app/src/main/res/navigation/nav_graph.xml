@@ -4,7 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/listFragment">
+    app:startDestination="@id/registrationFragment">
+
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="dev.simecek.routines.fragment.RegistrationFragment"
+        android:label="RegistrationFragment"
+        tools:layout="@layout/fragment_registration">
+        <action
+            android:id="@+id/redirect_to_avatar_picker"
+            app:destination="@id/accountPickerFragment" />
+        <action
+            android:id="@+id/redirect_to_list"
+            app:destination="@id/listFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/listFragment"
@@ -32,6 +45,9 @@
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right" />
+        <action
+            android:id="@+id/redirect_to_registration"
+            app:destination="@id/registrationFragment" />
     </fragment>
     <fragment
         android:id="@+id/emptyFragment"
@@ -74,4 +90,9 @@
             app:exitAnim="@anim/slide_out_to_right"
             app:popUpTo="@id/nav_graph" />
     </fragment>
+    <fragment
+        android:id="@+id/accountPickerFragment"
+        android:name="dev.simecek.routines.fragment.AvatarPickerFragment"
+        android:label="fragment_account_picker"
+        tools:layout="@layout/fragment_avatar_picker" />
 </navigation>

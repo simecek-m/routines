@@ -34,5 +34,6 @@
     <dimen name="account_picture_size">250dp</dimen>
 
     <dimen name="account_picker_avatar_size">88dp</dimen>
+    <dimen name="registration_avatar_size">168dp</dimen>
 
 </resources>
