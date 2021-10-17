@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,6 +16,7 @@ import dev.simecek.routines.databinding.FragmentAccountListBinding
 import dev.simecek.routines.listener.SelectAccountListener
 import dev.simecek.routines.settings.SettingsManager
 import dev.simecek.routines.viewModel.AccountListViewModel
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -74,9 +76,11 @@ class AccountListFragment : Fragment() {
 
     private val selectAccountListener: SelectAccountListener = object: SelectAccountListener {
         override fun onSelect(user: User) {
-            //TODO: persist logged in user state
-            findNavController().navigate(LOGIN_ACTION)
+            lifecycleScope.launch {
+                settingsManager.signIn(user.name)
+                findNavController().navigate(LOGIN_ACTION)
+            }
         }
-
     }
+
 }
