@@ -13,7 +13,9 @@ import dev.simecek.routines.adapter.AccountListAdapter
 import dev.simecek.routines.database.entity.User
 import dev.simecek.routines.databinding.FragmentAccountListBinding
 import dev.simecek.routines.listener.SelectAccountListener
+import dev.simecek.routines.settings.SettingsManager
 import dev.simecek.routines.viewModel.AccountListViewModel
+import timber.log.Timber
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -22,8 +24,16 @@ class AccountListFragment : Fragment() {
     @Inject
     lateinit var adapter: AccountListAdapter
 
+    @Inject
+    lateinit var settingsManager: SettingsManager
+
     private lateinit var binding: FragmentAccountListBinding
     private val viewModel: AccountListViewModel by viewModels()
+
+    companion object {
+        val REGISTER_ACTION = AccountListFragmentDirections.register()
+        val LOGIN_ACTION = AccountListFragmentDirections.login()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,27 +45,36 @@ class AccountListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val registerAction = AccountListFragmentDirections.register()
         adapter.selectAccountListener = selectAccountListener
         binding.list.layoutManager = LinearLayoutManager(requireContext())
         binding.list.adapter = adapter
         binding.registrationButton.setOnClickListener {
-            findNavController().navigate(registerAction)
+            findNavController().navigate(REGISTER_ACTION)
+        }
+        val user = settingsManager.getSignedInUser()
+        if(user.isNotBlank()) {
+            Timber.i("User is already signed in!")
+            findNavController().navigate(LOGIN_ACTION)
         }
         loadAccounts()
     }
 
     private fun loadAccounts() {
         viewModel.users.observe(viewLifecycleOwner, {
-            adapter.list = ArrayList(it)
+            if(it.isEmpty()) {
+                Timber.i("Account list is empty")
+                findNavController().navigate(REGISTER_ACTION)
+            } else {
+                Timber.i("Account list is not empty, data: $it")
+                adapter.list = ArrayList(it)
+            }
         })
     }
 
     private val selectAccountListener: SelectAccountListener = object: SelectAccountListener {
         override fun onSelect(user: User) {
             //TODO: persist logged in user state
-            val loginAction = AccountListFragmentDirections.login()
-            findNavController().navigate(loginAction)
+            findNavController().navigate(LOGIN_ACTION)
         }
 
     }

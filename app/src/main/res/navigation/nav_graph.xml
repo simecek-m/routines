@@ -102,7 +102,7 @@
         tools:layout="@layout/fragment_account_list" >
         <action
             android:id="@+id/register"
-            app:destination="@id/registrationFragment" />
+            app:destination="@id/registrationFragment"/>
         <action
             android:id="@+id/login"
             app:destination="@id/emptyFragment" />

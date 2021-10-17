@@ -11,6 +11,7 @@ data class User(
 
     companion object {
         const val DEFAULT_AVATAR: String = "avatar_1"
+        const val ANONYMOUS_USERNAME: String = ""
     }
 
 }

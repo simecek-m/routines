@@ -12,7 +12,7 @@ class RegistrationViewModel @Inject constructor(
     private val repository: UserRepository
 ): ViewModel() {
 
-    var name: MutableLiveData<String> = MutableLiveData("")
+    var name: MutableLiveData<String> = MutableLiveData(User.ANONYMOUS_USERNAME)
     var avatar: MutableLiveData<String> = MutableLiveData(User.DEFAULT_AVATAR)
 
     suspend fun register() {
