@@ -1,4 +1,4 @@
-package dev.simecek.routines.settings
+package dev.simecek.routines.state
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -15,14 +15,14 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class SettingsManager @Inject constructor(@ApplicationContext val context: Context) {
+class StateManager @Inject constructor(@ApplicationContext val context: Context) {
 
     companion object {
-        const val SETTINGS_STORE = "settings"
+        const val STATE_STORE = "settings"
         val SIGNED_IN_USER = stringPreferencesKey("SIGNED_IN_USER")
     }
 
-    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(SETTINGS_STORE)
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(STATE_STORE)
 
     /*
      DOC: https://developer.android.com/topic/libraries/architecture/datastore#synchronous

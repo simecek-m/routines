@@ -14,7 +14,7 @@ import dev.simecek.routines.adapter.AccountListAdapter
 import dev.simecek.routines.database.entity.User
 import dev.simecek.routines.databinding.FragmentAccountListBinding
 import dev.simecek.routines.listener.SelectAccountListener
-import dev.simecek.routines.settings.SettingsManager
+import dev.simecek.routines.state.StateManager
 import dev.simecek.routines.viewModel.AccountListViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -27,7 +27,7 @@ class AccountListFragment : Fragment() {
     lateinit var adapter: AccountListAdapter
 
     @Inject
-    lateinit var settingsManager: SettingsManager
+    lateinit var stateManager: StateManager
 
     private lateinit var binding: FragmentAccountListBinding
     private val viewModel: AccountListViewModel by viewModels()
@@ -54,7 +54,7 @@ class AccountListFragment : Fragment() {
         binding.registrationButton.setOnClickListener {
             findNavController().navigate(REGISTER_ACTION)
         }
-        val user = settingsManager.getSignedInUser()
+        val user = stateManager.getSignedInUser()
         if(user.isNotBlank()) {
             Timber.i("User is already signed in!")
             findNavController().navigate(LOGIN_ACTION)
@@ -77,7 +77,7 @@ class AccountListFragment : Fragment() {
     private val selectAccountListener: SelectAccountListener = object: SelectAccountListener {
         override fun onSelect(user: User) {
             lifecycleScope.launch {
-                settingsManager.signIn(user.name)
+                stateManager.signIn(user.name)
                 findNavController().navigate(LOGIN_ACTION)
             }
         }

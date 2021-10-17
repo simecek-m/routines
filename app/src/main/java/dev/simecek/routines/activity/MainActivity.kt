@@ -10,7 +10,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.databinding.ActivityMainBinding
-import dev.simecek.routines.settings.SettingsManager
+import dev.simecek.routines.state.StateManager
 import dev.simecek.routines.utils.managers.NotificationManager
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var notificationManager: NotificationManager
 
     @Inject
-    lateinit var settingsManager: SettingsManager
+    lateinit var stateManager: StateManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             override fun onPreDraw(): Boolean {
                 var preferences: Preferences? = null
                 lifecycleScope.launch {
-                    preferences = settingsManager.cache()
+                    preferences = stateManager.cache()
                 }
                 return if(preferences != null) {
                     binding.layout.viewTreeObserver.removeOnPreDrawListener(this)
