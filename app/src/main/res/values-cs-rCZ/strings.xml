@@ -80,4 +80,6 @@
     <string name="registration_avatar">Jak vypadáš?</string>
     <string name="user_already_exists">Uživatelské jméno je již zabrané</string>
     <string name="accounts">Účty</string>
+    <string name="empty_accounts_description">Žádný účet nebyl nalezen!</string>
+    <string name="registration">Registrace</string>
 </resources>
