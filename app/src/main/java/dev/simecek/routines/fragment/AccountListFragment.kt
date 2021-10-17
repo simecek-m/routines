@@ -31,6 +31,7 @@ class AccountListFragment : Fragment() {
     private val viewModel: AccountListViewModel by viewModels()
 
     companion object {
+        val EMPTY_LIST_ACTION = AccountListFragmentDirections.noAccountFound()
         val REGISTER_ACTION = AccountListFragmentDirections.register()
         val LOGIN_ACTION = AccountListFragmentDirections.login()
     }
@@ -63,7 +64,7 @@ class AccountListFragment : Fragment() {
         viewModel.users.observe(viewLifecycleOwner, {
             if(it.isEmpty()) {
                 Timber.i("Account list is empty")
-                findNavController().navigate(REGISTER_ACTION)
+                findNavController().navigate(EMPTY_LIST_ACTION)
             } else {
                 Timber.i("Account list is not empty, data: $it")
                 adapter.list = ArrayList(it)
