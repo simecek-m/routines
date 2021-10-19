@@ -82,4 +82,6 @@
     <string name="accounts">Účty</string>
     <string name="empty_accounts_description">Žádný účet nebyl nalezen!</string>
     <string name="registration">Registrace</string>
+    <string name="account">Účet</string>
+    <string name="routines">Rutiny</string>
 </resources>

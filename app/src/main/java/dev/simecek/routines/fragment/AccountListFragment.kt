@@ -34,7 +34,7 @@ class AccountListFragment : Fragment() {
 
     companion object {
         val EMPTY_LIST_ACTION = AccountListFragmentDirections.noAccountFound()
-        val REGISTER_ACTION = AccountListFragmentDirections.register()
+        val REGISTER_ACTION = AccountListFragmentDirections.redirectToRegistration()
         val LOGIN_ACTION = AccountListFragmentDirections.login()
     }
 

@@ -83,4 +83,6 @@
     <string name="accounts">Accounts</string>
     <string name="empty_accounts_description">No account found!</string>
     <string name="registration">Registration</string>
+    <string name="account">Account</string>
+    <string name="routines">Routines</string>
 </resources>

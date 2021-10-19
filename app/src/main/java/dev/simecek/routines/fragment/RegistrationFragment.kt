@@ -33,7 +33,7 @@ class RegistrationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val redirectToAvatarPicker = RegistrationFragmentDirections.redirectToAvatarPicker()
-        val redirectToListAction = RegistrationFragmentDirections.redirectToList()
+        val redirectToListAction = RegistrationFragmentDirections.register()
         binding.avatar.setOnClickListener {
             findNavController().navigate(redirectToAvatarPicker)
         }
