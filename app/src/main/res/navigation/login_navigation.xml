@@ -62,6 +62,10 @@
         android:name="dev.simecek.routines.fragment.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/logout"
+            app:destination="@id/accountListFragment"
+            app:popUpTo="@id/login_navigation" />
     </fragment>
 
 </navigation>

@@ -104,4 +104,10 @@
         <item name="android:textAppearance">?attr/textAppearanceBody1</item>
     </style>
 
+    <style name="Button.Warning">
+        <item name="backgroundTint">?attr/colorError</item>
+        <item name="iconTint">?attr/colorOnError</item>
+        <item name="android:textColor">?attr/colorOnError</item>
+    </style>
+
 </resources>

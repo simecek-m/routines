@@ -70,6 +70,7 @@ class AccountListFragment : Fragment() {
             } else {
                 Timber.i("Account list is not empty, data: $it")
                 adapter.list = ArrayList(it)
+                adapter.notifyDataSetChanged()
             }
         })
     }

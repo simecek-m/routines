@@ -14,7 +14,7 @@ interface UserDao {
     fun getAll(): LiveData<List<User>>
 
     @Query("SELECT * FROM User WHERE name like :name")
-    fun getByName(name: String): User
+    fun getByName(name: String): LiveData<User>
 
     @Insert
     suspend fun insert(user: User)

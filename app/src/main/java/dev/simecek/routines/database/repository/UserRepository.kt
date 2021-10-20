@@ -13,7 +13,7 @@ class UserRepository @Inject constructor(private val userDao: UserDao) {
         return userDao.getAll()
     }
 
-    fun getUserByName(name: String): User {
+    fun getUserByName(name: String): LiveData<User> {
         return userDao.getByName(name)
     }
 

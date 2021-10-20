@@ -3,6 +3,7 @@ package dev.simecek.routines.utils.drawable
 import android.content.Context
 import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
+import dev.simecek.routines.R
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.utils.constant.Icon
 
@@ -12,12 +13,16 @@ class DrawableUtils {
         const val ICON_ID_NOT_FOUND = 0
 
         @JvmStatic
-        fun getAvatarDrawable(context: Context, avatar: String): Drawable? {
-            val avatarId = context.resources.getIdentifier(avatar, "drawable", context.packageName)
-            return if(avatarId == ICON_ID_NOT_FOUND) {
-                null
+        fun getAvatarDrawable(context: Context, avatar: String?): Drawable? {
+            return if(avatar.isNullOrBlank()) {
+                ContextCompat.getDrawable(context, R.drawable.ic_account)
             } else {
-                ContextCompat.getDrawable(context, avatarId)
+                val avatarId = context.resources.getIdentifier(avatar, "drawable", context.packageName)
+                if(avatarId == ICON_ID_NOT_FOUND) {
+                    null
+                } else {
+                    ContextCompat.getDrawable(context, avatarId)
+                }
             }
         }
 
