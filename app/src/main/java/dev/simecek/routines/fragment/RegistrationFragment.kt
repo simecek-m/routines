@@ -8,13 +8,20 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.R
 import dev.simecek.routines.databinding.FragmentRegistrationBinding
 import dev.simecek.routines.exception.UserAlreadyExistsException
+import dev.simecek.routines.state.StateManager
 import dev.simecek.routines.viewModel.RegistrationViewModel
 import kotlinx.coroutines.runBlocking
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class RegistrationFragment : Fragment() {
+
+    @Inject
+    lateinit var stateManager: StateManager
 
     private lateinit var binding: FragmentRegistrationBinding
 
@@ -38,10 +45,12 @@ class RegistrationFragment : Fragment() {
             findNavController().navigate(redirectToAvatarPicker)
         }
         binding.registrationButton.setOnClickListener {
+            val userName = binding.name.text.toString()
             runBlocking {
                 try {
                     viewModel.register()
                     findNavController().navigate(redirectToListAction)
+                    stateManager.signIn(userName)
                 } catch (ex: UserAlreadyExistsException) {
                     Snackbar.make(
                         binding.layout,

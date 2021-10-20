@@ -19,4 +19,8 @@ class RegistrationViewModel @Inject constructor(
         val user = User(name.value!!, avatar.value!!)
         repository.register(user)
     }
+
+    fun isNameValid(name: String): Boolean {
+        return name.isNotBlank()
+    }
 }
