@@ -9,46 +9,49 @@
             type="dev.simecek.routines.viewModel.AccountViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".fragment.AccountFragment">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/name"
-            style="@style/Fullscreen.Title"
-            android:layout_width="wrap_content"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.user.name}"
-            app:layout_constraintBottom_toTopOf="@+id/picture"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Martin" />
+            app:title="@string/account"
+            app:menu="@menu/account_fragment"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/picture"
-            android:layout_width="@dimen/account_picture_size"
-            android:layout_height="@dimen/account_picture_size"
-            android:contentDescription="@string/account_picture"
-            android:src="@{DrawableUtils.getAvatarDrawable(context, viewModel.user.avatar)}"
-            app:layout_constraintBottom_toTopOf="@+id/logout_button"
-            app:layout_constraintEnd_toEndOf="@+id/name"
-            app:layout_constraintStart_toStartOf="@+id/name"
-            app:layout_constraintTop_toBottomOf="@+id/name"
-            tools:src="@drawable/avatar_12" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".fragment.AccountFragment">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/logout_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/picture"
-            app:layout_constraintStart_toStartOf="@+id/picture"
-            app:layout_constraintTop_toBottomOf="@+id/picture"
-            style="@style/Button.Warning"
-            app:icon="@drawable/ic_door"
-            android:text="@string/sign_out"/>
+            <TextView
+                android:id="@+id/name"
+                style="@style/Fullscreen.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.user.name}"
+                app:layout_constraintBottom_toTopOf="@+id/picture"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Martin" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/picture"
+                android:layout_width="@dimen/account_picture_size"
+                android:layout_height="@dimen/account_picture_size"
+                android:contentDescription="@string/account_picture"
+                android:src="@{DrawableUtils.getAvatarDrawable(context, viewModel.user.avatar)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/name"
+                app:layout_constraintStart_toStartOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                tools:src="@drawable/avatar_12" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

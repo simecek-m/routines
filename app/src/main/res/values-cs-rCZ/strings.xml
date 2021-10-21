@@ -85,4 +85,5 @@
     <string name="account">Účet</string>
     <string name="routines">Rutiny</string>
     <string name="sign_out">Odhlásit se</string>
+    <string name="delete">Smazat</string>
 </resources>

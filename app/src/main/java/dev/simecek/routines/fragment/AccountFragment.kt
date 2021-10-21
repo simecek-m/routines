@@ -38,8 +38,18 @@ class AccountFragment : Fragment() {
         binding.lifecycleOwner = this
         viewModel.getUser(userName)
         binding.viewModel = viewModel
-        binding.logoutButton.setOnClickListener {
-            logout()
+        binding.toolbar.setOnMenuItemClickListener {
+            when(it.itemId) {
+                R.id.signOut -> {
+                    logout()
+                    true
+                }
+                R.id.delete -> {
+                    delete()
+                    true
+                }
+                else -> false
+            }
         }
         return binding.root
     }
@@ -49,6 +59,13 @@ class AccountFragment : Fragment() {
             stateManager.signOut()
             val navHost = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
             navHost.navigate(LOGOUT_ACTION)
+        }
+    }
+
+    private fun delete() {
+        lifecycleScope.launch {
+            viewModel.deleteAccount()
+            logout()
         }
     }
 

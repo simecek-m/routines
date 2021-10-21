@@ -19,4 +19,8 @@ class AccountViewModel @Inject constructor(
         user = userRepository.getUserByName(userName)
     }
 
+    suspend fun deleteAccount() {
+        return userRepository.delete(user.value!!)
+    }
+
 }
