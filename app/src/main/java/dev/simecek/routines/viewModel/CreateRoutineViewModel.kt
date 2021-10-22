@@ -8,6 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.simecek.routines.R
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.database.repository.RoutineRepository
+import dev.simecek.routines.state.StateManager
 import dev.simecek.routines.utils.constant.Icon
 import kotlinx.coroutines.launch
 import java.time.LocalTime
@@ -16,7 +17,8 @@ import javax.inject.Inject
 @HiltViewModel
 class CreateRoutineViewModel @Inject constructor(
     application: Application,
-    private val routineRepository: RoutineRepository
+    private val routineRepository: RoutineRepository,
+    private val stateManager: StateManager
 ): ViewModel() {
 
     companion object {
@@ -35,7 +37,8 @@ class CreateRoutineViewModel @Inject constructor(
 
     fun createNewRoutine() {
         viewModelScope.launch {
-            val routine = Routine(title = title.value!!, icon = icon.value!!, reminder = reminder.value!!)
+            val userName: String = stateManager.getSignedInUser()
+            val routine = Routine(title = title.value!!, icon = icon.value!!, reminder = reminder.value!!, ownerName = userName)
             routineRepository.insert(routine)
         }
     }

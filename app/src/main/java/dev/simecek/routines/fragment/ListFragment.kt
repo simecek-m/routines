@@ -26,6 +26,7 @@ import dev.simecek.routines.utils.managers.ReminderManager
 import dev.simecek.routines.utils.model.RoutineListItem
 import dev.simecek.routines.viewModel.ListViewModel
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -63,6 +64,7 @@ class ListFragment : Fragment() {
             lifecycleScope.launch {
                 listViewModel.switchFinishState(id)
                 val unfinishedRoutines = listViewModel.getAllUnfinishedRoutines()
+                Timber.i("Unfinished routines: $unfinishedRoutines")
                 if (unfinishedRoutines.isEmpty()) {
                     val redirectToComplete = ListFragmentDirections.redirectToComplete()
                     findNavController().navigate(redirectToComplete)

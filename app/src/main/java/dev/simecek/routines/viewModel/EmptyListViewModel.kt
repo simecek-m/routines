@@ -13,7 +13,7 @@ class EmptyListViewModel @Inject constructor(
         private val repository: RoutineRepository
 ): ViewModel() {
 
-    val routines = repository.getAllRoutines()
+    val routines = repository.getRoutines()
 
     fun restoreRoutine(routine: Routine) {
         viewModelScope.launch {

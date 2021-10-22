@@ -1,26 +1,28 @@
 package dev.simecek.routines.database.entity
 
-import android.content.Context
-import android.graphics.drawable.Drawable
-import androidx.core.content.ContextCompat
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.ForeignKey.CASCADE
 import androidx.room.PrimaryKey
 import dev.simecek.routines.utils.constant.DayPhase
 import dev.simecek.routines.utils.constant.Icon
-import dev.simecek.routines.utils.drawable.DrawableUtils
 import java.io.Serializable
 import java.time.LocalDate
 import java.time.LocalTime
-import java.util.*
 
-@Entity
+@Entity(foreignKeys = [
+    ForeignKey(entity = User::class,
+        parentColumns = ["name"],
+        childColumns = ["owner_name"],
+        onDelete = CASCADE)])
 data class Routine(
-        @PrimaryKey(autoGenerate = true) var id: Long = 0,
-        @ColumnInfo(name = "title") var title: String,
-        @ColumnInfo(name = "icon") var icon: Icon,
-        @ColumnInfo(name = "reminderManager") var reminder: LocalTime,
-        @ColumnInfo(name = "last_finished") var lastFinished: LocalDate? = null
+    @PrimaryKey(autoGenerate = true) var id: Long = 0,
+    @ColumnInfo(name = "title") var title: String,
+    @ColumnInfo(name = "icon") var icon: Icon,
+    @ColumnInfo(name = "reminder") var reminder: LocalTime,
+    @ColumnInfo(name = "last_finished") var lastFinished: LocalDate? = null,
+    @ColumnInfo(name = "owner_name") var ownerName: String
 ): Serializable {
 
     companion object {
