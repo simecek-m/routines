@@ -11,7 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import dev.simecek.routines.R
 import dev.simecek.routines.adapter.RoutineListAdapter
@@ -19,7 +18,6 @@ import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.databinding.FragmentListBinding
 import dev.simecek.routines.listener.DeleteRoutineListener
 import dev.simecek.routines.listener.FinishRoutineListener
-import dev.simecek.routines.listener.OnClickListener
 import dev.simecek.routines.utils.constant.DayPhase
 import dev.simecek.routines.utils.gesture.RoutineListGestures
 import dev.simecek.routines.utils.managers.ReminderManager
@@ -43,10 +41,6 @@ class ListFragment : Fragment() {
 
     private lateinit var binding: FragmentListBinding
     private val listViewModel: ListViewModel by viewModels()
-    private var lastDeletedRoutine: Routine? = null
-    private val undoSnackbar: Snackbar by lazy {
-        Snackbar.make(binding.list, R.string.routine_deleted, Snackbar.LENGTH_LONG)
-    }
 
     companion object {
         val CREATE_NEW_ROUTINE = ListFragmentDirections.redirectToCreate()
@@ -56,10 +50,6 @@ class ListFragment : Fragment() {
         override fun onDeleteRoutineFromPosition(position: Int) {
             val swipedRoutine = (adapter.list[position] as RoutineListItem.RoutineItem).routine
             listViewModel.deleteRoutine(swipedRoutine)
-            lastDeletedRoutine = swipedRoutine
-            undoSnackbar.setAction(R.string.undo) {
-                listViewModel.restoreRoutine(swipedRoutine)
-            }.show()
         }
     }
 
@@ -111,8 +101,7 @@ class ListFragment : Fragment() {
         listViewModel.routines.removeObservers(viewLifecycleOwner)
         listViewModel.routines.observe(viewLifecycleOwner, {
             if (it.isEmpty()) {
-                undoSnackbar.dismiss()
-                val redirectToEmptyList = ListFragmentDirections.redirectToEmpty(lastDeletedRoutine)
+                val redirectToEmptyList = ListFragmentDirections.redirectToEmpty()
                 findNavController().navigate(redirectToEmptyList)
             } else {
                 adapter.updateList(getRoutineListWithTitles(it))

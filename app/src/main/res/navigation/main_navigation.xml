@@ -29,11 +29,6 @@
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right" />
-        <argument
-            android:name="lastDeletedRoutine"
-            android:defaultValue="@null"
-            app:argType="dev.simecek.routines.database.entity.Routine"
-            app:nullable="true" />
         <action
             android:id="@+id/redirect_back_to_list"
             app:destination="@id/listFragment"

@@ -10,15 +10,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class EmptyListViewModel @Inject constructor(
-        private val repository: RoutineRepository
+        repository: RoutineRepository
 ): ViewModel() {
 
     val routines = repository.getRoutines()
-
-    fun restoreRoutine(routine: Routine) {
-        viewModelScope.launch {
-            repository.insert(routine)
-        }
-    }
 
 }
