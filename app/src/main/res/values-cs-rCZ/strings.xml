@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- ICON CONTENT DESCRIPTION -->
     <!-- activities   -->
@@ -86,4 +85,5 @@
     <string name="routines">Rutiny</string>
     <string name="sign_out">Odhlásit se</string>
     <string name="delete">Smazat</string>
+    <string name="trash_bin">Koš</string>
 </resources>

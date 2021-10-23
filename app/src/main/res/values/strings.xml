@@ -87,4 +87,5 @@
     <string name="routines">Routines</string>
     <string name="sign_out">Sign out</string>
     <string name="delete">Delete</string>
+    <string name="trash_bin">Trash Bin</string>
 </resources>
