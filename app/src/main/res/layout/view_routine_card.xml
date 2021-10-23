@@ -18,7 +18,7 @@
         android:background="@drawable/shape_square_radius"
         android:padding="@dimen/space_medium"
         style="@style/RoutineCard"
-        android:layout_marginTop="@dimen/space_small">
+        android:layout_marginVertical="@dimen/space_small">
 
         <TextView
             android:id="@+id/title"

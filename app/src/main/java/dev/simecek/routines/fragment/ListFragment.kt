@@ -45,7 +45,11 @@ class ListFragment : Fragment() {
     private val listViewModel: ListViewModel by viewModels()
     private var lastDeletedRoutine: Routine? = null
     private val undoSnackbar: Snackbar by lazy {
-        Snackbar.make(binding.listLayout, R.string.routine_deleted, Snackbar.LENGTH_LONG)
+        Snackbar.make(binding.list, R.string.routine_deleted, Snackbar.LENGTH_LONG)
+    }
+
+    companion object {
+        val CREATE_NEW_ROUTINE = ListFragmentDirections.redirectToCreate()
     }
 
     private val deleteRoutineListener = object: DeleteRoutineListener {
@@ -77,13 +81,6 @@ class ListFragment : Fragment() {
         loadRoutines()
     }
 
-    private val redirectToCreateOnClick = object : OnClickListener {
-        override fun onClick() {
-            val redirectToCreate = ListFragmentDirections.redirectToCreate()
-            findNavController().navigate(redirectToCreate)
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -96,6 +93,7 @@ class ListFragment : Fragment() {
         recyclerViewSetup()
         gesturesSetup()
         loadRoutines()
+        setupToolbar()
     }
 
     private fun recyclerViewSetup() {
@@ -133,7 +131,6 @@ class ListFragment : Fragment() {
                 list.add(RoutineListItem.RoutineItem(routine))
             }
         }
-        list.add(RoutineListItem.ButtonItem(getString(R.string.add), ContextCompat.getDrawable(requireContext(), R.drawable.ic_add), redirectToCreateOnClick))
         return list
     }
 
@@ -144,6 +141,18 @@ class ListFragment : Fragment() {
             DayPhase.AFTERNOON -> RoutineListItem.TitleItem(requireContext().getString(R.string.afternoon), ContextCompat.getDrawable(requireContext(), R.drawable.ic_afternoon))
             DayPhase.EVENING -> RoutineListItem.TitleItem(requireContext().getString(R.string.evening), ContextCompat.getDrawable(requireContext(), R.drawable.ic_evening))
             DayPhase.NIGHT -> RoutineListItem.TitleItem(requireContext().getString(R.string.night), ContextCompat.getDrawable(requireContext(), R.drawable.ic_night))
+        }
+    }
+
+    private fun setupToolbar() {
+        binding.toolbar.setOnMenuItemClickListener {
+            when(it.itemId) {
+                R.id.create -> {
+                    findNavController().navigate(CREATE_NEW_ROUTINE)
+                    true
+                }
+                else -> false
+            }
         }
     }
 

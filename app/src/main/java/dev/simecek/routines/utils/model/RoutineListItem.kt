@@ -8,6 +8,5 @@ sealed class RoutineListItem {
 
     data class RoutineItem(val routine: Routine): RoutineListItem()
     data class TitleItem(var text: String, var icon: Drawable?): RoutineListItem()
-    data class ButtonItem(val text: String, val icon: Drawable?, val onClickListener: OnClickListener): RoutineListItem()
 
 }
