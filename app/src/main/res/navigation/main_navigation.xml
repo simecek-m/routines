@@ -78,4 +78,9 @@
         android:name="dev.simecek.routines.fragment.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/trashBinFragment"
+        android:name="dev.simecek.routines.fragment.TrashBinFragment"
+        android:label="fragment_trash_bin"
+        tools:layout="@layout/fragment_trash_bin" />
 </navigation>

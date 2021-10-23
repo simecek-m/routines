@@ -6,6 +6,11 @@
         android:icon="@drawable/ic_list"
         android:title="@string/routines"/>
     <item
+        android:id="@+id/trashBinFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_trash"
+        android:title="@string/trash_bin" />
+    <item
         android:id="@+id/accountFragment"
         android:enabled="true"
         android:icon="@drawable/ic_account"
