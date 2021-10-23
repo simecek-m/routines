@@ -29,4 +29,7 @@ interface RoutineDao {
     @Query("SELECT * FROM Routine WHERE owner_name like :ownerName AND soft_deleted = 0 AND(last_finished NOT LIKE :today OR last_finished IS NULL)")
     suspend fun getUnfinishedRoutinesAsList(ownerName: String, today: String = LocalDate.now().toString()): List<Routine>
 
+    @Query("SELECT * FROM Routine WHERE owner_name like :ownerName AND soft_deleted = 1 ORDER BY reminder ASC")
+    fun getSoftDeletedRoutines(ownerName: String): LiveData<List<Routine>>
+
 }

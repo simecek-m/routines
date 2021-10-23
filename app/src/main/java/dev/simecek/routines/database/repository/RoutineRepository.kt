@@ -58,4 +58,8 @@ class RoutineRepository @Inject constructor(
         return routineDao.getUnfinishedRoutinesAsList(userName)
     }
 
+    fun getSoftDeletedRoutines(): LiveData<List<Routine>> {
+        return routineDao.getSoftDeletedRoutines(userName)
+    }
+
 }
