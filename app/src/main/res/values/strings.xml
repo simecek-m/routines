@@ -73,4 +73,18 @@
     <string name="add">Add</string>
     <string name="afternoon">Afternoon</string>
     <string name="icon_picked">Picked icon</string>
+    <string name="account_picture">Account picture</string>
+    <string name="avatar">Avatar</string>
+    <string name="name">Name</string>
+    <string name="welcome">Welcome</string>
+    <string name="registration_name">How should I call you?</string>
+    <string name="registration_avatar">How do you look like?</string>
+    <string name="user_already_exists">User name is already taken</string>
+    <string name="accounts">Accounts</string>
+    <string name="empty_accounts_description">No account found!</string>
+    <string name="registration">Registration</string>
+    <string name="account">Account</string>
+    <string name="routines">Routines</string>
+    <string name="sign_out">Sign out</string>
+    <string name="delete">Delete</string>
 </resources>

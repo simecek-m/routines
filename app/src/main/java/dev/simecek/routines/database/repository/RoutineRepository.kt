@@ -3,19 +3,25 @@ package dev.simecek.routines.database.repository
 import androidx.lifecycle.LiveData
 import dev.simecek.routines.database.dao.RoutineDao
 import dev.simecek.routines.database.entity.Routine
+import dev.simecek.routines.state.StateManager
 import dev.simecek.routines.utils.managers.ReminderManager
 import java.time.LocalDate
 import javax.inject.Inject
 
-class RoutineRepository @Inject constructor(private val routineDao: RoutineDao, private val reminderManager: ReminderManager) {
+class RoutineRepository @Inject constructor(
+    val routineDao: RoutineDao,
+    private val reminderManager: ReminderManager,
+    stateManager: StateManager
+) {
 
+    private val userName: String = stateManager.getSignedInUser()
 
-    fun getAllRoutines(): LiveData<List<Routine>> {
-        return routineDao.getAll()
+    fun getRoutines(): LiveData<List<Routine>> {
+        return routineDao.getRoutines(userName)
     }
 
     suspend fun getAllRoutinesAsList(): List<Routine> {
-        return routineDao.getAllAsList()
+        return routineDao.getAllAsList(userName)
     }
 
     suspend fun insert(routine: Routine): Long {
@@ -44,7 +50,7 @@ class RoutineRepository @Inject constructor(private val routineDao: RoutineDao, 
     }
 
     suspend fun getAllUnfinishedRoutinesAsList(): List<Routine> {
-        return routineDao.getAllUnfinishedRoutinesAsList()
+        return routineDao.getAllUnfinishedRoutinesAsList(userName)
     }
 
 }

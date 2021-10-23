@@ -104,4 +104,10 @@
         <item name="android:textAppearance">?attr/textAppearanceBody1</item>
     </style>
 
+    <style name="Appbar" />
+
+    <style name="BottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="backgroundTint">?android:attr/colorBackground</item>
+    </style>
+
 </resources>

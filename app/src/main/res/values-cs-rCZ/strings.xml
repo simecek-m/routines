@@ -72,4 +72,18 @@
     <string name="add">Přidat</string>
     <string name="afternoon">Odpoledne</string>
     <string name="icon_picked">Vybraná ikona</string>
+    <string name="account_picture">Obrázek účtu</string>
+    <string name="avatar">Avatar</string>
+    <string name="name">Jméno</string>
+    <string name="welcome">Vítejte</string>
+    <string name="registration_name">Jak ti mám říkat?</string>
+    <string name="registration_avatar">Jak vypadáš?</string>
+    <string name="user_already_exists">Uživatelské jméno je již zabrané</string>
+    <string name="accounts">Účty</string>
+    <string name="empty_accounts_description">Žádný účet nebyl nalezen!</string>
+    <string name="registration">Registrace</string>
+    <string name="account">Účet</string>
+    <string name="routines">Rutiny</string>
+    <string name="sign_out">Odhlásit se</string>
+    <string name="delete">Smazat</string>
 </resources>

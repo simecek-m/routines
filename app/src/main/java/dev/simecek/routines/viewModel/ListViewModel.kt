@@ -13,7 +13,7 @@ class ListViewModel @Inject constructor(
     private val repository: RoutineRepository
 ): ViewModel() {
 
-    val routines = repository.getAllRoutines()
+    val routines = repository.getRoutines()
 
     fun deleteRoutine(routine: Routine) {
         viewModelScope.launch {

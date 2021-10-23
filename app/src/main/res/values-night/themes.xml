@@ -25,6 +25,8 @@
         <item name="textInputStyle">@style/TextInputLayout</item>
         <item name="materialButtonStyle">@style/Button</item>
         <item name="materialTimePickerTheme">@style/TimePickerMaterialTheme</item>
+        <item name="appBarLayoutStyle">@style/Appbar</item>
+        <item name="bottomNavigationStyle">@style/BottomNavigation</item>
         <!-- Text styles. -->
         <item name="textAppearanceHeadline1">@style/TextAppearance.MdcTypographyStyles.Headline1</item>
         <item name="textAppearanceHeadline2">@style/TextAppearance.MdcTypographyStyles.Headline2</item>

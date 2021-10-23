@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation"
+    app:startDestination="@id/accountListFragment">
+
+    <fragment
+        android:id="@+id/accountPickerFragment"
+        android:name="dev.simecek.routines.fragment.AvatarPickerFragment"
+        android:label="fragment_account_picker"
+        tools:layout="@layout/fragment_avatar_picker" />
+
+    <fragment
+        android:id="@+id/accountListFragment"
+        android:name="dev.simecek.routines.fragment.AccountListFragment"
+        android:label="fragment_account_list"
+        tools:layout="@layout/fragment_account_list">
+        <action
+            android:id="@+id/redirectToRegistration"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/no_account_found"
+            app:destination="@id/emptyAccountListFragment"
+            app:popUpTo="@id/login_navigation"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/login"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/login_navigation"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/emptyAccountListFragment"
+        android:name="dev.simecek.routines.fragment.EmptyAccountListFragment"
+        android:label="fragment_empty_account_list"
+        tools:layout="@layout/fragment_empty_account_list">
+        <action
+            android:id="@+id/firtRegistration"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="dev.simecek.routines.fragment.RegistrationFragment"
+        android:label="RegistrationFragment"
+        tools:layout="@layout/fragment_registration">
+        <action
+            android:id="@+id/redirect_to_avatar_picker"
+            app:destination="@id/accountPickerFragment" />
+        <action
+            android:id="@+id/register"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/login_navigation"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="dev.simecek.routines.fragment.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/logout"
+            app:destination="@id/accountListFragment"
+            app:popUpTo="@id/login_navigation" />
+    </fragment>
+
+</navigation>

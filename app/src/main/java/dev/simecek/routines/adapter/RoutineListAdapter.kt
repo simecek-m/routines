@@ -17,7 +17,6 @@ class RoutineListAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerVie
     companion object {
         const val TITLE_VIEW_TYPE = 1
         const val ROUTINE_VIEW_TYPE = 2
-        const val BUTTON_VIEW_TYPE = 3
     }
 
     val list: ArrayList<RoutineListItem> = ArrayList()
@@ -34,17 +33,12 @@ class RoutineListAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerVie
 
     class RoutineCardViewHolder(val binding: ViewRoutineCardBinding): RecyclerView.ViewHolder(binding.root)
     class TitleViewHolder(val binding: ViewTitleBinding): RecyclerView.ViewHolder(binding.root)
-    class ButtonViewHolder(val binding: ViewListButtonBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType) {
             TITLE_VIEW_TYPE -> {
                 val binding = ViewTitleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
                 TitleViewHolder(binding)
-            }
-            BUTTON_VIEW_TYPE -> {
-                val binding =  ViewListButtonBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-                ButtonViewHolder(binding)
             }
             else -> {
                 val binding = ViewRoutineCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -60,7 +54,6 @@ class RoutineListAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerVie
     override fun getItemViewType(position: Int): Int {
         return when {
             list[position] is RoutineListItem.RoutineItem -> ROUTINE_VIEW_TYPE
-            list[position] is RoutineListItem.ButtonItem -> BUTTON_VIEW_TYPE
             else -> TITLE_VIEW_TYPE
         }
     }
@@ -80,16 +73,6 @@ class RoutineListAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerVie
                 val titleViewHolder = holder as TitleViewHolder
                 titleViewHolder.binding.text.text = title.text
                 titleViewHolder.binding.icon.background = title.icon
-            }
-            BUTTON_VIEW_TYPE -> {
-                val button: RoutineListItem.ButtonItem = list[position] as RoutineListItem.ButtonItem
-                val buttonViewHolder = holder as ButtonViewHolder
-                val buttonView = buttonViewHolder.binding.button
-                buttonView.text = button.text
-                buttonView.icon = button.icon
-                buttonView.setOnClickListener {
-                    button.onClickListener.onClick()
-                }
             }
         }
     }

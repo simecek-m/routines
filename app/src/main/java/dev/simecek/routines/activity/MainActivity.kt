@@ -3,23 +3,48 @@ package dev.simecek.routines.activity
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.view.ViewTreeObserver
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.datastore.preferences.core.Preferences
+import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
-import dev.simecek.routines.R
+import dev.simecek.routines.databinding.ActivityMainBinding
+import dev.simecek.routines.state.StateManager
 import dev.simecek.routines.utils.managers.NotificationManager
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
+    lateinit var binding: ActivityMainBinding
+
     @Inject
     lateinit var notificationManager: NotificationManager
+
+    @Inject
+    lateinit var stateManager: StateManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
-        setContentView(R.layout.activity_main)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        binding.layout.viewTreeObserver.addOnPreDrawListener(object: ViewTreeObserver.OnPreDrawListener {
+            override fun onPreDraw(): Boolean {
+                var preferences: Preferences? = null
+                lifecycleScope.launch {
+                    preferences = stateManager.cache()
+                }
+                return if(preferences != null) {
+                    binding.layout.viewTreeObserver.removeOnPreDrawListener(this)
+                    true
+                } else {
+                    false
+                }
+            }
+        })
+        setContentView(binding.root)
         setBlackStatusAndNavigationBars()
         notificationManager.createNotificationChannels()
     }
