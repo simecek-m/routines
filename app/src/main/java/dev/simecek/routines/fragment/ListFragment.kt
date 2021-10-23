@@ -49,7 +49,7 @@ class ListFragment : Fragment() {
     private val deleteRoutineListener = object: DeleteRoutineListener {
         override fun onDeleteRoutineFromPosition(position: Int) {
             val swipedRoutine = (adapter.list[position] as RoutineListItem.RoutineItem).routine
-            listViewModel.deleteRoutine(swipedRoutine)
+            listViewModel.softDeleteRoutine(swipedRoutine)
         }
     }
 

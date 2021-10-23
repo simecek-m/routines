@@ -15,9 +15,9 @@ class ListViewModel @Inject constructor(
 
     val routines = repository.getRoutines()
 
-    fun deleteRoutine(routine: Routine) {
+    fun softDeleteRoutine(routine: Routine) {
         viewModelScope.launch {
-            repository.delete(routine)
+            repository.softDelete(routine)
         }
     }
 
@@ -26,7 +26,7 @@ class ListViewModel @Inject constructor(
     }
 
     suspend fun getAllUnfinishedRoutines(): List<Routine> {
-        return repository.getAllUnfinishedRoutinesAsList()
+        return repository.getUnfinishedRoutinesAsList()
     }
 
 }

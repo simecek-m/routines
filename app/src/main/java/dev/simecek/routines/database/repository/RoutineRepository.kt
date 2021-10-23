@@ -20,8 +20,8 @@ class RoutineRepository @Inject constructor(
         return routineDao.getRoutines(userName)
     }
 
-    suspend fun getAllRoutinesAsList(): List<Routine> {
-        return routineDao.getAllAsList(userName)
+    suspend fun getRoutinesAsList(): List<Routine> {
+        return routineDao.getRoutinesAsList(userName)
     }
 
     suspend fun insert(routine: Routine): Long {
@@ -32,6 +32,11 @@ class RoutineRepository @Inject constructor(
 
     suspend fun delete(routine: Routine) {
         routineDao.delete(routine)
+    }
+
+    suspend fun softDelete(routine: Routine) {
+        routine.softDeleted = true
+        routineDao.update(routine)
         reminderManager.removeReminder(routine.id.toInt())
     }
 
@@ -49,8 +54,8 @@ class RoutineRepository @Inject constructor(
         routineDao.update(routine)
     }
 
-    suspend fun getAllUnfinishedRoutinesAsList(): List<Routine> {
-        return routineDao.getAllUnfinishedRoutinesAsList(userName)
+    suspend fun getUnfinishedRoutinesAsList(): List<Routine> {
+        return routineDao.getUnfinishedRoutinesAsList(userName)
     }
 
 }

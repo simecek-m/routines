@@ -21,9 +21,10 @@ data class Routine(
     @ColumnInfo(name = "title") var title: String,
     @ColumnInfo(name = "icon") var icon: Icon,
     @ColumnInfo(name = "reminder") var reminder: LocalTime,
+    @ColumnInfo(name = "owner_name") var ownerName: String,
     @ColumnInfo(name = "last_finished") var lastFinished: LocalDate? = null,
-    @ColumnInfo(name = "owner_name") var ownerName: String
-): Serializable {
+    @ColumnInfo(name = "soft_deleted") var softDeleted: Boolean = false
+    ): Serializable {
 
     companion object {
         const val ICON_PREFIX = "ic_"

@@ -24,7 +24,7 @@ class RestartBroadcastReceiver: BroadcastReceiver() {
         Timber.i("Device was restarted or application reinstalled.")
         if(intent?.action == Intent.ACTION_BOOT_COMPLETED || intent?.action == Intent.ACTION_MY_PACKAGE_REPLACED) {
             GlobalScope.launch {
-                val routines = repository.getAllRoutinesAsList()
+                val routines = repository.getRoutinesAsList()
                 routines.forEach {
                     reminderManager.setReminder(it.id.toInt(), it.title, it.reminder.hour, it.reminder.minute)
                 }
