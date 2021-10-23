@@ -11,6 +11,9 @@ Simple Android application that help you create healthy, stable, regular habits.
 ## Availability
 This application is available for all Android devices running on Android 5.0 and above.
 
+## Special thanks
+This application is using [Avatars 2.0 Freebie](https://www.netguru.com/blog/inclusive-design-how-to-start) by [Netguru](https://www.netguru.com/) so thanks to them! :+1:
+
 ## Download / Installation
 1. go to [releases section](https://github.com/simecek-m/routines/releases)
 1. download .apk file
@@ -19,11 +22,11 @@ This application is available for all Android devices running on Android 5.0 and
 1. enjoy
 
 ## Proposed Improvements
+- [x] multiple accounts support
+- [ ] trash bin for deleted routines
 - [ ] irregular routines
 - [ ] show complete streaks for each routine
-- [ ] multiple accounts support
 - [ ] calendar
-- [ ] trash bin for deleted routines
 - [ ] tests
   - [ ] unit
   - [ ] integration
@@ -37,3 +40,9 @@ Simple application with basic functionality
 - notifications
 - dark theme
 - material design ui
+
+## v1.1
+Add support for multiple local accounts
+- accounts registration
+- switching between accounts
+- each account has its own list of routines
