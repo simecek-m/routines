@@ -86,4 +86,6 @@
     <string name="sign_out">Odhlásit se</string>
     <string name="delete">Smazat</string>
     <string name="trash_bin">Koš</string>
+    <string name="icon_empty_trash">Prázdný koš</string>
+    <string name="empty_trash_description">Váš koš je prázdný!</string>
 </resources>

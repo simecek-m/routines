@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,6 +27,10 @@ class TrashBinFragment: Fragment() {
 
     lateinit var binding: FragmentTrashBinBinding
     private val viewModel: TrashBinViewModel by viewModels()
+
+    companion object {
+        val SHOW_EMPTY_TRASH_BIN = TrashBinFragmentDirections.showEmptyTrashBin()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,8 +60,12 @@ class TrashBinFragment: Fragment() {
     private fun loadSoftDeletedRoutines() {
         viewModel.softDeletedRoutines.observe(viewLifecycleOwner, {
             Timber.i("Deleted routines: $it")
-            adapter.list = ArrayList(it)
-            adapter.notifyDataSetChanged()
+            if(it.isEmpty()) {
+                findNavController().navigate(SHOW_EMPTY_TRASH_BIN)
+            } else {
+                adapter.list = ArrayList(it)
+                adapter.notifyDataSetChanged()
+            }
         })
     }
 
