@@ -87,6 +87,7 @@
     <string name="routines">Routines</string>
     <string name="sign_out">Sign out</string>
     <string name="delete">Delete</string>
+    <string name="permanently_delete">Permanently delete</string>
     <string name="trash_bin">Trash Bin</string>
     <string name="icon_empty_trash">Empty Trash Bin</string>
     <string name="empty_trash_description">Your trash bin is empty!</string>

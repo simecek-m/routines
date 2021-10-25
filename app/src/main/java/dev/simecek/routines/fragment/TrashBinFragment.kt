@@ -71,7 +71,7 @@ class TrashBinFragment: Fragment() {
 
     private fun showDialog(routine: Routine) {
         val restoreString = getString(R.string.restore_routine)
-        val deleteString = getString(R.string.delete)
+        val deleteString = getString(R.string.permanently_delete)
         val options = arrayOf(restoreString, deleteString)
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(routine.title)
