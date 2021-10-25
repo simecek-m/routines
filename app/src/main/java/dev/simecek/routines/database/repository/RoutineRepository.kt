@@ -40,6 +40,12 @@ class RoutineRepository @Inject constructor(
         reminderManager.removeReminder(routine.id.toInt())
     }
 
+    suspend fun restore(routine: Routine) {
+        routine.softDeleted = false
+        routineDao.update(routine)
+        reminderManager.setReminder(routine.id.toInt(), routine.title, routine.reminder.hour, routine.reminder.minute)
+    }
+
     suspend fun get(id: Long) {
         routineDao.getRoutine(id)
     }
