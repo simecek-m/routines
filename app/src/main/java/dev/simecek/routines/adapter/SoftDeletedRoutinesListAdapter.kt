@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import dev.simecek.routines.database.entity.Routine
-import dev.simecek.routines.databinding.ViewRoutineCardBinding
+import dev.simecek.routines.databinding.ViewDeletedRoutineCardBinding
 import dev.simecek.routines.listener.ClickRoutineListener
 import timber.log.Timber
 import javax.inject.Inject
@@ -14,10 +14,10 @@ class SoftDeletedRoutinesListAdapter @Inject constructor(): RecyclerView.Adapter
     var list: ArrayList<Routine> = ArrayList()
     var clickListener: ClickRoutineListener? = null
 
-    class RoutineCardViewHolder(val binding: ViewRoutineCardBinding): RecyclerView.ViewHolder(binding.root)
+    class RoutineCardViewHolder(val binding: ViewDeletedRoutineCardBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val binding = ViewRoutineCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ViewDeletedRoutineCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return RoutineCardViewHolder(binding)
     }
 

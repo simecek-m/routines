@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="routine"
+            type="dev.simecek.routines.database.entity.Routine" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_square_radius"
+        android:padding="@dimen/space_medium"
+        style="@style/RoutineCard"
+        android:layout_marginVertical="@dimen/space_small">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{routine.title}"
+            tools:text="@string/lunch"
+            app:layout_constraintBottom_toTopOf="@+id/reminder_icon"
+            app:layout_constraintEnd_toStartOf="@+id/icon"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/RoutineCard.Text"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/reminder_icon"
+            android:layout_width="@dimen/routine_card_reminder_icon_size"
+            android:layout_height="@dimen/routine_card_reminder_icon_size"
+            android:layout_marginTop="@dimen/space_small"
+            android:background="@drawable/ic_alarm"
+            style="@style/RoutineCard.Icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            android:contentDescription="@string/icon_alarm" />
+
+        <TextView
+            android:id="@+id/reminder_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{routine.reminder.toString()}"
+            tools:text="@string/midday_time"
+            android:layout_marginStart="@dimen/space_small"
+            android:textAppearance="?attr/textAppearanceBody2"
+            style="@style/RoutineCard.Text"
+            app:layout_constraintBottom_toBottomOf="@+id/reminder_icon"
+            app:layout_constraintStart_toEndOf="@+id/reminder_icon"
+            app:layout_constraintTop_toTopOf="@+id/reminder_icon" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/routine_card_icon_size"
+            android:layout_height="@dimen/routine_card_icon_size"
+            tools:src="@drawable/ic_food"
+            android:background="@drawable/ic_trash"
+            android:backgroundTint="?attr/colorOnSurface"
+            app:tint="?attr/colorOnSurface"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/title"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/routine_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
