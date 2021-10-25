@@ -7,9 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
+import dev.simecek.routines.R
 import dev.simecek.routines.adapter.SoftDeletedRoutinesListAdapter
+import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.databinding.FragmentTrashBinBinding
+import dev.simecek.routines.listener.ClickRoutineListener
 import dev.simecek.routines.viewModel.TrashBinViewModel
 import timber.log.Timber
 import javax.inject.Inject
@@ -28,6 +32,12 @@ class TrashBinFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentTrashBinBinding.inflate(inflater, container, false)
+        adapter.clickListener = object: ClickRoutineListener {
+            override fun onClick(routine: Routine) {
+                showDialog(routine)
+            }
+
+        }
         return binding.root
     }
 
@@ -48,6 +58,21 @@ class TrashBinFragment: Fragment() {
             adapter.list = ArrayList(it)
             adapter.notifyDataSetChanged()
         })
+    }
+
+    private fun showDialog(routine: Routine) {
+        val restoreString = getString(R.string.restore_routine)
+        val deleteString = getString(R.string.delete)
+        val options = arrayOf(restoreString, deleteString)
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(routine.title)
+            .setItems(options) { _ , which ->
+                when(options[which]) {
+                    deleteString -> viewModel.permanentlyRoutine(routine)
+                    restoreString -> viewModel.restoreRoutine(routine)
+                }
+            }
+            .show()
     }
 
 

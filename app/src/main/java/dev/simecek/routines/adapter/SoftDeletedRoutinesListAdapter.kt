@@ -5,11 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.databinding.ViewRoutineCardBinding
+import dev.simecek.routines.listener.ClickRoutineListener
+import timber.log.Timber
 import javax.inject.Inject
 
 class SoftDeletedRoutinesListAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
 
     var list: ArrayList<Routine> = ArrayList()
+    var clickListener: ClickRoutineListener? = null
 
     class RoutineCardViewHolder(val binding: ViewRoutineCardBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -22,6 +25,10 @@ class SoftDeletedRoutinesListAdapter @Inject constructor(): RecyclerView.Adapter
         val routine = list[position]
         val routineCardViewHolder = holder as RoutineCardViewHolder
         routineCardViewHolder.binding.routine = routine
+        routineCardViewHolder.itemView.setOnClickListener {
+            Timber.i("Clicked on routine card!")
+            clickListener?.onClick(routine)
+        }
     }
 
     override fun getItemCount(): Int {

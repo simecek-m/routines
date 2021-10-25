@@ -30,7 +30,7 @@ class RoutineRepository @Inject constructor(
         return id
     }
 
-    suspend fun delete(routine: Routine) {
+    suspend fun permanentlyDelete(routine: Routine) {
         routineDao.delete(routine)
     }
 
