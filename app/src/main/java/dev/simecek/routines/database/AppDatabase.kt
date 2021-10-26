@@ -11,7 +11,7 @@ import dev.simecek.routines.database.dao.UserDao
 import dev.simecek.routines.database.entity.Routine
 import dev.simecek.routines.database.entity.User
 
-@Database(entities = [Routine::class, User::class], version = 2)
+@Database(entities = [Routine::class, User::class], version = 3)
 @TypeConverters(IconPickerConverter::class, ReminderConverter::class, LocalDateConverter::class)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun routineDao(): RoutineDao

@@ -11,6 +11,7 @@ import dev.simecek.routines.database.AppDatabase
 import dev.simecek.routines.database.dao.RoutineDao
 import dev.simecek.routines.database.dao.UserDao
 import dev.simecek.routines.database.migration.MIGRATION_1_2
+import dev.simecek.routines.database.migration.MIGRATION_2_3
 import javax.inject.Singleton
 
 @Module
@@ -24,7 +25,7 @@ class DatabaseModule {
             context,
             AppDatabase::class.java,
             AppDatabase.NAME
-        ).addMigrations(MIGRATION_1_2)
+        ).addMigrations(MIGRATION_1_2, MIGRATION_2_3)
             .build()
     }
 
