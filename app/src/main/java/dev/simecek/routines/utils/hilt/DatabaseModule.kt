@@ -10,6 +10,7 @@ import dagger.hilt.components.SingletonComponent
 import dev.simecek.routines.database.AppDatabase
 import dev.simecek.routines.database.dao.RoutineDao
 import dev.simecek.routines.database.dao.UserDao
+import dev.simecek.routines.database.migration.MIGRATION_1_2
 import javax.inject.Singleton
 
 @Module
@@ -23,7 +24,8 @@ class DatabaseModule {
             context,
             AppDatabase::class.java,
             AppDatabase.NAME
-        ).build()
+        ).addMigrations(MIGRATION_1_2)
+            .build()
     }
 
     @Provides
