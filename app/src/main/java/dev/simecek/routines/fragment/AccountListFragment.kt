@@ -15,6 +15,7 @@ import dev.simecek.routines.database.entity.User
 import dev.simecek.routines.databinding.FragmentAccountListBinding
 import dev.simecek.routines.listener.SelectAccountListener
 import dev.simecek.routines.state.StateManager
+import dev.simecek.routines.utils.managers.ReminderManager
 import dev.simecek.routines.viewModel.AccountListViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -25,6 +26,9 @@ class AccountListFragment : Fragment() {
 
     @Inject
     lateinit var adapter: AccountListAdapter
+
+    @Inject
+    lateinit var reminderManager: ReminderManager
 
     @Inject
     lateinit var stateManager: StateManager
@@ -79,6 +83,10 @@ class AccountListFragment : Fragment() {
         override fun onSelect(user: User) {
             lifecycleScope.launch {
                 stateManager.signIn(user.name)
+                val routines = viewModel.getAllRoutines()
+                routines.forEach { routine ->
+                    reminderManager.setReminder(routine.id.toInt(), routine.title, routine.reminder.hour, routine.reminder.minute)
+                }
                 findNavController().navigate(LOGIN_ACTION)
             }
         }
