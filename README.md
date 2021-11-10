@@ -33,6 +33,16 @@ This application is using [Avatars 2.0 Freebie](https://www.netguru.com/blog/inc
   - [ ] ui
 
 # Releases
+## v1.2
+Implement Trash Bin for deleted routines
+- soft delete
+- restore
+- permanently delete
+## v1.1
+Add support for multiple local accounts
+- accounts registration
+- switching between accounts
+- each account has its own list of routines
 ## v1.0
 Simple application with basic functionality
 - daily routines only
@@ -40,9 +50,3 @@ Simple application with basic functionality
 - notifications
 - dark theme
 - material design ui
-
-## v1.1
-Add support for multiple local accounts
-- accounts registration
-- switching between accounts
-- each account has its own list of routines
