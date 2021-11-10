@@ -9,18 +9,18 @@ import java.time.LocalDate
 import javax.inject.Inject
 
 class RoutineRepository @Inject constructor(
-    val routineDao: RoutineDao,
+    private val routineDao: RoutineDao,
     private val reminderManager: ReminderManager,
-    stateManager: StateManager
+    private val stateManager: StateManager
 ) {
 
-    private val userName: String = stateManager.getSignedInUser()
-
     fun getRoutines(): LiveData<List<Routine>> {
+        val userName = stateManager.getSignedInUser()
         return routineDao.getRoutines(userName)
     }
 
     suspend fun getRoutinesAsList(): List<Routine> {
+        val userName = stateManager.getSignedInUser()
         return routineDao.getRoutinesAsList(userName)
     }
 
@@ -61,10 +61,12 @@ class RoutineRepository @Inject constructor(
     }
 
     suspend fun getUnfinishedRoutinesAsList(): List<Routine> {
+        val userName = stateManager.getSignedInUser()
         return routineDao.getUnfinishedRoutinesAsList(userName)
     }
 
     fun getSoftDeletedRoutines(): LiveData<List<Routine>> {
+        val userName = stateManager.getSignedInUser()
         return routineDao.getSoftDeletedRoutines(userName)
     }
 
