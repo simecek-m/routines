@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import dev.simecek.routines.callback.RoutineListDiffCallback
-import dev.simecek.routines.databinding.ViewListButtonBinding
 import dev.simecek.routines.databinding.ViewRoutineCardBinding
 import dev.simecek.routines.databinding.ViewTitleBinding
 import dev.simecek.routines.listener.FinishRoutineListener
