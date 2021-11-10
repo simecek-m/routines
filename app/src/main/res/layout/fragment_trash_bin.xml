@@ -16,7 +16,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:size="big"
-            app:color="@color/error"
+            app:color="?attr/colorError"
             android:layout_marginTop="@dimen/space_small"
             app:text="@string/trash_bin" />
 
