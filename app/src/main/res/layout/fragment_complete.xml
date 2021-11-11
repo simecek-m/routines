@@ -8,40 +8,28 @@
     tools:context=".fragment.CompleteFragment">
 
     <TextView
-        android:id="@+id/title_text"
-        android:layout_width="wrap_content"
+        android:id="@+id/description_text"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/awesome"
-        style="@style/Fullscreen.Title"
+        android:layout_marginTop="@dimen/space_big"
+        android:text="@string/complete_description"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/resume_button"
+        app:layout_constraintStart_toStartOf="@+id/resume_button"
         app:layout_constraintBottom_toTopOf="@+id/description_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        style="@style/Fullscreen.Description" />
 
     <ImageView
         android:id="@+id/description_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:contentDescription="@string/icon_routines_complete"
-        android:src="@drawable/ic_complete"
-        app:tint="?attr/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/description_text"
+        android:src="@drawable/complete"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_text" />
-
-    <TextView
-        android:id="@+id/description_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_big"
-        android:text="@string/complete_description"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="@+id/resume_button"
-        app:layout_constraintStart_toStartOf="@+id/resume_button"
-        app:layout_constraintTop_toBottomOf="@+id/description_image"
-        style="@style/Fullscreen.Description" />
+        app:layout_constraintTop_toBottomOf="@id/description_text" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
