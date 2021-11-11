@@ -1,37 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/empty_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".fragment.EmptyFragment">
-
-        <TextView
-            android:id="@+id/title_text"
-            style="@style/Fullscreen.Title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/empty"
-            app:layout_constraintBottom_toTopOf="@+id/description_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/description_image"
-            android:src="@drawable/ic_alarm_off"
-            app:tint="?attr/colorPrimary"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:contentDescription="@string/icon_empty_list"
-            app:layout_constraintBottom_toTopOf="@+id/description_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_text" />
 
         <TextView
             android:id="@+id/description_text"
@@ -39,10 +15,22 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="@string/empty_description"
-            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description_image" />
+            app:layout_constraintBottom_toTopOf="@+id/description_image" />
+
+        <ImageView
+            android:id="@+id/description_image"
+            android:src="@drawable/list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/icon_empty_list"
+            app:layout_constraintBottom_toTopOf="@id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_text" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
