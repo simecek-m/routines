@@ -27,7 +27,7 @@ class NotificationManager @Inject constructor(@ApplicationContext var context: C
         flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
     }
 
-    private val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, openApplicationIntent, 0)
+    private val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, openApplicationIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 
     private fun createRoutineNotification(title: String): Notification {
         return NotificationCompat.Builder(context, ROUTINE_REMINDER_CHANNEL_ID)

@@ -64,7 +64,7 @@ class ReminderManager @Inject constructor(@ApplicationContext var context: Conte
     }
 
     private fun getPendingIntent(id: Int): PendingIntent {
-        return PendingIntent.getBroadcast(context, id, intent, 0)
+        return PendingIntent.getBroadcast(context, id, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
     }
 
 }
